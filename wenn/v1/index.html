@@ -172,7 +172,8 @@
   .offer-includes li { padding: .55rem 0 .55rem 1.9rem; position: relative; font-size: clamp(.94rem,1.8vw,.99rem); color: var(--ink); border-bottom: 1px solid var(--line); }
   .offer-includes li:last-child { border-bottom: none; }
   .offer-includes li::before { content: "✦"; position: absolute; left: 0; color: var(--gold-deep); }
-  .price-old { font-size: 1rem; color: var(--muted); text-decoration: line-through; }
+  .price-old { display: inline-block; font-family:'Outfit',sans-serif; font-size: clamp(1.05rem,2.6vw,1.35rem); color: var(--gold-deep); font-weight: 700; letter-spacing: .02em; background: rgba(217,169,78,.13); border: 1px solid rgba(169,120,31,.22); border-radius: 999px; padding: .32rem .85rem; margin-bottom: .55rem; }
+  .price-old .strike { color: var(--muted); text-decoration: line-through; text-decoration-thickness: 2px; text-decoration-color: var(--gold-deep); }
   .price-now { font-family:'Fraunces',serif; font-size: clamp(2.1rem,6vw,2.9rem); color: var(--navy); font-weight: 500; line-height: 1; margin: .3rem 0 1.6rem; }
   .price-now small { font-size: 1rem; color: var(--muted); font-family:'Outfit',sans-serif; font-weight: 300; }
 
@@ -244,7 +245,7 @@
 
 <nav id="nav">
   <div class="brand">Zeit mit <span>Gott</span></div>
-  <a href="#angebot" class="nav-cta">Buch sichern</a>
+  <a href="https://www.amazon.de/dp/B0GLHKXCB4?maas=maas_adg_02A96A0361EE146DDB6BEA0CAF2B8BD2_afap_abs&ref_=aa_maas&tag=maas" class="nav-cta" target="_blank" rel="noopener noreferrer">Buch sichern</a>
 </nav>
 
 <!-- HERO -->
@@ -428,8 +429,9 @@
         <li>Die Kintsugi-Methode der inneren Heilung</li>
         <li>Aus der vertrauten Reihe &bdquo;Zeit mit Gott&ldquo;</li>
       </ul>
+      <div class="price-old">Statt <span class="strike">&euro;38,22</span></div>
       <div class="price-now">&euro;26,76 <small>inkl. Versand</small></div>
-      <a href="AMAZON-LINK-HIER-EINFUEGEN" class="btn" id="buy-main" target="_blank" rel="noopener">Jetzt bei Amazon bestellen</a>
+      <a href="https://www.amazon.de/dp/B0GLHKXCB4?maas=maas_adg_02A96A0361EE146DDB6BEA0CAF2B8BD2_afap_abs&ref_=aa_maas&tag=maas" class="btn" id="buy-main" target="_blank" rel="noopener noreferrer">Jetzt bei Amazon bestellen</a>
       <span class="btn-sub">Sichere Bezahlung &middot; Lieferung nach Hause</span>
     </div>
   </div>
@@ -476,7 +478,7 @@
     <span class="eyebrow center" style="color:var(--gold-soft)">Der erste Schritt</span>
     <h2 class="h-display">Du musst nicht ganz sein, um <em>anzufangen</em>.</h2>
     <p class="lead">Du musst nur bereit sein, Gott die Bruchst&uuml;cke hinzuhalten. Den Rest tut der Meisterarchitekt.</p>
-    <a href="AMAZON-LINK-HIER-EINFUEGEN" class="btn" id="buy-final" target="_blank" rel="noopener">Mein Exemplar jetzt bestellen</a>
+    <a href="https://www.amazon.de/dp/B0GLHKXCB4?maas=maas_adg_02A96A0361EE146DDB6BEA0CAF2B8BD2_afap_abs&ref_=aa_maas&tag=maas" class="btn" id="buy-final" target="_blank" rel="noopener noreferrer">Mein Exemplar jetzt bestellen</a>
     <span class="btn-sub" style="color:rgba(251,248,243,.6)">Sichere Bestellung &uuml;ber Amazon &middot; Lieferung inklusive</span>
   </div>
 </section>
@@ -484,7 +486,7 @@
 <footer>
   <span class="brand">Zeit mit <span style="color:var(--gold)">Gott</span></span>
   &copy; 2026 Zeit mit Gott &middot; Wenn Gott wiederherstellt, was zerbrochen war<br>
-  <a href="https://www.instagram.com/zeit.mit_gott/" target="_blank" rel="noopener">@zeit.mit_gott</a>
+  <a href="https://www.instagram.com/zeit.mit_gott/" target="_blank" rel="noopener noreferrer">@zeit.mit_gott</a>
 </footer>
 
 <script>
