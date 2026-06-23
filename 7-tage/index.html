@@ -180,7 +180,7 @@
               <label for="whatsapp">WhatsApp <span class="hint">(mit Landesvorwahl)</span></label>
               <div class="phone-row">
                 <div class="cc"><input type="text" id="cc" name="CC" value="+49" aria-label="Landesvorwahl"></div>
-                <input type="tel" id="whatsapp" name="WHATSAPP" placeholder="151 23456789" autocomplete="tel" inputmode="tel">
+                <input type="tel" id="whatsapp" name="WHATSAPP" placeholder="151 23456789" autocomplete="tel" inputmode="tel" required>
               </div>
             </div>
             <input type="hidden" name="SOURCE" id="source" value="">
@@ -215,79 +215,102 @@
   </div>
 </main>
 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
   // ============================================================
-  //  KONFIGURATION  —  hier später deine echten Werte eintragen
+  //  SUPABASE — CONFIGURAÇÃO
   // ============================================================
+  const SUPABASE_URL = 'https://hshgdvedplybmzblnvud.supabase.co';
+
+  // ATENÇÃO:
+  // Cole aqui a sua Publishable Key completa do Supabase.
+  // Ela começa com "sb_publishable_..."
+  const SUPABASE_ANON_KEY = 'sb_publishable_OnQsd-HtzdEQiGM7NT_Ulg_-xaGRL8Y';
+
+  const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
   const CONFIG = {
-    // Quelle, die mit jedem Kontakt gespeichert wird (Brevo-Feld SOURCE)
-    source: "ebook-7-tage",
-    // Brevo-Endpunkt: später hier deine URL/Form-Action eintragen.
-    // Solange leer (""), wird KEIN echter Versand gemacht — nur die Danke-Seite gezeigt (zum Testen).
-    brevoEndpoint: ""
+    source: "ebook-7-tage"
   };
-  // ============================================================
 
   // SOURCE automatisch setzen (UTM ?utm_source wird bevorzugt, sonst CONFIG.source)
   (function(){
     const params = new URLSearchParams(location.search);
     const utm = params.get('utm_source');
-    document.getElementById('source').value = utm ? (CONFIG.source + '-' + utm) : CONFIG.source;
+    const sourceInput = document.getElementById('source');
+    if (sourceInput) {
+      sourceInput.value = utm ? (CONFIG.source + '-' + utm) : CONFIG.source;
+    }
   })();
 
   const form = document.getElementById('lead-form');
   const btn = document.getElementById('submit-btn');
 
+  function showThanks(firstname) {
+    document.getElementById('thanks-name').textContent = firstname || '';
+    document.getElementById('view-form').style.display = 'none';
+    const thanks = document.getElementById('view-thanks');
+    thanks.classList.add('show');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
   form.addEventListener('submit', async function(e){
     e.preventDefault();
 
     const firstname = document.getElementById('firstname').value.trim();
-    const email = document.getElementById('email').value.trim();
+    const email = document.getElementById('email').value.trim().toLowerCase();
     const cc = document.getElementById('cc').value.trim().replace(/\s+/g,'');
     const phone = document.getElementById('whatsapp').value.trim().replace(/[^0-9]/g,'');
-    const source = document.getElementById('source').value;
+    const source = document.getElementById('source').value || CONFIG.source;
 
-    // einfache Validierung
-    if(!firstname){ alert('Bitte gib deinen Vornamen ein.'); return; }
-    if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){ alert('Bitte gib eine gültige E-Mail-Adresse ein.'); return; }
+    if(!firstname){
+      alert('Bitte gib deinen Vornamen ein.');
+      return;
+    }
 
-    // WhatsApp im internationalen Format zusammenbauen (z.B. +49151...)
-    const whatsapp = phone ? (cc.startsWith('+') ? cc : '+'+cc) + phone : '';
+    if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){
+      alert('Bitte gib eine gültige E-Mail-Adresse ein.');
+      return;
+    }
+
+    if(!phone || phone.length < 6){
+      alert('Bitte gib deine WhatsApp-Nummer ein.');
+      return;
+    }
+
+    const whatsapp = (cc.startsWith('+') ? cc : '+' + cc) + phone;
 
     btn.disabled = true;
     btn.textContent = 'Wird gesendet…';
 
-    const payload = {
-      FIRSTNAME: firstname,
-      EMAIL: email,
-      WHATSAPP: whatsapp,
-      SOURCE: source
-    };
-
     try {
-      if (CONFIG.brevoEndpoint) {
-        // Echte Übermittlung an Brevo (oder einen eigenen Endpunkt)
-        const res = await fetch(CONFIG.brevoEndpoint, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(payload)
-        });
-        if (!res.ok) throw new Error('Senden fehlgeschlagen');
-      } else {
-        // Test-Modus: kein Endpunkt gesetzt → kurze Pause simulieren
-        console.log('TEST-MODUS – diese Daten würden gesendet:', payload);
-        await new Promise(r => setTimeout(r, 700));
+      const { error } = await supabaseClient
+        .from('leads')
+        .insert([
+          {
+            name: firstname,
+            email: email,
+            whatsapp: whatsapp,
+            source: source
+          }
+        ]);
+
+      if (error) {
+        // Caso você tenha colocado UNIQUE no e-mail, leads duplicados podem cair aqui.
+        // Para não travar a experiência do usuário, mostramos a página de obrigado mesmo assim.
+        if (error.code === '23505') {
+          console.warn('Lead já cadastrado:', error);
+          showThanks(firstname);
+          return;
+        }
+
+        throw error;
       }
 
-      // Danke-Seite zeigen
-      document.getElementById('thanks-name').textContent = firstname;
-      document.getElementById('view-form').style.display = 'none';
-      const thanks = document.getElementById('view-thanks');
-      thanks.classList.add('show');
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      showThanks(firstname);
 
     } catch (err) {
-      console.error(err);
+      console.error('Erro ao salvar lead no Supabase:', err);
       alert('Etwas ist schiefgelaufen. Bitte versuche es gleich noch einmal.');
       btn.disabled = false;
       btn.textContent = 'Mein E-Book sichern';
