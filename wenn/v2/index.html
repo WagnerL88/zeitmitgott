@@ -240,6 +240,24 @@
     .hero-cover { transform: none; }
   }
 </style>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '930918186688637');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=930918186688637&ev=PageView&noscript=1"
+alt=""
+></noscript>
+<!-- End Meta Pixel Code -->
 </head>
 <body>
 
@@ -508,5 +526,30 @@
     });
   });
 </script>
+<!-- Meta Pixel: rastreamento de cliques para a Amazon -->
+<script>
+document.addEventListener('click', function (event) {
+  const link = event.target.closest('a[href]');
+  if (!link) return;
+
+  try {
+    const destination = new URL(link.href, window.location.href);
+    const hostname = destination.hostname.toLowerCase();
+    const isAmazon = hostname === 'amazon.de' ||
+                     hostname === 'www.amazon.de' ||
+                     hostname.endsWith('.amazon.de');
+
+    if (!isAmazon || typeof window.fbq !== 'function') return;
+
+    window.fbq('trackCustom', 'AmazonOutboundClick', {
+      content_name: 'Wenn Gott wiederherstellt, was zerbrochen war',
+      destination_url: destination.href
+    });
+  } catch (error) {
+    console.warn('Não foi possível registrar o clique para a Amazon.', error);
+  }
+});
+</script>
+<!-- Fim do rastreamento de cliques para a Amazon -->
 </body>
 </html>
