@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>E-Mail best&auml;tigen | Zeit mit Gott</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --night:#0E1422; --night-2:#151D30; --deep:#1E2942;
+    --cream:#F7F1E5; --cream-soft:rgba(247,241,229,.76); --muted:rgba(247,241,229,.52);
+    --gold:#D8B45C; --gold-bright:#ECCE87; --gold-deep:#B0863A;
+    --line:rgba(216,180,92,.2); --line-soft:rgba(247,241,229,.12);
+    --error:#E39089;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+  body{
+    font-family:'Outfit',sans-serif; font-weight:300; line-height:1.7;
+    color:var(--cream); min-height:100vh; display:flex; align-items:center; justify-content:center;
+    padding:clamp(2rem,6vw,4rem) clamp(1.2rem,5vw,2rem);
+    background:
+      radial-gradient(ellipse 80% 55% at 50% -8%, rgba(216,180,92,.22), transparent 60%),
+      radial-gradient(ellipse 60% 50% at 80% 110%, rgba(216,180,92,.08), transparent 55%),
+      linear-gradient(180deg,var(--night) 0%,var(--night-2) 55%,var(--night) 100%);
+  }
+  .wrap{width:100%;max-width:600px;text-align:center;}
+  .brand{font-family:'Fraunces',serif;font-style:italic;font-size:1.05rem;color:var(--cream);margin-bottom:2.5rem;}
+  .brand span{color:var(--gold);}
+  .brand a{color:inherit;text-decoration:none;}
+
+  .state{display:none;}
+  .state.show{display:block;animation:rise .5s ease;}
+  @keyframes rise{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:none;}}
+
+  .seal{width:84px;height:84px;margin:0 auto 1.6rem;border-radius:50%;
+    background:radial-gradient(circle at 50% 38%, rgba(216,180,92,.3), rgba(30,41,66,.4));
+    border:1px solid var(--line);display:flex;align-items:center;justify-content:center;
+    box-shadow:0 10px 30px rgba(0,0,0,.4);}
+  .seal svg{width:40px;height:40px;}
+  .seal.err{background:radial-gradient(circle at 50% 38%, rgba(227,144,137,.22), rgba(30,41,66,.4));
+    border-color:rgba(227,144,137,.3);}
+
+  h1{font-family:'Fraunces',serif;font-weight:400;font-size:clamp(1.7rem,4.6vw,2.5rem);
+    line-height:1.2;color:#fff;margin-bottom:1rem;}
+  h1 em{font-style:italic;color:var(--gold-bright);}
+  p{font-size:1.02rem;color:var(--cream-soft);margin-bottom:.8rem;}
+  p.small{font-size:.87rem;color:var(--muted);}
+
+  .cta{display:inline-block;margin:1.6rem 0 .4rem;font-size:1.02rem;font-weight:600;
+    letter-spacing:.02em;color:var(--night);
+    background:linear-gradient(135deg,var(--gold-bright),var(--gold) 55%,var(--gold-deep));
+    border-radius:30px;padding:1.05rem 2.2rem;text-decoration:none;
+    box-shadow:0 12px 30px rgba(176,134,58,.4), inset 0 1px 0 rgba(255,255,255,.35);
+    transition:transform .25s, box-shadow .25s;}
+  .cta:hover{transform:translateY(-2px);box-shadow:0 18px 40px rgba(176,134,58,.5), inset 0 1px 0 rgba(255,255,255,.35);}
+
+  .ghost{display:inline-block;margin-top:1.2rem;font-size:.88rem;color:var(--gold);
+    border:1px solid var(--line);border-radius:24px;padding:.65rem 1.4rem;text-decoration:none;
+    transition:border-color .3s,color .3s;}
+  .ghost:hover{border-color:var(--gold);color:var(--gold-bright);}
+
+  .note{background:rgba(216,180,92,.08);border:1px solid var(--line);border-radius:14px;
+    padding:1rem 1.3rem;margin:1.6rem auto 0;max-width:34rem;font-size:.92rem;
+    color:var(--cream-soft);text-align:left;}
+  .note b{color:var(--gold-bright);}
+
+  /* spinner */
+  .spin{width:38px;height:38px;margin:0 auto 1.4rem;border:2px solid var(--line-soft);
+    border-top-color:var(--gold);border-radius:50%;animation:rot .9s linear infinite;}
+  @keyframes rot{to{transform:rotate(360deg);}}
+
+  .foot{margin-top:3rem;font-size:.82rem;color:var(--muted);}
+  .foot a{color:var(--gold);text-decoration:none;margin:0 .35rem;}
+  .foot a:hover{text-decoration:underline;}
+
+  @media (prefers-reduced-motion:reduce){
+    .state.show{animation:none;}
+    .spin{animation:none;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="brand"><a href="https://zeitmitgott.com">Zeit mit <span>Gott</span></a></div>
+
+  <!-- ============ CARREGANDO ============ -->
+  <div class="state show" id="s-loading">
+    <div class="spin"></div>
+    <h1>Wir best&auml;tigen deine E-Mail &hellip;</h1>
+    <p class="small">Einen kurzen Moment bitte.</p>
+  </div>
+
+  <!-- ============ SUCESSO ============ -->
+  <div class="state" id="s-ok">
+    <div class="seal">
+      <svg viewBox="0 0 40 40" fill="none" stroke="#ECCE87" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 20l7 7 15-16"/></svg>
+    </div>
+    <h1>Alles bereit, <em><span id="ok-name">dir</span></em>!</h1>
+    <p>Deine E-Mail-Adresse ist best&auml;tigt. Dein E-Book wartet auf dich &mdash; und ab morgen bekommst du jeden Tag eine kurze Andacht.</p>
+    <a class="cta" id="ok-download" href="https://zeitmitgott.com/7-tage/download-ebook-7-tage.pdf" target="_blank" rel="noopener">&#128214; E-Book jetzt herunterladen</a>
+    <p class="small">Du findest den Link auch in der E-Mail, die wir dir gerade geschickt haben.</p>
+
+    <div class="note" id="ok-wa" style="display:none;">
+      <b>Noch ein Schritt f&uuml;r WhatsApp:</b> schreibe uns einmal <b>START</b> per WhatsApp,
+      damit wir dir die Audio-Andacht senden d&uuml;rfen.
+    </div>
+
+    <a class="ghost" href="https://www.instagram.com/zeit.mit_gott/" target="_blank" rel="noopener">Folge uns auf Instagram</a>
+  </div>
+
+  <!-- ============ JÁ CONFIRMADO ============ -->
+  <div class="state" id="s-already">
+    <div class="seal">
+      <svg viewBox="0 0 40 40" fill="none" stroke="#ECCE87" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 20l7 7 15-16"/></svg>
+    </div>
+    <h1>Schon best&auml;tigt</h1>
+    <p>Deine E-Mail-Adresse war bereits best&auml;tigt &mdash; du bist dabei. Hier ist dein E-Book noch einmal.</p>
+    <a class="cta" href="https://zeitmitgott.com/7-tage/download-ebook-7-tage.pdf" target="_blank" rel="noopener">&#128214; E-Book herunterladen</a>
+    <a class="ghost" href="https://www.instagram.com/zeit.mit_gott/" target="_blank" rel="noopener">Folge uns auf Instagram</a>
+  </div>
+
+  <!-- ============ LINK EXPIRADO ============ -->
+  <div class="state" id="s-expired">
+    <div class="seal err">
+      <svg viewBox="0 0 40 40" fill="none" stroke="#E39089" stroke-width="2" stroke-linecap="round"><circle cx="20" cy="20" r="14"/><path d="M20 13v10M20 27.5v.5"/></svg>
+    </div>
+    <h1>Dieser Link ist abgelaufen</h1>
+    <p>Best&auml;tigungslinks sind sieben Tage g&uuml;ltig. Trag dich einfach noch einmal ein &mdash; es dauert nur einen Moment.</p>
+    <a class="cta" href="https://zeitmitgott.com/7-tage/">Nochmal eintragen</a>
+  </div>
+
+  <!-- ============ LINK INVÁLIDO ============ -->
+  <div class="state" id="s-invalid">
+    <div class="seal err">
+      <svg viewBox="0 0 40 40" fill="none" stroke="#E39089" stroke-width="2" stroke-linecap="round"><circle cx="20" cy="20" r="14"/><path d="M20 13v10M20 27.5v.5"/></svg>
+    </div>
+    <h1>Dieser Link funktioniert nicht</h1>
+    <p>Vielleicht wurde der Link beim Kopieren unterbrochen. Versuche es &uuml;ber den Button in der E-Mail &mdash; oder trag dich einfach neu ein.</p>
+    <a class="cta" href="https://zeitmitgott.com/7-tage/">Nochmal eintragen</a>
+    <p class="small">Wenn es weiterhin nicht klappt, schreib uns an <a href="mailto:hallo@zeitmitgott.com" style="color:var(--gold);">hallo@zeitmitgott.com</a>.</p>
+  </div>
+
+  <!-- ============ ERRO TÉCNICO ============ -->
+  <div class="state" id="s-error">
+    <div class="seal err">
+      <svg viewBox="0 0 40 40" fill="none" stroke="#E39089" stroke-width="2" stroke-linecap="round"><circle cx="20" cy="20" r="14"/><path d="M20 13v10M20 27.5v.5"/></svg>
+    </div>
+    <h1>Etwas ist schiefgelaufen</h1>
+    <p>Wir konnten deine Best&auml;tigung gerade nicht verarbeiten. Bitte versuche es in einem Moment noch einmal.</p>
+    <a class="cta" href="#" onclick="location.reload();return false;">Nochmal versuchen</a>
+    <p class="small">Bleibt das Problem, schreib uns an <a href="mailto:hallo@zeitmitgott.com" style="color:var(--gold);">hallo@zeitmitgott.com</a>.</p>
+  </div>
+
+  <div class="foot">
+    <a href="https://zeitmitgott.com">zeitmitgott.com</a>&middot;
+    <a href="https://zeitmitgott.com/datenschutz">Datenschutzerkl&auml;rung</a>
+  </div>
+
+</div>
+
+<script>
+  // ============================================================
+  //  CONFIG — cole aqui a URL do webhook do Make (cenário 2)
+  // ============================================================
+  const CONFIG = {
+    webhookUrl: 'https://hook.eu2.make.com/COLE_SEU_WEBHOOK_AQUI',
+    timeoutMs: 12000
+  };
+
+  // ============================================================
+  //  ESTADOS
+  // ============================================================
+  function show(id){
+    document.querySelectorAll('.state').forEach(s => s.classList.remove('show'));
+    const el = document.getElementById(id);
+    if (el) el.classList.add('show');
+  }
+
+  function sanitizeName(raw){
+    if (!raw || typeof raw !== 'string') return '';
+    return raw.replace(/[^\p{L}\s'\u2019-]/gu,'').trim().slice(0,40);
+  }
+
+  // ============================================================
+  //  FLUXO
+  // ============================================================
+  (async function(){
+    const params = new URLSearchParams(location.search);
+    const token = (params.get('token') || '').trim();
+
+    // Token ausente ou com formato impossível: nem chama o webhook.
+    if (!token || !/^[a-zA-Z0-9]{16,64}$/.test(token)){
+      show('s-invalid');
+      return;
+    }
+
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), CONFIG.timeoutMs);
+
+    try {
+      const res = await fetch(CONFIG.webhookUrl, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ token: token }),
+        signal: controller.signal
+      });
+
+      clearTimeout(timer);
+
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+
+      const data = await res.json();
+
+      switch (data.status){
+        case 'confirmed': {
+          const name = sanitizeName(data.name);
+          if (name) document.getElementById('ok-name').textContent = name;
+          if (data.download_url) document.getElementById('ok-download').href = data.download_url;
+          if (data.wants_whatsapp) document.getElementById('ok-wa').style.display = 'block';
+          show('s-ok');
+          break;
+        }
+        case 'already_confirmed':
+          show('s-already');
+          break;
+        case 'expired':
+          show('s-expired');
+          break;
+        case 'invalid':
+          show('s-invalid');
+          break;
+        default:
+          show('s-error');
+      }
+
+    } catch (err){
+      clearTimeout(timer);
+      console.error('Erro na confirmação:', err);
+      show('s-error');
+    }
+  })();
+</script>
+</body>
+</html>
