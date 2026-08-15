@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Andacht abbestellen — Zeit mit Gott</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#1b2a4a;
+    --gold:#b0863a;
+    --gold-soft:#d8b877;
+    --cream:#fbf8f1;
+    --ink:#3a3529;
+    --muted:#7a715f;
+    --line:#e8e0d0;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'Lato',Arial,Helvetica,sans-serif;
+    font-size:17px;
+    line-height:1.7;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:32px 20px;
+  }
+  .card{
+    width:100%;
+    max-width:560px;
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:4px;
+    padding:56px 44px;
+    text-align:center;
+    box-shadow:0 2px 24px rgba(27,42,74,.06);
+  }
+  .mark{
+    width:46px;height:1px;background:var(--gold);
+    margin:0 auto 34px;
+  }
+  h1{
+    font-family:'Cormorant Garamond',Georgia,serif;
+    font-size:34px;
+    font-weight:500;
+    line-height:1.25;
+    color:var(--navy);
+    margin-bottom:18px;
+  }
+  p{color:var(--muted);margin-bottom:18px}
+  p.lead{color:var(--ink)}
+  .mail{
+    display:inline-block;
+    font-family:'Cormorant Garamond',Georgia,serif;
+    font-size:20px;
+    color:var(--navy);
+    border-bottom:1px solid var(--gold-soft);
+    padding-bottom:2px;
+    margin-bottom:28px;
+    word-break:break-all;
+  }
+  button{
+    font-family:'Lato',sans-serif;
+    font-size:15px;
+    font-weight:700;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+    color:#fff;
+    background:var(--navy);
+    border:none;
+    border-radius:3px;
+    padding:16px 34px;
+    cursor:pointer;
+    transition:background .18s ease;
+  }
+  button:hover{background:#24365c}
+  button:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+  button[disabled]{opacity:.5;cursor:default}
+  .back{
+    display:block;
+    margin-top:24px;
+    font-size:14px;
+    color:var(--gold);
+    text-decoration:none;
+  }
+  .back:hover{text-decoration:underline}
+  .foot{
+    margin-top:38px;
+    padding-top:24px;
+    border-top:1px solid var(--line);
+    font-size:13px;
+    color:var(--muted);
+  }
+  .foot a{color:var(--gold);text-decoration:none}
+  .spinner{
+    width:26px;height:26px;
+    border:2px solid var(--line);
+    border-top-color:var(--gold);
+    border-radius:50%;
+    margin:0 auto 22px;
+    animation:spin .8s linear infinite;
+  }
+  @keyframes spin{to{transform:rotate(360deg)}}
+  @media (prefers-reduced-motion:reduce){
+    .spinner{animation:none}
+  }
+  [hidden]{display:none !important}
+  @media(max-width:520px){
+    .card{padding:40px 26px}
+    h1{font-size:28px}
+  }
+</style>
+</head>
+<body>
+
+<main class="card">
+  <div class="mark"></div>
+
+  <!-- Estado 1: pergunta de confirmação -->
+  <section id="ask">
+    <h1>Möchtest du die tägliche Andacht abbestellen?</h1>
+    <p class="lead">Du erhältst dann keine E-Mails mehr von Zeit mit Gott.</p>
+    <button id="btn" type="button">Abmeldung bestätigen</button>
+    <a class="back" href="https://zeitmitgott.com/">Doch nicht abmelden</a>
+  </section>
+
+  <!-- Estado 2: processando -->
+  <section id="loading" hidden>
+    <div class="spinner"></div>
+    <p>Einen Moment bitte …</p>
+  </section>
+
+  <!-- Estado 3: sucesso -->
+  <section id="done" hidden>
+    <h1>Du bist abgemeldet</h1>
+    <p class="lead">Wir senden dir keine weiteren E-Mails. Danke für die Zeit, die du mit uns geteilt hast.</p>
+    <p>Falls du es dir anders überlegst, kannst du dich jederzeit wieder anmelden.</p>
+    <a class="back" href="https://zeitmitgott.com/">Zur Startseite</a>
+  </section>
+
+  <!-- Estado 4: já estava descadastrado -->
+  <section id="already" hidden>
+    <h1>Du warst bereits abgemeldet</h1>
+    <p class="lead">Für diese Adresse ist der Empfang schon beendet. Es ist nichts weiter zu tun.</p>
+    <a class="back" href="https://zeitmitgott.com/">Zur Startseite</a>
+  </section>
+
+  <!-- Estado 5: link inválido / sem token -->
+  <section id="invalid" hidden>
+    <h1>Dieser Link ist nicht mehr gültig</h1>
+    <p class="lead">Schreib uns kurz an <a href="mailto:hallo@zeitmitgott.com" style="color:var(--gold)">hallo@zeitmitgott.com</a> — wir melden dich manuell ab.</p>
+  </section>
+
+  <!-- Estado 6: erro técnico -->
+  <section id="error" hidden>
+    <h1>Etwas ist schiefgelaufen</h1>
+    <p class="lead">Bitte versuche es in ein paar Minuten erneut, oder schreib uns an <a href="mailto:hallo@zeitmitgott.com" style="color:var(--gold)">hallo@zeitmitgott.com</a>.</p>
+    <button id="retry" type="button">Erneut versuchen</button>
+  </section>
+
+  <div class="foot">
+    <strong style="color:var(--muted)">Zeit Mit Gott</strong><br>
+    <a href="https://zeitmitgott.com/datenschutz">Datenschutzerklärung</a>
+  </div>
+</main>
+
+<script>
+const CONFIG = {
+  // COLE AQUI a URL do webhook do cenário "Abmeldung" do Make
+  webhookUrl: 'https://hook.eu2.make.com/COLE_AQUI',
+  timeoutMs: 40000
+};
+
+const el = id => document.getElementById(id);
+const views = ['ask','loading','done','already','invalid','error'];
+const show = name => views.forEach(v => el(v).hidden = (v !== name));
+
+const token = new URLSearchParams(location.search).get('token');
+
+if (!token) show('invalid');
+
+async function unsubscribe(){
+  show('loading');
+  const ctrl = new AbortController();
+  const timer = setTimeout(() => ctrl.abort(), CONFIG.timeoutMs);
+
+  try {
+    const res = await fetch(CONFIG.webhookUrl, {
+      method: 'POST',
+      headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({ token }),
+      signal: ctrl.signal
+    });
+    clearTimeout(timer);
+
+    const data = await res.json();
+
+    if (data.status === 'unsubscribed')        show('done');
+    else if (data.status === 'already')        show('already');
+    else if (data.status === 'invalid')        show('invalid');
+    else                                       show('error');
+
+  } catch (e) {
+    clearTimeout(timer);
+    show('error');
+  }
+}
+
+el('btn').addEventListener('click', unsubscribe);
+el('retry').addEventListener('click', unsubscribe);
+</script>
+
+</body>
+</html>
