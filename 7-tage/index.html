@@ -127,9 +127,20 @@
   .thanks p { font-size:1.02rem; color:var(--cream-soft); margin-bottom:.7rem; max-width:32rem; margin-left:auto; margin-right:auto; }
   .thanks .step { font-family:'Fraunces',serif; font-size:1.1rem; color:var(--gold-bright); margin-bottom:.5rem; }
   .thanks .mail-note { font-size:.86rem; color:var(--muted); margin-bottom:1.6rem; }
-  .wa-note { background:rgba(216,180,92,.08); border:1px solid var(--line); border-radius:14px; padding:1rem 1.2rem; max-width:32rem; margin:0 auto 1.6rem; font-size:.9rem; color:var(--cream-soft); display:none; }
+  .wa-note { background:rgba(216,180,92,.08); border:1px solid var(--line); border-radius:16px; padding:1.4rem 1.4rem 1.15rem; max-width:32rem; margin:0 auto 1.6rem; text-align:left; display:none; }
   .wa-note.show { display:block; }
-  .wa-note b { color:var(--gold-bright); }
+  .wa-h { font-family:'Fraunces',serif; font-weight:500; font-size:clamp(1.05rem,2.4vw,1.16rem); color:var(--gold-bright); margin-bottom:.5rem; }
+  .wa-p { font-size:.92rem; line-height:1.65; color:var(--cream-soft); margin-bottom:1.05rem; }
+  .wa-p b { color:var(--cream); font-weight:500; }
+  .wa-list { list-style:none; margin:0 0 1.15rem; padding:0; }
+  .wa-list li { position:relative; padding-left:1.4rem; font-size:.88rem; line-height:1.55; color:var(--cream-soft); margin-bottom:.4rem; }
+  .wa-list li::before { content:"\2726"; position:absolute; left:0; top:.05rem; color:var(--gold); font-size:.8rem; }
+  .wa-list b { color:var(--cream); font-weight:500; }
+  .wa-btn { display:flex; align-items:center; justify-content:center; gap:.55rem; width:100%; font-family:'Outfit',sans-serif; font-size:1.02rem; font-weight:600; letter-spacing:.02em; color:var(--night); background:linear-gradient(135deg,var(--gold-bright),var(--gold) 55%,var(--gold-deep)); border-radius:30px; padding:1rem 1.4rem; text-decoration:none; box-shadow:0 12px 30px rgba(176,134,58,.4), inset 0 1px 0 rgba(255,255,255,.35); transition:transform .25s, box-shadow .25s; }
+  .wa-btn:hover { transform:translateY(-2px); box-shadow:0 18px 40px rgba(176,134,58,.5), inset 0 1px 0 rgba(255,255,255,.35); }
+  .wa-btn svg { width:20px; height:20px; flex-shrink:0; }
+  .wa-hint { font-size:.78rem; color:var(--muted); margin-top:.85rem; line-height:1.5; text-align:center; }
+  .wa-hint b { color:var(--cream-soft); font-weight:500; }
   .next-step { display:inline-flex; flex-wrap:wrap; gap:.7rem; justify-content:center; }
   .next-step a { font-size:.86rem; color:var(--gold); border:1px solid var(--line); border-radius:24px; padding:.6rem 1.2rem; text-decoration:none; transition:border-color .3s, color .3s; }
   .next-step a:hover { border-color:var(--gold); color:var(--gold-bright); }
@@ -256,12 +267,40 @@
         <svg viewBox="0 0 40 40" fill="none" stroke="#ECCE87" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 20l7 7 15-16"/></svg>
       </div>
       <h2>Fast fertig, <em><span id="thanks-name">dir</span></em>!</h2>
-      <p class="step">Noch ein Schritt: bitte best&auml;tige deine E-Mail-Adresse.</p>
+      <p class="step" id="thanks-step">Noch ein Schritt: bitte best&auml;tige deine E-Mail-Adresse.</p>
       <p>Wir haben dir gerade eine E-Mail geschickt. Klicke auf den Best&auml;tigungslink &mdash; und du bekommst dein E-Book sofort danach.</p>
       <p class="mail-note">Pr&uuml;fe auch den Spam- oder Werbeordner. Ohne die Best&auml;tigung k&ouml;nnen wir dir nichts senden.</p>
 
       <div class="wa-note" id="wa-note">
-        <b>Und f&uuml;r WhatsApp:</b> du musst nichts weiter tun. Sobald du deine E-Mail best&auml;tigt hast, schreiben wir dir. Die erste Nachricht kommt direkt danach.
+        <div class="wa-h">Schritt 2 &mdash; deine Andacht auf WhatsApp</div>
+
+        <p class="wa-p">
+          WhatsApp erlaubt es uns nicht, ein Gespr&auml;ch zu beginnen.
+          <b>Erst wenn du uns schreibst, d&uuml;rfen wir dir senden.</b>
+          Eine Nachricht von dir gen&uuml;gt &mdash; dann bekommst du:
+        </p>
+
+        <ul class="wa-list">
+          <li>Dein E-Book <b>&bdquo;7 Tage mit Gott&ldquo;</b> als PDF</li>
+          <li>Jeden Morgen einen Vers und eine <b>Audio-Andacht</b> &mdash; 1 bis 2 Minuten</li>
+          <li>Jeden Abend einen kurzen Gedanken zum Tag</li>
+          <li>Die Einladung in unsere <b>t&auml;gliche WhatsApp-Gruppe</b></li>
+        </ul>
+
+        <a class="wa-btn"
+           href="https://wa.me/5521971636616?text=Hallo%21%20Ich%20m%C3%B6chte%20das%20E-Book%20und%20die%20t%C3%A4glichen%20Andachten%20erhalten."
+           target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm0 18.13h-.01a8.23 8.23 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.36c0-4.54 3.7-8.23 8.25-8.23 2.2 0 4.27.86 5.83 2.41a8.19 8.19 0 0 1 2.41 5.83c0 4.54-3.7 8.23-8.24 8.23z"/>
+            <path d="M17.47 14.38c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.08-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.65-2.05-.17-.3-.02-.46.13-.6.14-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.01-1.04 2.47s1.07 2.87 1.22 3.07c.15.2 2.05 3.13 4.96 4.39.69.3 1.23.48 1.65.61.7.22 1.33.19 1.83.12.56-.08 1.75-.71 2-1.4.25-.69.25-1.28.17-1.4-.07-.13-.27-.2-.57-.35z"/>
+          </svg>
+          Jetzt auf WhatsApp schreiben
+        </a>
+
+        <p class="wa-hint">
+          Der Text ist schon fertig &mdash; du tippst nur auf <b>Senden</b>.
+          Kostenlos, jederzeit mit <b>STOPP</b> abbestellbar.
+        </p>
       </div>
 
       <div class="next-step">
@@ -399,7 +438,12 @@
 
   function showThanks(firstname, hasWhatsApp){
     document.getElementById('thanks-name').textContent = firstname || 'dir';
-    if (hasWhatsApp) document.getElementById('wa-note').classList.add('show');
+    if (hasWhatsApp){
+      // Vira sequência de dois passos: e-mail e depois WhatsApp.
+      document.getElementById('thanks-step').innerHTML =
+        'Schritt 1: bitte bestätige deine E-Mail-Adresse.';
+      document.getElementById('wa-note').classList.add('show');
+    }
     document.getElementById('view-form').style.display = 'none';
     document.getElementById('view-thanks').classList.add('show');
     trackLead();
