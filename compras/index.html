@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lista de compras</title>
+<meta name="theme-color" content="#2E6B4E">
+<meta name="description" content="Lista de compras compartilhada da casa.">
+
+<!-- ══════════════════════════════════════════════════════════════════════
+     CONFIGURAÇÃO — mexa só aqui dentro
+     ══════════════════════════════════════════════════════════════════════
+     Sem preencher nada, a lista já funciona: ela salva no aparelho de
+     quem abrir (cada um vê a sua). Para TODOS verem a MESMA lista,
+     preencha BIN_ID e CHAVE seguindo o passo a passo que te mandei.
+     ══════════════════════════════════════════════════════════════════════ -->
+<script>
+const CONFIG = {
+  // Cole aqui o ID do seu bin do JSONBin (ex.: "665f1a2be41b4d34e4401234")
+  BIN_ID: "",
+
+  // Cole aqui a Access Key do JSONBin (a de acesso, não a Master Key)
+  CHAVE: "",
+
+  // Título que aparece no topo
+  TITULO: "Lista de compras",
+
+  // Senha para poder editar. Deixe "" para liberar edição a todo mundo.
+  // Se preencher (ex.: "1234"), quem entrar só vê; para marcar/editar
+  // precisa digitar a senha uma vez naquele aparelho.
+  SENHA_EDICAO: "",
+
+  // De quantos em quantos segundos busca atualização dos outros
+  INTERVALO_SYNC: 15
+};
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --papel:#EDEFE8;
+  --papel-2:#F6F7F2;
+  --tinta:#16241C;
+  --tinta-fraca:#5E6B62;
+  --linha:#D6DACF;
+  --verde:#2E6B4E;
+  --verde-claro:#DCEBE0;
+  --alerta:#8E2F52;
+  --raio:14px;
+  --sombra:0 1px 0 rgba(22,36,28,.06);
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --papel:#131A16;
+    --papel-2:#1B2420;
+    --tinta:#E8EDE7;
+    --tinta-fraca:#93A197;
+    --linha:#2C3831;
+    --verde:#5DAE83;
+    --verde-claro:#22352A;
+    --sombra:none;
+  }
+}
+
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0}
+body{
+  background:var(--papel);
+  color:var(--tinta);
+  font-family:'Archivo',ui-sans-serif,system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  font-size:16px;
+  line-height:1.45;
+  padding-bottom:calc(84px + env(safe-area-inset-bottom));
+  -webkit-font-smoothing:antialiased;
+}
+button,input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:2.5px solid var(--verde);outline-offset:2px;border-radius:6px}
+
+/* ── Topo ───────────────────────────────────────────────── */
+.topo{
+  position:sticky;top:0;z-index:40;
+  background:var(--papel);
+  border-bottom:1px solid var(--linha);
+  padding-top:env(safe-area-inset-top);
+}
+.topo-corpo{max-width:720px;margin:0 auto;padding:14px 16px 10px}
+.topo-linha{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+h1{
+  font-size:19px;font-weight:600;margin:0;letter-spacing:-.01em;
+}
+.placar{
+  display:flex;align-items:baseline;gap:7px;margin-top:2px;
+  color:var(--tinta-fraca);font-size:14px;
+}
+.placar b{
+  font-size:30px;font-weight:700;color:var(--tinta);
+  font-variant-numeric:tabular-nums;letter-spacing:-.02em;line-height:1;
+}
+.sync{
+  font-size:12px;color:var(--tinta-fraca);white-space:nowrap;
+  display:flex;align-items:center;gap:5px;padding-top:4px;
+}
+.bolinha{width:7px;height:7px;border-radius:50%;background:var(--tinta-fraca);flex:none}
+.bolinha.on{background:var(--verde)}
+.bolinha.erro{background:var(--alerta)}
+.bolinha.enviando{animation:pisca 1s infinite}
+@keyframes pisca{50%{opacity:.25}}
+
+/* barra de progresso — de borda a borda */
+.barra{height:7px;background:var(--linha);position:relative;overflow:hidden}
+.barra i{
+  display:block;height:100%;width:0;background:var(--verde);
+  transition:width .35s cubic-bezier(.2,.8,.3,1);
+}
+@media (prefers-reduced-motion: reduce){.barra i{transition:none}}
+
+/* ── Ferramentas ────────────────────────────────────────── */
+.ferramentas{max-width:720px;margin:0 auto;padding:12px 16px 4px;display:flex;gap:8px;flex-wrap:wrap}
+.busca{flex:1 1 190px;position:relative;min-width:0}
+.busca input{
+  width:100%;padding:9px 12px;border:1px solid var(--linha);border-radius:10px;
+  background:var(--papel-2);
+}
+.busca input::placeholder{color:var(--tinta-fraca)}
+.abas{display:flex;border:1px solid var(--linha);border-radius:10px;overflow:hidden;background:var(--papel-2)}
+.abas button{
+  border:0;background:transparent;padding:9px 13px;cursor:pointer;
+  color:var(--tinta-fraca);font-size:14px;font-weight:500;
+}
+.abas button[aria-pressed="true"]{background:var(--verde);color:#fff}
+
+/* ── Lista ──────────────────────────────────────────────── */
+main{max-width:720px;margin:0 auto;padding:8px 16px 24px}
+
+.grupo{margin-top:22px}
+.grupo-topo{
+  display:flex;align-items:center;gap:10px;padding:0 0 8px;
+  border-bottom:1px solid var(--linha);cursor:pointer;user-select:none;
+}
+.tarja{width:5px;height:19px;border-radius:3px;flex:none}
+.grupo-nome{font-weight:600;font-size:15px;flex:1;min-width:0}
+.grupo-conta{
+  font-size:13px;color:var(--tinta-fraca);font-variant-numeric:tabular-nums;
+}
+.seta{
+  border:0;background:none;padding:2px 0 2px 4px;cursor:pointer;color:var(--tinta-fraca);
+  transition:transform .2s;line-height:0;
+}
+.grupo.fechado .seta{transform:rotate(-90deg)}
+.grupo.fechado .itens{display:none}
+
+.itens{list-style:none;margin:0;padding:0}
+.item{
+  display:flex;align-items:center;gap:12px;
+  padding:11px 4px;border-bottom:1px solid var(--linha);
+}
+.item:last-child{border-bottom:0}
+
+.marcador{
+  position:relative;
+  flex:none;width:25px;height:25px;border-radius:8px;
+  border:2px solid var(--linha);background:transparent;
+  cursor:pointer;display:grid;place-items:center;padding:0;
+  transition:background .15s,border-color .15s;
+}
+.marcador::after{content:"";position:absolute;inset:-9px}
+.marcador svg{opacity:0;transform:scale(.6);transition:opacity .15s,transform .15s}
+.item.feito .marcador{background:var(--verde);border-color:var(--verde)}
+.item.feito .marcador svg{opacity:1;transform:scale(1)}
+
+.nome{
+  flex:1;min-width:0;cursor:text;border:0;background:none;padding:0;
+  text-align:left;font-size:16px;overflow-wrap:anywhere;
+}
+.obs{display:block;font-size:12.5px;color:var(--tinta-fraca);margin-top:1px}
+.item.feito .nome{color:var(--tinta-fraca);text-decoration:line-through;text-decoration-thickness:1.5px}
+
+.qtd{
+  flex:none;font-variant-numeric:tabular-nums;font-weight:600;font-size:13.5px;
+  color:var(--tinta-fraca);background:var(--papel-2);
+  border:1px solid var(--linha);border-radius:7px;padding:3px 8px;white-space:nowrap;
+}
+.item.feito .qtd{opacity:.5}
+
+.lixo{
+  flex:none;border:0;background:none;cursor:pointer;color:var(--tinta-fraca);
+  padding:6px;line-height:0;border-radius:8px;opacity:.55;
+}
+.lixo:hover{opacity:1;color:var(--alerta)}
+
+.editando{
+  width:100%;padding:6px 9px;border:2px solid var(--verde);border-radius:8px;
+  background:var(--papel-2);
+}
+
+.vazio{
+  text-align:center;color:var(--tinta-fraca);padding:56px 20px;font-size:15px;
+}
+
+/* ── Barra de baixo ─────────────────────────────────────── */
+.rodape{
+  position:fixed;left:0;right:0;bottom:0;z-index:50;
+  background:var(--papel);border-top:1px solid var(--linha);
+  padding:10px 16px calc(10px + env(safe-area-inset-bottom));
+}
+.rodape-corpo{max-width:720px;margin:0 auto;display:flex;gap:8px}
+.btn{
+  border:1px solid var(--linha);background:var(--papel-2);color:var(--tinta);
+  padding:11px 14px;border-radius:11px;cursor:pointer;font-weight:500;font-size:15px;
+  display:flex;align-items:center;justify-content:center;gap:7px;
+}
+.btn.principal{background:var(--verde);border-color:var(--verde);color:#fff;flex:1}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+
+/* ── Painéis ────────────────────────────────────────────── */
+.veu{
+  position:fixed;inset:0;background:rgba(10,18,14,.5);z-index:60;
+  display:flex;align-items:flex-end;justify-content:center;
+}
+.veu[hidden]{display:none}
+.painel{
+  background:var(--papel);width:100%;max-width:520px;
+  border-radius:18px 18px 0 0;padding:20px 18px calc(20px + env(safe-area-inset-bottom));
+  max-height:88vh;overflow:auto;
+}
+@media (min-width:560px){
+  .veu{align-items:center}
+  .painel{border-radius:18px}
+}
+.painel h2{font-size:17px;margin:0 0 14px;font-weight:600}
+.campo{margin-bottom:12px}
+.campo label{display:block;font-size:13.5px;color:var(--tinta-fraca);margin-bottom:5px}
+.campo input,.campo select{
+  width:100%;padding:11px 12px;border:1px solid var(--linha);border-radius:10px;
+  background:var(--papel-2);
+}
+.dupla{display:flex;gap:10px}
+.dupla .campo{flex:1}
+.dupla .campo.curto{flex:0 0 118px}
+.painel-acoes{display:flex;gap:8px;margin-top:16px}
+.painel-acoes .btn{flex:1}
+
+.menu-item{
+  width:100%;text-align:left;border:0;background:none;padding:13px 6px;
+  border-bottom:1px solid var(--linha);cursor:pointer;font-size:15.5px;
+}
+.menu-item:last-child{border-bottom:0}
+.menu-item.perigo{color:var(--alerta)}
+.menu-item small{display:block;color:var(--tinta-fraca);font-size:12.5px;margin-top:1px}
+
+.aviso{
+  max-width:720px;margin:12px auto 0;padding:11px 14px;border-radius:11px;
+  background:var(--verde-claro);color:var(--tinta);font-size:13.5px;
+  border:1px solid var(--linha);
+}
+.aviso b{font-weight:600}
+
+.toast{
+  position:fixed;left:50%;transform:translateX(-50%);
+  bottom:calc(94px + env(safe-area-inset-bottom));z-index:80;
+  background:var(--tinta);color:var(--papel);padding:10px 16px;border-radius:10px;
+  font-size:14px;box-shadow:0 6px 22px rgba(0,0,0,.22);
+}
+.toast[hidden]{display:none}
+
+/* quem não tem a senha não apaga nada, mas ao tocar num item é convidado a liberar */
+.somenteleitura .lixo{display:none}
+</style>
+</head>
+<body>
+
+<header class="topo">
+  <div class="topo-corpo">
+    <div class="topo-linha">
+      <div>
+        <h1 id="titulo">Lista de compras</h1>
+        <p class="placar"><b id="numFalta">0</b><span id="textoPlacar">itens faltando</span></p>
+      </div>
+      <div class="sync"><span class="bolinha" id="bolinha"></span><span id="statusSync">local</span></div>
+    </div>
+  </div>
+  <div class="barra"><i id="progresso"></i></div>
+</header>
+
+<div class="ferramentas">
+  <div class="busca"><input id="busca" type="search" placeholder="Buscar item" autocomplete="off"></div>
+  <div class="abas" role="group" aria-label="Filtrar itens">
+    <button data-filtro="falta" aria-pressed="true">Falta</button>
+    <button data-filtro="tudo" aria-pressed="false">Tudo</button>
+    <button data-filtro="feito" aria-pressed="false">No carrinho</button>
+  </div>
+</div>
+
+<div id="avisoConfig" hidden></div>
+
+<main id="lista"></main>
+
+<div class="rodape">
+  <div class="rodape-corpo">
+    <button class="btn principal" id="btnAdd">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+      Adicionar item
+    </button>
+    <button class="btn" id="btnMenu" aria-label="Mais opções">
+      <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
+  </div>
+</div>
+
+<!-- painel: adicionar -->
+<div class="veu" id="veuAdd" hidden>
+  <div class="painel" role="dialog" aria-modal="true" aria-labelledby="tAdd">
+    <h2 id="tAdd">Adicionar item</h2>
+    <div class="dupla">
+      <div class="campo"><label for="fNome">Item</label><input id="fNome" autocomplete="off" placeholder="Arroz"></div>
+      <div class="campo curto"><label for="fQtd">Quantidade</label><input id="fQtd" autocomplete="off" placeholder="4 kg"></div>
+    </div>
+    <div class="campo"><label for="fCat">Categoria</label><select id="fCat"></select></div>
+    <div class="campo"><label for="fObs">Observação (opcional)</label><input id="fObs" autocomplete="off" placeholder="se der"></div>
+    <div class="painel-acoes">
+      <button class="btn" data-fechar>Cancelar</button>
+      <button class="btn principal" id="fSalvar">Adicionar</button>
+    </div>
+  </div>
+</div>
+
+<!-- painel: menu -->
+<div class="veu" id="veuMenu" hidden>
+  <div class="painel" role="dialog" aria-modal="true" aria-labelledby="tMenu">
+    <h2 id="tMenu">Opções</h2>
+    <button class="menu-item" id="mCopiar">Copiar o que falta<small>Cola no WhatsApp pra mandar pra alguém</small></button>
+    <button class="menu-item" id="mCategoria">Nova categoria<small>Cria um novo corredor na lista</small></button>
+    <button class="menu-item" id="mDesmarcar">Desmarcar tudo<small>Recomeça a lista para a próxima compra</small></button>
+    <button class="menu-item perigo" id="mLimpar">Remover os já comprados<small>Apaga de vez os itens marcados</small></button>
+    <div class="painel-acoes"><button class="btn" data-fechar>Fechar</button></div>
+  </div>
+</div>
+
+<!-- painel: senha -->
+<div class="veu" id="veuSenha" hidden>
+  <div class="painel" role="dialog" aria-modal="true" aria-labelledby="tSenha">
+    <h2 id="tSenha">Digite a senha para editar</h2>
+    <div class="campo"><label for="fSenha">Senha</label><input id="fSenha" type="password" autocomplete="off"></div>
+    <div class="painel-acoes">
+      <button class="btn" data-fechar>Só quero ver</button>
+      <button class="btn principal" id="fSenhaOk">Liberar edição</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast" hidden></div>
+
+<script>
+/* ══════════════════════════════════════════════════════════
+   Lista inicial — já vem com a sua compra cadastrada
+   ══════════════════════════════════════════════════════════ */
+const LISTA_INICIAL = {
+  titulo: CONFIG.TITULO,
+  atualizadoEm: 0,
+  categorias: [
+    { id:"c1", nome:"Mercearia", cor:"#2E6B4E", itens:[
+      {n:"Arroz", q:"4 kg"}, {n:"Feijão", q:"2 kg"}, {n:"Sal"}, {n:"Açúcar"},
+      {n:"Café"}, {n:"Filtro de café"}, {n:"Milho de pipoca"}, {n:"Azeite"},
+      {n:"Passata"}, {n:"Azeitona"}, {n:"Ketchup"}, {n:"Vinagre"}, {n:"Atum"}
+    ]},
+    { id:"c2", nome:"Hortifrúti", cor:"#6C8C1F", itens:[
+      {n:"Cebola"}, {n:"Alho"}, {n:"Tomate"}, {n:"Pepino"}, {n:"Limão"},
+      {n:"Maçã"}, {n:"Batata"}, {n:"Cenoura"}, {n:"Abóbora"}
+    ]},
+    { id:"c3", nome:"Carnes e congelados", cor:"#A3352F", itens:[
+      {n:"Carne moída patinho", q:"4 kg"}, {n:"Alcatra", q:"2 kg"},
+      {n:"Peito de frango", q:"3"}, {n:"Coxinha da asa", q:"4 kg"},
+      {n:"Batata congelada"}, {n:"Linguiça calabresa grossa"}
+    ]},
+    { id:"c4", nome:"Frios e laticínios", cor:"#C08A1E", itens:[
+      {n:"Manteiga", q:"3"}, {n:"Leite", q:"2 L"}, {n:"Leite em pó", q:"5 pct"},
+      {n:"Iogurte"}, {n:"Requeijão"}, {n:"Queijo mussarela"}, {n:"Ovos"}
+    ]},
+    { id:"c5", nome:"Padaria", cor:"#9A5B2C", itens:[
+      {n:"Pão de forma"}, {n:"Pão de hambúrguer", o:"se der"}
+    ]},
+    { id:"c6", nome:"Biscoitos e doces", cor:"#A03A6E", itens:[
+      {n:"Cream cracker", q:"4"}, {n:"Biscoito Oreo"}, {n:"Biscoito maizena"},
+      {n:"Doce de leite", q:"2"}, {n:"Goiabada", q:"1"}, {n:"Gelatina"}
+    ]},
+    { id:"c7", nome:"Bebidas", cor:"#2A6E8C", itens:[
+      {n:"Sucos"}, {n:"Clight"}
+    ]},
+    { id:"c8", nome:"Limpeza e higiene", cor:"#4A5FA8", itens:[
+      {n:"Sabão líquido para as mãos"}, {n:"Detergente", q:"5"}, {n:"Sabonete"},
+      {n:"Papel higiênico"}, {n:"Pano de pia"}
+    ]},
+    { id:"c9", nome:"Casa", cor:"#6B6257", itens:[
+      {n:"Lâmpada"}
+    ]}
+  ]
+};
+
+/* ══════════════════════════════════════════════════════════
+   Estado
+   ══════════════════════════════════════════════════════════ */
+const CHAVE_LOCAL = "lista-compras-v1";
+const CORES = ["#2E6B4E","#6C8C1F","#A3352F","#C08A1E","#9A5B2C","#A03A6E","#2A6E8C","#4A5FA8","#6B6257","#7A4A8C"];
+const $ = s => document.querySelector(s);
+
+let dados = null;
+let filtro = "falta";
+let busca = "";
+let fechadas = new Set(JSON.parse(localStorage.getItem("cats-fechadas") || "[]"));
+let sujo = false;            // tem mudança local ainda não enviada
+let enviando = false;
+let carimboRemoto = 0;
+let podeEditar = !CONFIG.SENHA_EDICAO || localStorage.getItem("edicao-liberada") === "1";
+const online = !!(CONFIG.BIN_ID && CONFIG.CHAVE);
+const URL_BIN = `https://api.jsonbin.io/v3/b/${CONFIG.BIN_ID}`;
+
+const id = () => Math.random().toString(36).slice(2, 9) + Date.now().toString(36).slice(-3);
+
+function normalizar(bruto){
+  return {
+    titulo: bruto.titulo || CONFIG.TITULO,
+    atualizadoEm: bruto.atualizadoEm || 0,
+    categorias: (bruto.categorias || []).map((c, i) => ({
+      id: c.id || id(),
+      nome: c.nome || "Sem categoria",
+      cor: c.cor || CORES[i % CORES.length],
+      itens: (c.itens || []).map(it => ({
+        id: it.id || id(),
+        nome: it.nome ?? it.n ?? "",
+        qtd: it.qtd ?? it.q ?? "",
+        obs: it.obs ?? it.o ?? "",
+        feito: !!it.feito
+      }))
+    }))
+  };
+}
+
+/* ══════════════════════════════════════════════════════════
+   Persistência
+   ══════════════════════════════════════════════════════════ */
+function salvarLocal(){
+  try { localStorage.setItem(CHAVE_LOCAL, JSON.stringify(dados)); } catch(e){}
+}
+
+function marcarMudanca(){
+  dados.atualizadoEm = Date.now();
+  sujo = true;
+  salvarLocal();
+  render();
+  if (online) agendarEnvio();
+}
+
+let timerEnvio = null;
+function agendarEnvio(){
+  clearTimeout(timerEnvio);
+  timerEnvio = setTimeout(enviar, 700);
+}
+
+async function enviar(){
+  if (!online || !sujo || enviando) return;
+  enviando = true; pintarSync();
+  const instantaneo = JSON.stringify(dados);
+  try{
+    const r = await fetch(URL_BIN, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        "X-Access-Key": CONFIG.CHAVE,
+        "X-Bin-Versioning": "false"
+      },
+      body: instantaneo
+    });
+    if (!r.ok) throw new Error(r.status);
+    carimboRemoto = JSON.parse(instantaneo).atualizadoEm;
+    if (JSON.stringify(dados) === instantaneo) sujo = false;
+    enviando = false; pintarSync("ok");
+  }catch(err){
+    enviando = false; pintarSync("erro");
+    setTimeout(() => { if (sujo) enviar(); }, 5000);
+  }
+}
+
+async function buscarRemoto(silencioso){
+  if (!online) return;
+  try{
+    const r = await fetch(URL_BIN + "/latest", {
+      headers: { "X-Access-Key": CONFIG.CHAVE },
+      cache: "no-store"
+    });
+    if (!r.ok) throw new Error(r.status);
+    const corpo = await r.json();
+    const remoto = normalizar(corpo.record || {});
+    if (!remoto.categorias.length){          // bin vazio: semeia com a lista inicial
+      dados = normalizar(LISTA_INICIAL);
+      dados.atualizadoEm = Date.now();
+      sujo = true; salvarLocal(); render(); enviar(); return;
+    }
+    if (!sujo && remoto.atualizadoEm > (dados?.atualizadoEm || 0)){
+      dados = remoto; carimboRemoto = remoto.atualizadoEm;
+      salvarLocal(); render();
+    }
+    pintarSync("ok");
+  }catch(err){
+    if (!silencioso) pintarSync("erro");
+  }
+}
+
+/* ══════════════════════════════════════════════════════════
+   Render
+   ══════════════════════════════════════════════════════════ */
+const check = '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>';
+const setaSvg = '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>';
+const lixoSvg = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M8 6V4h8v2M19 6l-1 14H6L5 6"/></svg>';
+
+function esc(s){ return String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c])); }
+
+function render(){
+  $("#titulo").textContent = dados.titulo;
+  document.title = dados.titulo;
+  document.body.classList.toggle("somenteleitura", !podeEditar);
+
+  const todos = dados.categorias.flatMap(c => c.itens);
+  const feitos = todos.filter(i => i.feito).length;
+  const falta = todos.length - feitos;
+
+  $("#numFalta").textContent = falta;
+  $("#textoPlacar").textContent = falta === 1
+    ? `item faltando · ${feitos} de ${todos.length} no carrinho`
+    : `itens faltando · ${feitos} de ${todos.length} no carrinho`;
+  $("#progresso").style.width = todos.length ? (feitos / todos.length * 100) + "%" : "0%";
+
+  const q = busca.trim().toLowerCase();
+  const alvo = document.createDocumentFragment();
+  let visiveis = 0;
+
+  dados.categorias.forEach(cat => {
+    const itens = cat.itens.filter(it => {
+      if (filtro === "falta" && it.feito) return false;
+      if (filtro === "feito" && !it.feito) return false;
+      if (q && !(it.nome + " " + it.qtd + " " + it.obs).toLowerCase().includes(q)) return false;
+      return true;
+    });
+    if (!itens.length) return;
+    visiveis += itens.length;
+
+    const sec = document.createElement("section");
+    sec.className = "grupo" + (fechadas.has(cat.id) && !q ? " fechado" : "");
+    const total = cat.itens.length, ok = cat.itens.filter(i => i.feito).length;
+
+    const topo = document.createElement("div");
+    topo.className = "grupo-topo";
+    topo.innerHTML = `<span class="tarja" style="background:${esc(cat.cor)}"></span>
+      <span class="grupo-nome">${esc(cat.nome)}</span>
+      <span class="grupo-conta">${ok}/${total}</span>
+      <button class="seta" aria-label="Recolher ${esc(cat.nome)}">${setaSvg}</button>`;
+    topo.onclick = () => {
+      fechadas.has(cat.id) ? fechadas.delete(cat.id) : fechadas.add(cat.id);
+      localStorage.setItem("cats-fechadas", JSON.stringify([...fechadas]));
+      render();
+    };
+    sec.appendChild(topo);
+
+    const ul = document.createElement("ul");
+    ul.className = "itens";
+    itens.forEach(it => ul.appendChild(linhaItem(it, cat)));
+    sec.appendChild(ul);
+    alvo.appendChild(sec);
+  });
+
+  const lista = $("#lista");
+  lista.innerHTML = "";
+  if (!visiveis){
+    const p = document.createElement("p");
+    p.className = "vazio";
+    p.textContent = q ? `Nada encontrado para “${busca}”.`
+      : filtro === "falta" ? "Tudo comprado. Boa!"
+      : filtro === "feito" ? "Nada marcado ainda."
+      : "A lista está vazia. Toque em Adicionar item.";
+    lista.appendChild(p);
+  } else {
+    lista.appendChild(alvo);
+  }
+  pintarSync();
+}
+
+function linhaItem(it, cat){
+  const li = document.createElement("li");
+  li.className = "item" + (it.feito ? " feito" : "");
+
+  const marc = document.createElement("button");
+  marc.className = "marcador";
+  marc.innerHTML = check;
+  marc.setAttribute("aria-pressed", it.feito);
+  marc.setAttribute("aria-label", (it.feito ? "Desmarcar " : "Marcar como comprado: ") + it.nome);
+  marc.onclick = () => { if (!exigirEdicao()) return; it.feito = !it.feito; marcarMudanca(); };
+
+  const nome = document.createElement("button");
+  nome.className = "nome";
+  nome.innerHTML = esc(it.nome) + (it.obs ? `<span class="obs">${esc(it.obs)}</span>` : "");
+  nome.title = "Toque para editar";
+  nome.onclick = () => { if (!exigirEdicao()) return; editarItem(li, it, nome); };
+
+  li.append(marc, nome);
+  if (it.qtd){
+    const q = document.createElement("span");
+    q.className = "qtd"; q.textContent = it.qtd;
+    li.appendChild(q);
+  }
+
+  const del = document.createElement("button");
+  del.className = "lixo"; del.innerHTML = lixoSvg;
+  del.setAttribute("aria-label", "Remover " + it.nome);
+  del.onclick = () => {
+    if (!exigirEdicao()) return;
+    if (!confirm(`Remover “${it.nome}” da lista?`)) return;
+    cat.itens = cat.itens.filter(x => x.id !== it.id);
+    marcarMudanca();
+  };
+  li.appendChild(del);
+  return li;
+}
+
+function editarItem(li, it, nomeEl){
+  const inp = document.createElement("input");
+  inp.className = "editando";
+  inp.value = it.qtd ? `${it.qtd} ${it.nome}` : it.nome;
+  li.replaceChild(inp, nomeEl);
+  li.querySelector(".qtd")?.remove();
+  inp.focus(); inp.select();
+
+  const gravar = () => {
+    const t = inp.value.trim();
+    if (!t) { render(); return; }
+    const { nome, qtd } = separarQtd(t);
+    it.nome = nome; it.qtd = qtd;
+    marcarMudanca();
+  };
+  inp.onblur = gravar;
+  inp.onkeydown = e => {
+    if (e.key === "Enter") { e.preventDefault(); inp.blur(); }
+    if (e.key === "Escape") { inp.onblur = null; render(); }
+  };
+}
+
+// "4 kg de arroz" → { nome:"arroz", qtd:"4 kg" }
+function separarQtd(texto){
+  const m = texto.match(/^\s*(\d+[.,]?\d*)\s*(kg|ml|quilos?|kilos?|litros?|pacotes?|pct|caixas?|cx|d[úu]zias?|dz|und|un|g|l)?\b\s*(?:de\s+|x\s*)?(.+)$/i);
+  if (!m || !m[3]) return { nome: texto.trim(), qtd: "" };
+  let u = m[2] ? m[2].toLowerCase() : "";
+  if (u === "l") u = "L";                       // litro maiúsculo pra não parecer 1
+  return { nome: m[3].trim(), qtd: m[1] + (u ? " " + u : "") };
+}
+
+function pintarSync(estado){
+  const b = $("#bolinha"), t = $("#statusSync");
+  b.className = "bolinha";
+  if (!online){ t.textContent = "só neste aparelho"; return; }
+  if (enviando){ b.classList.add("on","enviando"); t.textContent = "salvando"; return; }
+  if (estado === "erro"){ b.classList.add("erro"); t.textContent = "sem conexão"; return; }
+  if (sujo){ b.classList.add("enviando"); t.textContent = "pendente"; return; }
+  b.classList.add("on"); t.textContent = "sincronizado";
+}
+
+function aviso(msg){
+  const t = $("#toast");
+  t.textContent = msg; t.hidden = false;
+  clearTimeout(aviso._t);
+  aviso._t = setTimeout(() => t.hidden = true, 2600);
+}
+
+/* ══════════════════════════════════════════════════════════
+   Senha
+   ══════════════════════════════════════════════════════════ */
+function exigirEdicao(){
+  if (podeEditar) return true;
+  abrir("#veuSenha");
+  setTimeout(() => $("#fSenha").focus(), 60);
+  return false;
+}
+$("#fSenhaOk").onclick = () => {
+  if ($("#fSenha").value === CONFIG.SENHA_EDICAO){
+    podeEditar = true;
+    localStorage.setItem("edicao-liberada", "1");
+    fechar(); render(); aviso("Edição liberada");
+  } else {
+    aviso("Senha incorreta");
+  }
+  $("#fSenha").value = "";
+};
+
+/* ══════════════════════════════════════════════════════════
+   Painéis
+   ══════════════════════════════════════════════════════════ */
+function abrir(sel){ $(sel).hidden = false; }
+function fechar(){ document.querySelectorAll(".veu").forEach(v => v.hidden = true); }
+document.querySelectorAll(".veu").forEach(v => {
+  v.addEventListener("click", e => { if (e.target === v) fechar(); });
+});
+document.querySelectorAll("[data-fechar]").forEach(b => b.onclick = fechar);
+document.addEventListener("keydown", e => { if (e.key === "Escape") fechar(); });
+
+$("#btnAdd").onclick = () => {
+  if (!exigirEdicao()) return;
+  const sel = $("#fCat");
+  sel.innerHTML = dados.categorias.map(c => `<option value="${c.id}">${esc(c.nome)}</option>`).join("");
+  $("#fNome").value = ""; $("#fQtd").value = ""; $("#fObs").value = "";
+  abrir("#veuAdd");
+  setTimeout(() => $("#fNome").focus(), 60);
+};
+
+$("#fSalvar").onclick = () => {
+  const bruto = $("#fNome").value.trim();
+  if (!bruto){ $("#fNome").focus(); return; }
+  const cat = dados.categorias.find(c => c.id === $("#fCat").value) || dados.categorias[0];
+  let nome = bruto, qtd = $("#fQtd").value.trim();
+  if (!qtd){ const s = separarQtd(bruto); nome = s.nome; qtd = s.qtd; }
+  cat.itens.push({ id:id(), nome, qtd, obs:$("#fObs").value.trim(), feito:false });
+  fechar(); marcarMudanca(); aviso(`${nome} adicionado`);
+};
+$("#fNome").addEventListener("keydown", e => { if (e.key === "Enter") $("#fSalvar").click(); });
+$("#fQtd").addEventListener("keydown", e => { if (e.key === "Enter") $("#fSalvar").click(); });
+$("#fObs").addEventListener("keydown", e => { if (e.key === "Enter") $("#fSalvar").click(); });
+
+$("#btnMenu").onclick = () => abrir("#veuMenu");
+
+$("#mCopiar").onclick = async () => {
+  const linhas = [dados.titulo, ""];
+  dados.categorias.forEach(c => {
+    const f = c.itens.filter(i => !i.feito);
+    if (!f.length) return;
+    linhas.push("*" + c.nome + "*");
+    f.forEach(i => linhas.push("• " + (i.qtd ? i.qtd + " " : "") + i.nome + (i.obs ? " (" + i.obs + ")" : "")));
+    linhas.push("");
+  });
+  const txt = linhas.join("\n").trim();
+  try { await navigator.clipboard.writeText(txt); aviso("Copiado"); }
+  catch(e){ prompt("Copie a lista:", txt); }
+  fechar();
+};
+
+$("#mCategoria").onclick = () => {
+  if (!exigirEdicao()) return;
+  const nome = prompt("Nome da nova categoria:");
+  if (!nome || !nome.trim()) return;
+  dados.categorias.push({
+    id:id(), nome:nome.trim(),
+    cor: CORES[dados.categorias.length % CORES.length], itens:[]
+  });
+  fechar(); marcarMudanca();
+};
+
+$("#mDesmarcar").onclick = () => {
+  if (!exigirEdicao()) return;
+  if (!confirm("Desmarcar todos os itens e recomeçar a lista?")) return;
+  dados.categorias.forEach(c => c.itens.forEach(i => i.feito = false));
+  fechar(); marcarMudanca(); aviso("Lista zerada");
+};
+
+$("#mLimpar").onclick = () => {
+  if (!exigirEdicao()) return;
+  const n = dados.categorias.flatMap(c => c.itens).filter(i => i.feito).length;
+  if (!n) { aviso("Nenhum item marcado"); return; }
+  if (!confirm(`Apagar de vez os ${n} itens já comprados?`)) return;
+  dados.categorias.forEach(c => c.itens = c.itens.filter(i => !i.feito));
+  fechar(); marcarMudanca(); aviso(n + " itens removidos");
+};
+
+document.querySelectorAll(".abas button").forEach(b => {
+  b.onclick = () => {
+    filtro = b.dataset.filtro;
+    document.querySelectorAll(".abas button").forEach(x =>
+      x.setAttribute("aria-pressed", x === b));
+    render();
+  };
+});
+
+$("#busca").oninput = e => { busca = e.target.value; render(); };
+
+/* ══════════════════════════════════════════════════════════
+   Partida
+   ══════════════════════════════════════════════════════════ */
+(function iniciar(){
+  const salvo = localStorage.getItem(CHAVE_LOCAL);
+  dados = normalizar(salvo ? JSON.parse(salvo) : LISTA_INICIAL);
+  if (!salvo) dados.atualizadoEm = Date.now();
+  render();
+
+  if (!online){
+    const a = $("#avisoConfig");
+    a.className = "aviso"; a.hidden = false;
+    a.innerHTML = "<b>Modo local.</b> Cada pessoa que abrir vai ver a própria lista. Para todos verem a mesma, preencha BIN_ID e CHAVE no topo do arquivo.";
+  } else {
+    buscarRemoto();
+    // Se a aba fica aberta e parada, espaça as consultas para não gastar a cota.
+    let ultimaAcao = Date.now(), tique = 0;
+    ["click","keydown","touchstart"].forEach(ev =>
+      document.addEventListener(ev, () => ultimaAcao = Date.now(), {passive:true}));
+    setInterval(() => {
+      if (document.hidden) return;
+      tique++;
+      const parado = Date.now() - ultimaAcao > 3 * 60 * 1000;
+      if (parado && tique % 4 !== 0) return;
+      buscarRemoto(true);
+    }, CONFIG.INTERVALO_SYNC * 1000);
+    document.addEventListener("visibilitychange", () => { if (!document.hidden) buscarRemoto(true); });
+    window.addEventListener("online", () => { buscarRemoto(true); enviar(); });
+  }
+  window.addEventListener("beforeunload", e => {
+    if (sujo && online){ e.preventDefault(); e.returnValue = ""; }
+  });
+})();
+</script>
+</body>
+</html>
