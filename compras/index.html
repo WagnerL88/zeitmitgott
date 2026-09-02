@@ -17,10 +17,10 @@
 <script>
 const CONFIG = {
   // Cole aqui o ID do seu bin do JSONBin (ex.: "665f1a2be41b4d34e4401234")
-  BIN_ID: "",
+  BIN_ID: "6a988e69f5f4af5e2962be87",
 
   // Cole aqui a Access Key do JSONBin (a de acesso, não a Master Key)
-  CHAVE: "",
+  CHAVE: "$2a$10$fpwuXwyWUWIgWUqqM5tyMeYPq6IXZ5eqOZ1TO5TarJ4WA.fei66Z2",
 
   // Título que aparece no topo
   TITULO: "Lista de compras",
@@ -185,11 +185,13 @@ main{max-width:720px;margin:0 auto;padding:8px 16px 24px}
 }
 .item.feito .qtd{opacity:.5}
 
-.lixo{
+.acao{
   flex:none;border:0;background:none;cursor:pointer;color:var(--tinta-fraca);
-  padding:6px;line-height:0;border-radius:8px;opacity:.55;
+  padding:7px;line-height:0;border-radius:8px;opacity:.55;
 }
-.lixo:hover{opacity:1;color:var(--alerta)}
+.acao:hover{opacity:1;background:var(--papel-2)}
+.lixo:hover{color:var(--alerta)}
+.item.feito .acao{opacity:.35}
 
 .editando{
   width:100%;padding:6px 9px;border:2px solid var(--verde);border-radius:8px;
@@ -242,6 +244,12 @@ main{max-width:720px;margin:0 auto;padding:8px 16px 24px}
 .dupla .campo.curto{flex:0 0 118px}
 .painel-acoes{display:flex;gap:8px;margin-top:16px}
 .painel-acoes .btn{flex:1}
+.btn.apagar{
+  width:100%;margin-top:8px;border-color:transparent;background:transparent;
+  color:var(--alerta);font-weight:500;
+}
+.btn.apagar:hover{background:var(--papel-2)}
+.btn.apagar[hidden]{display:none}
 
 .menu-item{
   width:100%;text-align:left;border:0;background:none;padding:13px 6px;
@@ -266,8 +274,8 @@ main{max-width:720px;margin:0 auto;padding:8px 16px 24px}
 }
 .toast[hidden]{display:none}
 
-/* quem não tem a senha não apaga nada, mas ao tocar num item é convidado a liberar */
-.somenteleitura .lixo{display:none}
+/* quem não tem a senha não altera nada, mas ao tocar num item é convidado a liberar */
+.somenteleitura .acao{display:none}
 </style>
 </head>
 <body>
@@ -324,6 +332,7 @@ main{max-width:720px;margin:0 auto;padding:8px 16px 24px}
       <button class="btn" data-fechar>Cancelar</button>
       <button class="btn principal" id="fSalvar">Adicionar</button>
     </div>
+    <button class="btn apagar" id="fApagar" hidden>Remover da lista</button>
   </div>
 </div>
 
@@ -514,6 +523,7 @@ async function buscarRemoto(silencioso){
 const check = '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>';
 const setaSvg = '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>';
 const lixoSvg = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M8 6V4h8v2M19 6l-1 14H6L5 6"/></svg>';
+const lapisSvg = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>';
 
 function esc(s){ return String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c])); }
 
@@ -610,9 +620,17 @@ function linhaItem(it, cat){
     li.appendChild(q);
   }
 
+  const lap = document.createElement("button");
+  lap.className = "acao"; lap.innerHTML = lapisSvg;
+  lap.setAttribute("aria-label", "Editar " + it.nome);
+  lap.title = "Editar item";
+  lap.onclick = () => { if (!exigirEdicao()) return; abrirPainelItem(it, cat); };
+  li.appendChild(lap);
+
   const del = document.createElement("button");
-  del.className = "lixo"; del.innerHTML = lixoSvg;
+  del.className = "acao lixo"; del.innerHTML = lixoSvg;
   del.setAttribute("aria-label", "Remover " + it.nome);
+  del.title = "Remover item";
   del.onclick = () => {
     if (!exigirEdicao()) return;
     if (!confirm(`Remover “${it.nome}” da lista?`)) return;
@@ -695,30 +713,68 @@ $("#fSenhaOk").onclick = () => {
    Painéis
    ══════════════════════════════════════════════════════════ */
 function abrir(sel){ $(sel).hidden = false; }
-function fechar(){ document.querySelectorAll(".veu").forEach(v => v.hidden = true); }
+function fechar(){
+  document.querySelectorAll(".veu").forEach(v => v.hidden = true);
+  emEdicao = null;
+}
 document.querySelectorAll(".veu").forEach(v => {
   v.addEventListener("click", e => { if (e.target === v) fechar(); });
 });
 document.querySelectorAll("[data-fechar]").forEach(b => b.onclick = fechar);
 document.addEventListener("keydown", e => { if (e.key === "Escape") fechar(); });
 
-$("#btnAdd").onclick = () => {
-  if (!exigirEdicao()) return;
+let emEdicao = null;   // {it, cat} quando o painel está editando um item existente
+
+function abrirPainelItem(it, cat){
+  emEdicao = it ? { it, cat } : null;
   const sel = $("#fCat");
-  sel.innerHTML = dados.categorias.map(c => `<option value="${c.id}">${esc(c.nome)}</option>`).join("");
-  $("#fNome").value = ""; $("#fQtd").value = ""; $("#fObs").value = "";
+  sel.innerHTML = dados.categorias
+    .map(c => `<option value="${c.id}">${esc(c.nome)}</option>`).join("");
+
+  $("#tAdd").textContent   = it ? "Editar item" : "Adicionar item";
+  $("#fSalvar").textContent = it ? "Salvar alterações" : "Adicionar";
+  $("#fNome").value = it ? it.nome : "";
+  $("#fQtd").value  = it ? it.qtd  : "";
+  $("#fObs").value  = it ? it.obs  : "";
+  sel.value = it ? cat.id : dados.categorias[0]?.id;
+  $("#fApagar").hidden = !it;
+
   abrir("#veuAdd");
-  setTimeout(() => $("#fNome").focus(), 60);
-};
+  setTimeout(() => { $("#fNome").focus(); if (it) $("#fNome").select(); }, 60);
+}
+
+$("#btnAdd").onclick = () => { if (exigirEdicao()) abrirPainelItem(null, null); };
 
 $("#fSalvar").onclick = () => {
   const bruto = $("#fNome").value.trim();
   if (!bruto){ $("#fNome").focus(); return; }
-  const cat = dados.categorias.find(c => c.id === $("#fCat").value) || dados.categorias[0];
+  const destino = dados.categorias.find(c => c.id === $("#fCat").value) || dados.categorias[0];
+  const obs = $("#fObs").value.trim();
   let nome = bruto, qtd = $("#fQtd").value.trim();
   if (!qtd){ const s = separarQtd(bruto); nome = s.nome; qtd = s.qtd; }
-  cat.itens.push({ id:id(), nome, qtd, obs:$("#fObs").value.trim(), feito:false });
-  fechar(); marcarMudanca(); aviso(`${nome} adicionado`);
+
+  if (emEdicao){
+    const { it, cat } = emEdicao;
+    it.nome = nome; it.qtd = qtd; it.obs = obs;
+    if (destino.id !== cat.id){                 // mudou de categoria: move o item
+      cat.itens = cat.itens.filter(x => x.id !== it.id);
+      destino.itens.push(it);
+    }
+    emEdicao = null;
+    fechar(); marcarMudanca(); aviso("Item atualizado");
+  } else {
+    destino.itens.push({ id:id(), nome, qtd, obs, feito:false });
+    fechar(); marcarMudanca(); aviso(`${nome} adicionado`);
+  }
+};
+
+$("#fApagar").onclick = () => {
+  if (!emEdicao) return;
+  const { it, cat } = emEdicao;
+  if (!confirm(`Remover “${it.nome}” da lista?`)) return;
+  cat.itens = cat.itens.filter(x => x.id !== it.id);
+  emEdicao = null;
+  fechar(); marcarMudanca(); aviso("Item removido");
 };
 $("#fNome").addEventListener("keydown", e => { if (e.key === "Enter") $("#fSalvar").click(); });
 $("#fQtd").addEventListener("keydown", e => { if (e.key === "Enter") $("#fSalvar").click(); });
