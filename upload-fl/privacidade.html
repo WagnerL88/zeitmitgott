@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Política de Privacidade — upload-fl</title>
+<style>
+  :root { color-scheme: light dark; }
+  body {
+    font: 16px/1.65 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    max-width: 42rem; margin: 0 auto; padding: 3rem 1.25rem;
+    color: #1a1a1a; background: #fff;
+  }
+  @media (prefers-color-scheme: dark) {
+    body { color: #e8e8e8; background: #141414; }
+    a { color: #7fb2ff; }
+  }
+  h1 { font-size: 1.6rem; margin-bottom: .25rem; }
+  .sub { color: #6b6b6b; margin-top: 0; font-size: .95rem; }
+  h2 { font-size: 1.05rem; margin-top: 2.25rem; }
+  ul { padding-left: 1.2rem; }
+  footer { margin-top: 3rem; padding-top: 1.25rem; border-top: 1px solid #ddd;
+           font-size: .9rem; color: #6b6b6b; }
+  @media (prefers-color-scheme: dark) { footer { border-color: #333; } }
+</style>
+</head>
+<body>
+
+<h1>Política de Privacidade</h1>
+<p class="sub">upload-fl · atualizada em 6 de setembro de 2026</p>
+
+<p>
+  O <strong>upload-fl</strong> é uma ferramenta de linha de comando de uso
+  interno, executada localmente em uma estação de trabalho própria. Ela publica,
+  nos canais do YouTube do próprio operador, vídeos produzidos pelo próprio
+  operador. A ferramenta não é distribuída e não possui usuários além do
+  operador que a executa.
+</p>
+
+<h2>Uso dos YouTube API Services</h2>
+<p>
+  Esta aplicação utiliza os <strong>YouTube API Services</strong>. Ao utilizá-la,
+  você concorda com os
+  <a href="https://www.youtube.com/t/terms" target="_blank" rel="noopener">Termos
+  de Serviço do YouTube</a> e está sujeito à
+  <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Política
+  de Privacidade do Google</a>.
+</p>
+
+<h2>Que dados são acessados</h2>
+<p>
+  A aplicação solicita autorização, via OAuth 2.0, apenas para os seguintes
+  escopos, e apenas em contas do próprio operador:
+</p>
+<ul>
+  <li><code>youtube.upload</code> — enviar vídeos ao canal do operador</li>
+  <li><code>youtube.force-ssl</code> — definir a miniatura, adicionar o vídeo a
+      uma playlist do operador, enviar legendas e verificar a identidade do
+      canal autorizado antes de publicar</li>
+</ul>
+
+<h2>Como os dados são usados</h2>
+<p>
+  Exclusivamente para publicar, no canal do próprio operador, conteúdo
+  produzido por ele: envio do arquivo de vídeo, aplicação de título, descrição,
+  tags, miniatura e legendas, e agendamento da publicação.
+</p>
+<p>
+  Antes de cada envio, a aplicação lê a identidade do canal autorizado para
+  confirmar que o vídeo será publicado no canal correto. Essa leitura serve
+  apenas a essa verificação.
+</p>
+
+<h2>Que dados são armazenados</h2>
+<p>Localmente, na estação de trabalho do operador, e em nenhum outro lugar:</p>
+<ul>
+  <li>Os tokens de autorização OAuth dos canais do próprio operador</li>
+  <li>Os identificadores dos vídeos enviados pela própria ferramenta, usados
+      para garantir que o mesmo vídeo nunca seja enviado duas vezes</li>
+</ul>
+<p>
+  Nenhum dado é transmitido a servidores próprios ou de terceiros — não existe
+  servidor. Toda comunicação acontece diretamente entre a estação de trabalho e
+  as APIs do Google.
+</p>
+
+<h2>Compartilhamento</h2>
+<p>
+  Nenhum dado obtido através dos YouTube API Services é vendido, compartilhado,
+  transferido a terceiros, combinado com outras fontes de dados, exibido
+  publicamente ou utilizado para publicidade, criação de perfis ou qualquer
+  finalidade além da descrita acima.
+</p>
+
+<h2>Retenção e remoção</h2>
+<p>
+  Os tokens e o registro local permanecem na estação de trabalho enquanto a
+  ferramenta estiver em uso, e podem ser apagados a qualquer momento pela
+  remoção dos arquivos correspondentes.
+</p>
+
+<h2>Como revogar o acesso</h2>
+<p>
+  A autorização concedida a esta aplicação pode ser revogada a qualquer momento
+  na página de
+  <a href="https://myaccount.google.com/permissions" target="_blank" rel="noopener">permissões
+  da Conta do Google</a>. A revogação impede imediatamente qualquer novo acesso
+  pela ferramenta.
+</p>
+
+<h2>Alterações</h2>
+<p>
+  Alterações nesta política serão publicadas nesta mesma página, com a data de
+  atualização revista no topo.
+</p>
+
+<footer>
+  Contato: <a href="mailto:wagnerlopes88@gmail.com">wagnerlopes88@gmail.com</a><br>
+  <a href="index.html">Voltar</a>
+</footer>
+
+</body>
+</html>
