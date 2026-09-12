@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Der Gott, der bleibt — Zeit mit Gott</title>
+<meta name="description" content="Ein Andachtsbuch für den Menschen, der zurückbleibt. 52 Kapitel, sieben biblische Stimmen und 36 kurze Andachten — groß gedruckt, für Augen, die abends müde sind.">
+<meta property="og:title" content="Der Gott, der bleibt — Zeit mit Gott">
+<meta property="og:description" content="Wenn Menschen gehen, Kräfte schwinden und du allein zurückbleibst.">
+<meta property="og:type" content="book">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#18294F; --navy-deep:#0E1830; --navy-mid:#243a6b;
+    --gold:#D9A94E; --gold-soft:#EBCB8A; --gold-deep:#A9781F;
+    --cream:#FBF8F3; --cream-warm:#F4EDE1; --cream-deep:#E8DBC4;
+    --ink:#262A33; --ink-soft:#4A4D57; --muted:#6E6557;
+    --line:rgba(24,41,79,.12); --paper:#FCF7EC;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  body{font-family:'Outfit',sans-serif;background:var(--cream);color:var(--ink);line-height:1.72;font-weight:300;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  img{max-width:100%;display:block}
+  section{padding:clamp(3.5rem,8vw,7rem) clamp(1.2rem,5vw,3rem)}
+  .wrap{max-width:1080px;margin:0 auto}
+  .narrow{max-width:760px;margin:0 auto}
+
+  .eyebrow{font-size:clamp(.7rem,1.6vw,.76rem);letter-spacing:.26em;text-transform:uppercase;font-weight:500;display:inline-flex;align-items:center;gap:.7rem;margin-bottom:1.3rem}
+  .eyebrow::before{content:"";width:28px;height:1px;background:currentColor;opacity:.55}
+  .eyebrow.center{justify-content:center}
+  .eyebrow.center::after{content:"";width:28px;height:1px;background:currentColor;opacity:.55}
+  .eyebrow.gold{color:var(--gold-deep)}
+
+  h2.h-display{font-family:'Fraunces',serif;font-weight:400;color:var(--navy);font-size:clamp(1.75rem,4.2vw,3rem);line-height:1.13;letter-spacing:-.01em;margin-bottom:1.4rem}
+  h2.h-display em{font-style:italic;color:var(--gold-deep)}
+  .lead{font-size:clamp(1.02rem,1.5vw,1.2rem);color:var(--muted)}
+
+  .btn{display:inline-block;font-family:'Outfit',sans-serif;font-size:clamp(.95rem,2vw,1.05rem);font-weight:600;background:linear-gradient(135deg,var(--gold) 0%,var(--gold-deep) 100%);color:#fff;text-decoration:none;padding:clamp(1rem,2.5vw,1.2rem) clamp(1.8rem,4vw,2.8rem);border-radius:4px;box-shadow:0 12px 30px rgba(169,120,31,.34);transition:transform .25s,box-shadow .25s;position:relative;overflow:hidden}
+  .btn::after{content:"";position:absolute;top:0;left:-120%;width:55%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.4),transparent);transform:skewX(-20deg);animation:sheen 3.8s ease-in-out infinite}
+  @keyframes sheen{0%,62%{left:-120%}82%,100%{left:135%}}
+  .btn:hover{transform:translateY(-3px);box-shadow:0 18px 44px rgba(169,120,31,.45)}
+  .btn-sub{display:block;font-size:clamp(.78rem,1.8vw,.84rem);color:var(--muted);margin-top:.9rem;font-weight:400}
+
+  nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:1.1rem clamp(1.2rem,5vw,3rem);transition:background .4s,padding .4s,box-shadow .4s}
+  nav.scrolled{background:rgba(251,248,243,.96);backdrop-filter:blur(12px);box-shadow:0 1px 0 var(--line);padding:.7rem clamp(1.2rem,5vw,3rem)}
+  .brand{font-family:'Fraunces',serif;font-size:clamp(.95rem,2.5vw,1.05rem);font-weight:500;letter-spacing:.13em;text-transform:uppercase;color:var(--cream);transition:color .4s}
+  nav.scrolled .brand{color:var(--navy)}
+  .brand span{color:var(--gold)}
+  .nav-cta{font-size:clamp(.72rem,1.8vw,.8rem);font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--navy);background:var(--gold);text-decoration:none;padding:.6rem 1.2rem;border-radius:4px;transition:all .3s;white-space:nowrap}
+  .nav-cta:hover{background:var(--gold-soft)}
+
+  /* HERO */
+  .hero{background:radial-gradient(130% 120% at 72% 18%,var(--navy-mid) 0%,var(--navy) 44%,var(--navy-deep) 100%);color:var(--cream);padding-top:clamp(6.5rem,13vw,9rem);position:relative;overflow:hidden}
+  .hero::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 100%,rgba(217,169,78,.18),transparent 58%);pointer-events:none}
+  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(2rem,6vw,5rem);align-items:center;position:relative;z-index:2}
+  .hero h1{font-family:'Fraunces',serif;font-weight:400;font-size:clamp(2.1rem,5.2vw,4rem);line-height:1.05;letter-spacing:-.015em;margin-bottom:1.4rem}
+  .hero h1 em{font-style:italic;color:var(--gold-soft)}
+  .hero-lead{font-size:clamp(1.05rem,1.6vw,1.28rem);color:rgba(251,248,243,.88);margin-bottom:1.8rem;max-width:32rem}
+  .hero-verse{font-family:'Fraunces',serif;font-style:italic;font-size:clamp(.95rem,1.6vw,1.05rem);color:var(--gold-soft);margin-bottom:2.2rem;padding-left:1.1rem;border-left:2px solid var(--gold)}
+  .hero-cover-wrap{display:flex;justify-content:center;position:relative}
+  .hero-cover-wrap::before{content:"";position:absolute;bottom:-8%;left:50%;transform:translateX(-50%);width:70%;height:36px;background:radial-gradient(ellipse,rgba(217,169,78,.45),transparent 70%);filter:blur(14px)}
+  .hero-cover{width:clamp(230px,29vw,360px);border-radius:5px;box-shadow:-24px 30px 80px rgba(0,0,0,.6),0 0 0 1px rgba(217,169,78,.3),0 0 60px rgba(217,169,78,.15);transform:perspective(1500px) rotateY(-14deg) rotateX(2deg);transition:transform .6s cubic-bezier(.2,.8,.2,1)}
+  .hero-cover:hover{transform:perspective(1500px) rotateY(-6deg) translateY(-8px)}
+
+  .trust{background:var(--navy-deep);color:var(--gold-soft);padding:.95rem 1.2rem;font-size:clamp(.78rem,1.8vw,.92rem);letter-spacing:.03em;position:relative;z-index:2;display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:.15rem .1rem;line-height:1.9}
+  .trust strong{color:#fff;font-weight:600}
+  .trust span.sep{opacity:.4;margin:0 .55rem}
+
+  /* PAIN */
+  .pain{background:var(--cream)}
+  .pain-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.1rem;margin-top:2.6rem}
+  .pain-item{display:flex;gap:1rem;padding:1.4rem 1.5rem;background:#fff;border-radius:5px;border-left:3px solid var(--gold);box-shadow:0 6px 22px rgba(24,41,79,.06)}
+  .pain-item .mark{font-family:'Fraunces',serif;font-weight:600;color:var(--gold-deep);font-size:1.6rem;line-height:.8}
+  .pain-item p{font-size:clamp(.96rem,1.8vw,1.02rem);color:var(--ink-soft);margin:0}
+  .pain-bridge{text-align:center;margin-top:3rem;font-family:'Fraunces',serif;font-style:italic;font-size:clamp(1.2rem,2.8vw,1.7rem);color:var(--navy);line-height:1.45}
+  .pain-bridge em{color:var(--gold-deep);font-style:italic}
+
+  /* SOLUTION */
+  .solution{background:linear-gradient(165deg,var(--navy) 0%,var(--navy-deep) 100%);color:var(--cream);position:relative;overflow:hidden}
+  .solution::before{content:"";position:absolute;bottom:-20%;left:-10%;width:480px;height:480px;background:radial-gradient(circle,rgba(217,169,78,.1),transparent 70%);pointer-events:none}
+  .solution h2{color:#fff;position:relative}
+  .solution h2 em{color:var(--gold-soft)}
+  .solution .lead{color:rgba(251,248,243,.84);position:relative}
+  .nots{position:relative;margin-top:2.4rem;display:grid;gap:.85rem}
+  .not{display:flex;gap:.9rem;align-items:flex-start;padding:1.05rem 1.3rem;background:rgba(255,255,255,.05);border:1px solid rgba(217,169,78,.22);border-radius:5px;font-size:clamp(.96rem,1.8vw,1.04rem);color:rgba(251,248,243,.92)}
+  .not b{color:var(--gold-soft);font-weight:600;flex-shrink:0}
+  .prayer{position:relative;margin-top:2.4rem;padding:1.9rem 2rem;background:rgba(217,169,78,.1);border:1px solid rgba(217,169,78,.3);border-radius:5px;text-align:center}
+  .prayer p{font-family:'Fraunces',serif;font-style:italic;font-size:clamp(1.05rem,2.2vw,1.3rem);line-height:1.6;color:#fff}
+  .prayer .src{display:block;margin-top:1rem;font-family:'Outfit',sans-serif;font-style:normal;font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-soft)}
+
+  /* OPEN BOOK */
+  .excerpt{background:var(--cream-warm)}
+  .book-open{max-width:880px;margin:2.6rem auto 0;display:grid;grid-template-columns:1fr 1fr;background:var(--paper);border-radius:6px;box-shadow:0 30px 70px rgba(24,41,79,.22),inset 0 0 0 1px rgba(169,120,31,.15);position:relative;overflow:hidden}
+  .book-open::before{content:"";position:absolute;top:0;bottom:0;left:50%;width:36px;transform:translateX(-50%);background:linear-gradient(90deg,transparent,rgba(24,41,79,.14) 45%,rgba(24,41,79,.18) 50%,rgba(24,41,79,.14) 55%,transparent);pointer-events:none;z-index:2}
+  .book-page{padding:clamp(1.8rem,4vw,3rem) clamp(1.6rem,3.5vw,2.6rem)}
+  .book-page.left{box-shadow:inset -10px 0 24px -16px rgba(24,41,79,.25)}
+  .book-page.right{box-shadow:inset 10px 0 24px -16px rgba(24,41,79,.25)}
+  .book-ch{font-size:.68rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold-deep);margin-bottom:1rem}
+  .book-h{font-family:'Fraunces',serif;font-weight:500;color:var(--navy);font-size:clamp(1.15rem,2.4vw,1.45rem);line-height:1.25;margin-bottom:1.1rem}
+  .book-text{font-family:'Fraunces',serif;font-weight:300;font-size:clamp(.92rem,1.7vw,1rem);line-height:1.85;color:#3a3528;text-align:justify;hyphens:auto}
+  .book-text+.book-text{margin-top:.9rem}
+  .book-drop::first-letter{font-size:3.1em;float:left;line-height:.82;padding:.05em .12em 0 0;font-weight:500;color:var(--gold-deep);font-family:'Fraunces',serif}
+  .book-pgno{text-align:center;font-size:.72rem;color:var(--muted);margin-top:1.6rem;font-family:'Fraunces',serif;font-style:italic}
+  .excerpt-cap{text-align:center;margin-top:1.6rem;font-size:.92rem;color:var(--muted);font-style:italic}
+
+  /* ANDACHTEN */
+  .andacht{background:var(--cream)}
+  .and-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem;margin-top:2.8rem}
+  .and-card{background:#fff;border-radius:6px;overflow:hidden;box-shadow:0 10px 34px rgba(24,41,79,.09);display:flex;flex-direction:column}
+  .and-card img{width:100%;aspect-ratio:1/1;object-fit:cover}
+  .and-body{padding:1.4rem 1.5rem 1.7rem}
+  .and-body h3{font-family:'Fraunces',serif;font-weight:500;color:var(--navy);font-size:1.12rem;margin-bottom:.7rem}
+  .and-body p{font-size:.94rem;color:var(--ink-soft);line-height:1.7}
+
+  /* SPLIT (Großdruck / Stift / Geschenk) */
+  .split{background:var(--cream-warm)}
+  .split.alt{background:var(--cream)}
+  .split-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,4rem);align-items:center}
+  .split-grid.rev .split-media{order:2}
+  .split-media img{border-radius:6px;box-shadow:0 24px 60px rgba(24,41,79,.18)}
+  .split-copy h2{margin-bottom:1.2rem}
+  .split-copy p+p{margin-top:1rem}
+  .split-quote{margin-top:1.6rem;padding-left:1.1rem;border-left:2px solid var(--gold);font-family:'Fraunces',serif;font-style:italic;color:var(--navy);font-size:clamp(1rem,1.9vw,1.12rem);line-height:1.6}
+
+  /* INSIDE */
+  .inside{background:linear-gradient(165deg,var(--navy) 0%,var(--navy-deep) 100%);color:var(--cream)}
+  .inside h2{color:#fff}.inside h2 em{color:var(--gold-soft)}
+  .inside .lead{color:rgba(251,248,243,.82)}
+  .steps{list-style:none;margin-top:2.8rem;display:grid;gap:1rem;max-width:820px;margin-left:auto;margin-right:auto}
+  .steps li{display:flex;gap:1.3rem;align-items:flex-start;padding:1.4rem 1.6rem;background:rgba(255,255,255,.05);border:1px solid rgba(217,169,78,.2);border-radius:5px}
+  .steps .n{font-family:'Fraunces',serif;font-size:1.5rem;color:var(--gold);line-height:1;flex-shrink:0;width:2.2rem}
+  .steps strong{display:block;font-family:'Fraunces',serif;font-weight:500;font-size:1.1rem;color:#fff;margin-bottom:.3rem}
+  .steps .d{font-size:.95rem;color:rgba(251,248,243,.72);line-height:1.65}
+  .facts{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-top:2.6rem;max-width:820px;margin-left:auto;margin-right:auto}
+  .fact{text-align:center;padding:1.3rem .8rem;background:rgba(217,169,78,.1);border:1px solid rgba(217,169,78,.28);border-radius:5px}
+  .fact b{display:block;font-family:'Fraunces',serif;font-size:clamp(1.5rem,3.4vw,2.1rem);color:var(--gold-soft);line-height:1}
+  .fact span{display:block;margin-top:.45rem;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(251,248,243,.75)}
+
+  /* STIMMEN */
+  .stimmen{background:var(--cream)}
+  .st-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.1rem;margin-top:2.8rem}
+  .st-card{padding:1.5rem 1.6rem;background:#fff;border-radius:6px;border-top:3px solid var(--gold);box-shadow:0 8px 26px rgba(24,41,79,.07)}
+  .st-card h3{font-family:'Fraunces',serif;font-weight:500;color:var(--navy);font-size:1.18rem;margin-bottom:.45rem}
+  .st-card p{font-size:.95rem;color:var(--ink-soft);line-height:1.65}
+  .st-note{text-align:center;margin-top:2.2rem;font-style:italic;color:var(--muted);font-size:.95rem}
+
+  /* OFFER */
+  .offer{background:var(--cream-warm)}
+  .offer-card{max-width:620px;margin:2.8rem auto 0;background:#fff;border-radius:8px;padding:clamp(2rem,5vw,3.2rem);text-align:center;box-shadow:0 28px 70px rgba(24,41,79,.14);border:1px solid var(--line);position:relative}
+  .offer-badge{display:inline-block;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;font-weight:600;color:#fff;background:var(--gold-deep);padding:.4rem 1rem;border-radius:3px;margin-bottom:1.3rem}
+  .offer-card h3{font-family:'Fraunces',serif;font-weight:500;color:var(--navy);font-size:clamp(1.3rem,3vw,1.7rem);line-height:1.25;margin-bottom:1.6rem}
+  .offer-includes{list-style:none;text-align:left;max-width:420px;margin:0 auto 1.9rem;display:grid;gap:.7rem}
+  .offer-includes li{display:flex;gap:.75rem;font-size:.98rem;color:var(--ink-soft)}
+  .offer-includes li::before{content:"✓";color:var(--gold-deep);font-weight:700;flex-shrink:0}
+  .price-old{display:inline-block;background:var(--cream-warm);border:1px solid var(--cream-deep);border-radius:999px;padding:.42rem 1.5rem;margin-bottom:1.1rem;font-size:clamp(.95rem,2vw,1.08rem);font-weight:600;color:var(--gold-deep);letter-spacing:.01em}
+  .price-old .strike{text-decoration:line-through;text-decoration-thickness:2px;text-decoration-color:var(--gold-deep);opacity:.9;margin-left:.35rem}
+  .price-now{font-family:'Fraunces',serif;font-size:clamp(2.2rem,5.5vw,3rem);color:var(--navy);line-height:1;margin-bottom:.4rem}
+  .price-now small{font-family:'Outfit',sans-serif;font-size:clamp(.85rem,1.8vw,.98rem);font-weight:400;color:var(--muted);margin-left:.5rem}
+  .price-save{display:inline-block;font-size:.82rem;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:#fff;background:var(--gold-deep);border-radius:3px;padding:.28rem .8rem;margin-bottom:1rem}
+  .price-note{font-size:.85rem;color:var(--muted);margin-bottom:1.8rem}
+
+  .guarantee{background:var(--cream)}
+  .guar-box{max-width:760px;margin:0 auto;display:flex;gap:1.5rem;align-items:center;padding:1.8rem 2rem;background:#fff;border-radius:6px;border:1px solid var(--line);box-shadow:0 8px 26px rgba(24,41,79,.06)}
+  .guar-seal{flex-shrink:0;width:52px;height:52px;border-radius:50%;background:var(--gold);color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.5rem;font-weight:700}
+  .guar-box h3{font-family:'Fraunces',serif;font-weight:500;color:var(--navy);font-size:1.15rem;margin-bottom:.35rem}
+  .guar-box p{font-size:.95rem;color:var(--ink-soft)}
+
+  /* FAQ */
+  .faq{background:var(--cream-warm)}
+  .faq-list{max-width:800px;margin:2.6rem auto 0;display:grid;gap:.7rem}
+  .faq-item{background:#fff;border-radius:5px;border:1px solid var(--line);overflow:hidden}
+  .faq-q{width:100%;text-align:left;background:none;border:0;font-family:'Outfit',sans-serif;font-size:clamp(.97rem,1.9vw,1.05rem);font-weight:500;color:var(--navy);padding:1.15rem 3rem 1.15rem 1.4rem;cursor:pointer;position:relative;line-height:1.5}
+  .faq-q::after{content:"+";position:absolute;right:1.3rem;top:50%;transform:translateY(-50%);color:var(--gold-deep);font-size:1.3rem;transition:transform .3s}
+  .faq-item.open .faq-q::after{transform:translateY(-50%) rotate(45deg)}
+  .faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease}
+  .faq-a p{padding:0 1.4rem 1.3rem;font-size:.96rem;color:var(--ink-soft);line-height:1.7}
+  .faq-item.open .faq-a{max-height:760px}
+
+  .final{background:linear-gradient(165deg,var(--navy) 0%,var(--navy-deep) 100%);color:var(--cream);text-align:center}
+  .final h2{color:#fff}.final h2 em{color:var(--gold-soft)}
+  .final .lead{color:rgba(251,248,243,.82);margin-bottom:2.2rem}
+
+  footer{background:var(--navy-deep);color:rgba(251,248,243,.6);text-align:center;padding:2.5rem 1.5rem;font-size:.85rem;line-height:1.9}
+  footer .brand{display:block;margin-bottom:.8rem;color:var(--cream)}
+  footer a{color:var(--gold-soft);text-decoration:none}
+
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  @media(max-width:860px){
+    .hero-grid{grid-template-columns:1fr;text-align:center}
+    .hero-lead{margin-left:auto;margin-right:auto}
+    .hero-verse{text-align:left;max-width:30rem;margin-left:auto;margin-right:auto}
+    .hero-cover-wrap{order:-1;margin-bottom:2.2rem}
+    .pain-grid{grid-template-columns:1fr}
+    .and-grid{grid-template-columns:1fr;max-width:420px;margin-left:auto;margin-right:auto}
+    .split-grid{grid-template-columns:1fr}
+    .split-grid.rev .split-media{order:-1}
+    .facts{grid-template-columns:repeat(2,1fr)}
+    .book-open{grid-template-columns:1fr}
+    .book-open::before{display:none}
+    .book-page.left{box-shadow:inset 0 -10px 24px -16px rgba(24,41,79,.25)}
+    .guar-box{flex-direction:column;text-align:center}
+  }
+  @media(max-width:640px){
+    /* justificado em coluna estreita cria "rios" de espaço — alinha à esquerda */
+    .book-text{text-align:left;hyphens:none}
+    .book-drop::first-letter{font-size:2.6em}
+  }
+  @media(max-width:520px){
+    nav{padding:.85rem 1rem}
+    nav.scrolled{padding:.6rem 1rem}
+    .brand{letter-spacing:.08em;font-size:.88rem}
+    .nav-cta{padding:.52rem .9rem;font-size:.7rem;letter-spacing:.03em}
+    .pain-item{padding:1.15rem 1.2rem;gap:.8rem}
+    .steps li{padding:1.15rem 1.2rem;gap:.9rem}
+    .steps .n{width:1.8rem;font-size:1.3rem}
+    .prayer{padding:1.5rem 1.2rem}
+    .offer-includes{max-width:100%}
+    .split-quote{padding-left:.9rem}
+    .and-body{padding:1.2rem 1.2rem 1.5rem}
+    .facts{gap:.7rem}
+    .fact{padding:1.1rem .5rem}
+  }
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="brand">Zeit mit <span>Gott</span></div>
+  <a href="https://www.amazon.de/dp/B0HJH8CB3Q" class="nav-cta" target="_blank" rel="noopener noreferrer">Buch sichern</a>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow" style="color:var(--gold-soft)">Andachtsbuch · Reihe Zeit mit Gott</span>
+      <h1>Der Gott,<br><em>der bleibt</em></h1>
+      <p class="hero-lead">Wenn Menschen gehen, Kräfte schwinden und du allein zurückbleibst. Ein Begleiter für die Abende, an denen das Haus zu groß geworden ist.</p>
+      <div class="hero-verse">„Ich will dich nicht verlassen und nicht von dir weichen.“<br>— Josua 1,5</div>
+      <div>
+        <a href="#angebot" class="btn">Jetzt mein Exemplar sichern</a>
+        <span class="btn-sub" style="color:rgba(251,248,243,.62)">Gedruckte Ausgabe · Sichere Bestellung über Amazon</span>
+      </div>
+    </div>
+    <div class="hero-cover-wrap">
+      <img class="hero-cover" src="img/cover.jpg" alt="Der Gott, der bleibt — Andachtsbuch, Zeit mit Gott">
+    </div>
+  </div>
+</header>
+
+<div class="trust">
+  <strong>383 Seiten</strong><span class="sep">·</span>52 Kapitel<span class="sep">·</span>7 biblische Stimmen<span class="sep">·</span>36 kurze Andachten<span class="sep">·</span><strong>Großdruck</strong>
+</div>
+
+<!-- PAIN -->
+<section class="pain">
+  <div class="wrap">
+    <div class="narrow" style="text-align:center;">
+      <span class="eyebrow gold center">Vielleicht kennst du diese Stille</span>
+      <h2 class="h-display">Sie hat den Umriss eines Menschen, <em>der nicht mehr da ist</em>.</h2>
+      <p class="lead">Es gibt eine Stille, die anders ist als die Stille am frühen Morgen. Wenn auch nur einer dieser Sätze dich trifft, wurde dieses Buch für dich geschrieben.</p>
+    </div>
+    <div class="pain-grid">
+      <div class="pain-item reveal"><span class="mark">”</span><p>Der Stuhl am Tisch bleibt leer — und du deckst ihn trotzdem noch mit.</p></div>
+      <div class="pain-item reveal"><span class="mark">”</span><p>Das Telefon klingelt nicht mehr. Nicht, weil etwas passiert ist. Es klingelt einfach nicht mehr.</p></div>
+      <div class="pain-item reveal"><span class="mark">”</span><p>Du kochst für eine Person und weißt nicht, wann du damit aufgehört hast, für zwei zu kochen.</p></div>
+      <div class="pain-item reveal"><span class="mark">”</span><p>Der Kleiderschrank ist noch voll. Du hast es bis heute nicht über dich gebracht.</p></div>
+      <div class="pain-item reveal"><span class="mark">”</span><p>Dein Körper verweigert dir Dinge, die früher selbstverständlich waren — und niemand fragt danach.</p></div>
+      <div class="pain-item reveal"><span class="mark">”</span><p>Du liegst um drei Uhr nachts wach, und das Haus ist so still, dass du es hören kannst.</p></div>
+    </div>
+    <p class="pain-bridge reveal">Du bist übrig geblieben.<br><em>Und das ist keine Schuld.</em></p>
+  </div>
+</section>
+
+<!-- SOLUTION -->
+<section class="solution">
+  <div class="narrow">
+    <span class="eyebrow center" style="color:var(--gold-soft)">Worauf du dich einlässt</span>
+    <h2 class="h-display" style="text-align:center;">Dieses Buch wird dir nicht sagen, <em>dass alles einen Sinn hat</em>.</h2>
+    <p class="lead" style="text-align:center;">Diesen Satz haben Menschen erfunden, die es eilig hatten. Hier steht stattdessen ziemlich genau beschrieben, wie es dir geht.</p>
+
+    <div class="nots">
+      <div class="not reveal"><b>Es erklärt nicht,</b><span>warum es so gekommen ist. Diese Erklärung gibt es nicht — und wer sie dir anbietet, hat dein Schweigen nie geteilt.</span></div>
+      <div class="not reveal"><b>Es fordert nicht,</b><span>dass du stark bist. Du musst nicht heilen wollen, um weiterzulesen.</span></div>
+      <div class="not reveal"><b>Es drängt nicht.</b><span>Ein Kapitel am Tag genügt. An manchen Tagen ein Satz. Es läuft nicht weg, und es rechnet nicht mit.</span></div>
+    </div>
+
+    <div class="prayer reveal">
+      <p>„Ich bitte Dich nicht, mir zurückzugeben, was ich verloren habe.<br>Ich bitte Dich um etwas Kleineres und Schwereres: <strong style="color:var(--gold-soft);font-weight:500">Bleib.</strong>“</p>
+      <span class="src">Aus dem Eröffnungsgebet</span>
+    </div>
+  </div>
+</section>
+
+<!-- EXCERPT -->
+<section class="excerpt">
+  <div class="wrap">
+    <div class="narrow" style="text-align:center;">
+      <span class="eyebrow gold center">Ein Blick ins Buch</span>
+      <h2 class="h-display">Lies die ersten <em>Zeilen</em> des Vorworts.</h2>
+    </div>
+    <div class="book-open reveal">
+      <div class="book-page left">
+        <div class="book-ch">Vorwort · Bevor du beginnst</div>
+        <h3 class="book-h">Es gibt eine Stille, die erst entsteht, wenn jemand fehlt.</h3>
+        <p class="book-text book-drop">Sie ist anders als die Stille am frühen Morgen oder die Stille in einer leeren Kirche. Sie hat eine Form. Sie hat den Umriss eines Menschen, der nicht mehr da ist — eines Stuhls, der leer bleibt, eines Namens, den niemand mehr ausspricht, einer Stimme, die du im Kopf noch hörst und im Zimmer nicht mehr.</p>
+        <p class="book-text">Vielleicht kennst du diese Stille. Vielleicht wohnst du seit Monaten in ihr.</p>
+        <div class="book-pgno">— 4 —</div>
+      </div>
+      <div class="book-page right">
+        <p class="book-text">Vielleicht ist jemand gestorben. Vielleicht ist jemand einfach gegangen — ohne Tür, ohne Abschied, nur mit weniger Anrufen von Woche zu Woche, bis gar keiner mehr kam.</p>
+        <p class="book-text">Ich schreibe dieses Buch, weil ich glaube, dass in dieser Stille jemand ist. Nicht als Trostpflaster. Nicht als frommer Satz, den man müden Menschen sagt, damit sie aufhören zu weinen. Sondern als Person. Als Gegenüber. Als der Einzige, von dem die Schrift sagt, dass Er nicht geht.</p>
+        <p class="book-text" style="color:var(--gold-deep);font-style:italic;">„Du musst nur bleiben — noch eine Seite lang.“</p>
+        <div class="book-pgno">— 5 —</div>
+      </div>
+    </div>
+    <p class="excerpt-cap">Aus dem Vorwort von „Der Gott, der bleibt“</p>
+  </div>
+</section>
+
+<!-- GROSSDRUCK -->
+<section class="split">
+  <div class="wrap split-grid">
+    <div class="split-media reveal"><img src="img/grossdruck.jpg" alt="Aufgeschlagenes Buch mit großer Schrift und Lesebrille daneben"></div>
+    <div class="split-copy">
+      <span class="eyebrow gold">Ein Detail, das alles ändert</span>
+      <h2 class="h-display">Es ist groß gedruckt. <em>Das ist Absicht.</em></h2>
+      <p class="lead">Dieses Buch ist für Augen gesetzt, die abends müde sind. Du sollst es im Sessel lesen können, bei der Lampe, die du hast, ohne die Brille zu suchen.</p>
+      <p style="color:var(--ink-soft)">Es gibt Menschen, die aufgehört haben zu lesen, weil ihnen alles zu klein geworden ist — und die es niemandem erzählen. Für sie wurde die Schrift von Anfang an groß gesetzt. Nicht als Notlösung.</p>
+      <p class="split-quote">„Wenn du es jemandem weitergibst, dann sag ihm das dazu.“</p>
+    </div>
+  </div>
+</section>
+
+<!-- ANDACHTEN -->
+<section class="andacht">
+  <div class="wrap">
+    <div class="narrow" style="text-align:center;">
+      <span class="eyebrow gold center">Die Bank im Garten</span>
+      <h2 class="h-display">36 kurze Andachten <em>für die Tage danach</em>.</h2>
+      <p class="lead">Nicht für die großen Fragen. Für die Stunden, die Orte und die Tage, an denen es dich wieder erwischt.</p>
+    </div>
+    <div class="and-grid">
+      <div class="and-card reveal">
+        <img src="img/stunden.jpg" alt="Ein gedeckter Frühstückstisch für eine Person">
+        <div class="and-body">
+          <h3>Zwölf Stunden des Tages</h3>
+          <p>Beim Aufwachen. Der erste Kaffee. Mittags allein am Tisch. Der Nachmittag, der nicht endet. Das Abendessen für eine Person. Um drei Uhr nachts.</p>
+        </div>
+      </div>
+      <div class="and-card reveal">
+        <img src="img/orte.jpg" alt="Ein halb geöffneter Kleiderschrank mit Kleidung">
+        <div class="and-body">
+          <h3>Zwölf Orte der Erinnerung</h3>
+          <p>Der Kleiderschrank. Die Küche. Der Garten. Die Kirchenbank. Das alte Fotoalbum. Der Sessel, in dem er saß.</p>
+        </div>
+      </div>
+      <div class="and-card reveal">
+        <img src="img/tage.jpg" alt="Eine brennende Kerze am Fenster in der Winterdämmerung">
+        <div class="and-body">
+          <h3>Zwölf Tage im Jahr</h3>
+          <p>Der Geburtstag, der bleibt. Der Hochzeitstag. Der Sommer, in dem alle verreisen. Der Totensonntag. Heiligabend. Der letzte Tag des Jahres.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INSIDE -->
+<section class="inside">
+  <div class="wrap">
+    <div class="narrow" style="text-align:center;">
+      <span class="eyebrow center" style="color:var(--gold-soft)">Was dich im Buch erwartet</span>
+      <h2 class="h-display">52 Kapitel, geordnet <em>wie ein Weg</em>.</h2>
+      <p class="lead">Du musst nicht bei Kapitel eins anfangen. Schlag dort auf, wo dein Herz heute steht.</p>
+    </div>
+    <ul class="steps">
+      <li class="reveal"><span class="n">I</span><span><strong>Die Abschiede</strong><span class="d">Wenn Menschen gehen. Der Stuhl, der leer bleibt. Die Tür, die sich leise schloss. Das Gespräch, das du nicht mehr führen konntest.</span></span></li>
+      <li class="reveal"><span class="n">II</span><span><strong>Die leere Stelle</strong><span class="d">Wenn die Kräfte schwinden. Die Wohnung, die zu still geworden ist. Wenn niemand mehr fragt, wie es dir geht.</span></span></li>
+      <li class="reveal"><span class="n">III</span><span><strong>Der Bleibende</strong><span class="d">Wenn Gott sich zeigt, wo niemand mehr ist. Er war schon da, bevor du es gemerkt hast. Er zählt deine Tränen.</span></span></li>
+      <li class="reveal"><span class="n">IV</span><span><strong>Neu bewohnt</strong><span class="d">Wenn das Leben wieder anfängt. Der erste Morgen, an dem es leichter war. Wenn das Lachen zurückkommt.</span></span></li>
+    </ul>
+    <div class="facts">
+      <div class="fact reveal"><b>383</b><span>Seiten</span></div>
+      <div class="fact reveal"><b>52</b><span>Kapitel</span></div>
+      <div class="fact reveal"><b>7</b><span>Stimmen</span></div>
+      <div class="fact reveal"><b>36</b><span>Andachten</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- STIMMEN -->
+<section class="stimmen">
+  <div class="wrap">
+    <div class="narrow" style="text-align:center;">
+      <span class="eyebrow gold center">Zwischen den Teilen</span>
+      <h2 class="h-display">Sieben Menschen, die auch <em>zurückblieben</em>.</h2>
+      <p class="lead">Sie sind keine Lehre, sondern Gesellschaft. Sie haben es überlebt — nicht, weil sie stark waren. Weil Gott blieb.</p>
+    </div>
+    <div class="st-grid">
+      <div class="st-card reveal"><h3>Noomi</h3><p>Die Frau, die leer zurückkam.</p></div>
+      <div class="st-card reveal"><h3>Elia</h3><p>Der Mann unter dem Ginsterstrauch.</p></div>
+      <div class="st-card reveal"><h3>Hanna</h3><p>Die Frau, deren Lippen sich bewegten.</p></div>
+      <div class="st-card reveal"><h3>Josef</h3><p>Der Sohn, den seine Brüder verkauften.</p></div>
+      <div class="st-card reveal"><h3>David</h3><p>Der König, der allein blieb.</p></div>
+      <div class="st-card reveal"><h3>Paulus</h3><p>Der Gefangene, den alle verließen.</p></div>
+      <div class="st-card reveal"><h3>Johannes</h3><p>Der Alte auf Patmos.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- STIFT -->
+<section class="split alt">
+  <div class="wrap split-grid rev">
+    <div class="split-media reveal"><img src="img/stift.jpg" alt="Eine Buchseite mit einem unterstrichenen Satz und einem Datum am Rand"></div>
+    <div class="split-copy">
+      <span class="eyebrow gold">Mit dem Stift in der Hand</span>
+      <h2 class="h-display">Schreib an den Rand, <em>an welchem Tag</em> du diese Seite gelesen hast.</h2>
+      <p class="lead">Streich an. Markiere, was dich getroffen hat. Dieses Buch ist nicht zum Schonen gemacht.</p>
+      <p style="color:var(--ink-soft)">In einem Jahr siehst du beim Zurückblättern, wie weit du gekommen bist. Das ist oft der Moment, in dem Menschen zum ersten Mal merken, dass sich etwas bewegt hat.</p>
+      <p class="split-quote">„Ich will dich nicht verlassen und nicht von dir weichen.“</p>
+    </div>
+  </div>
+</section>
+
+<!-- GESCHENK -->
+<section class="split">
+  <div class="wrap split-grid">
+    <div class="split-media reveal"><img src="img/geschenk.jpg" alt="Das Buch mit einer handgeschriebenen Karte: Für dich."></div>
+    <div class="split-copy">
+      <span class="eyebrow gold">Zum Weitergeben</span>
+      <h2 class="h-display">Du weißt nicht, was du sagen sollst? <em>Du musst nichts sagen.</em></h2>
+      <p class="lead">Vielleicht kennst du jemanden, bei dem es still geworden ist — und jedes Wort fühlt sich falsch an.</p>
+      <p style="color:var(--ink-soft)">Dann gib ihm dieses Buch. Oder schreib ihm einen einzigen Satz daraus auf eine Karte. Manchmal trägt ein Satz jemanden über eine Nacht.</p>
+      <p class="split-quote">„Bücher über Trauer kommen fast immer zu früh. Wenn du es jetzt aufschlägst, dann ist das der richtige Zeitpunkt. Es gibt keinen anderen.“</p>
+    </div>
+  </div>
+</section>
+
+<!-- OFFER -->
+<section class="offer" id="angebot">
+  <div class="wrap">
+    <div class="narrow" style="text-align:center;">
+      <span class="eyebrow gold center">Dein nächster Schritt</span>
+      <h2 class="h-display">Du musst nur bleiben — <em>noch eine Seite lang</em>.</h2>
+      <p class="lead">Sichere dir dein gedrucktes Exemplar und nimm dir abends ein Kapitel Zeit.</p>
+    </div>
+    <div class="offer-card reveal">
+      <div class="offer-badge">Gedruckte Ausgabe · Großdruck</div>
+      <h3>Der Gott, der bleibt</h3>
+      <ul class="offer-includes">
+        <li>383 Seiten in großer, gut lesbarer Schrift</li>
+        <li>52 Kapitel in vier Etappen — vom Abschied bis zum neuen Anfang</li>
+        <li>7 biblische Stimmen von Menschen, die auch zurückblieben</li>
+        <li>36 kurze Andachten für die Stunden, Orte und Tage danach</li>
+        <li>Eröffnungsgebet und Anleitung zum Lesen</li>
+        <li>Aus der vertrauten Reihe „Zeit mit Gott“</li>
+      </ul>
+      <div class="price-old">Statt <span class="strike">€ 46,00</span></div>
+      <div class="price-now">€ 37,00</div>
+      <div class="price-note">Gedruckte Ausgabe · Preis und Verfügbarkeit auf Amazon</div>
+      <a href="https://www.amazon.de/dp/B0HJH8CB3Q" class="btn" id="buy-main" target="_blank" rel="noopener noreferrer">Jetzt bei Amazon bestellen</a>
+      <span class="btn-sub">Sichere Bezahlung · Lieferung nach Hause</span>
+    </div>
+  </div>
+</section>
+
+<!-- GUARANTEE -->
+<section class="guarantee">
+  <div class="wrap">
+    <div class="guar-box reveal">
+      <div class="guar-seal">✓</div>
+      <div>
+        <h3>Ohne Risiko bestellen</h3>
+        <p>Die Bestellung läuft sicher über Amazon — mit allen gewohnten Rechten auf Rückgabe und vollem Käuferschutz. Du gehst keinerlei Risiko ein.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+  <div class="wrap">
+    <div class="narrow" style="text-align:center;">
+      <span class="eyebrow gold center">Häufige Fragen</span>
+      <h2 class="h-display">Noch <em>Fragen</em>?</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item"><button class="faq-q">Für wen ist dieses Buch geschrieben?</button><div class="faq-a"><p>Für den Menschen, der zurückbleibt. Nach einem Todesfall, nach einer Trennung, wenn die Kinder ihr eigenes Leben begonnen haben, wenn die Gesundheit nachlässt oder wenn es einfach still geworden ist. Es setzt kein theologisches Vorwissen voraus.</p></div></div>
+      <div class="faq-item"><button class="faq-q">Ist die Schrift wirklich groß genug?</button><div class="faq-a"><p>Ja. Das Buch ist bewusst im Großdruck gesetzt — für Augen, die abends müde sind. Du sollst es im Sessel lesen können, bei normaler Lampe, ohne die Lesebrille zu suchen.</p></div></div>
+      <div class="faq-item"><button class="faq-q">Wie ist das Buch aufgebaut?</button><div class="faq-a"><p>52 Kapitel in vier Etappen: Die Abschiede, Die leere Stelle, Der Bleibende, Neu bewohnt. Dazwischen sieben biblische Stimmen. Am Ende 36 kurze Andachten für die Stunden des Tages, die Orte der Erinnerung und die zwölf schweren Tage im Jahr.</p></div></div>
+      <div class="faq-item"><button class="faq-q">Muss ich es von vorne lesen?</button><div class="faq-a"><p>Nein. Das Inhaltsverzeichnis ist bewusst so geschrieben, dass du dich darin wiederfindest. Wenn heute das Telefon nicht geklungen hat, geh zu dem Kapitel, das davon spricht. Ein Kapitel am Tag genügt — an manchen Tagen ein Satz.</p></div></div>
+      <div class="faq-item"><button class="faq-q">Eignet es sich als Geschenk?</button><div class="faq-a"><p>Sehr gut. Viele Menschen wissen nicht, was sie sagen sollen, wenn jemand allein zurückbleibt. Dieses Buch nimmt ihnen diese Aufgabe ab — man muss nichts sagen, man gibt es einfach weiter.</p></div></div>
+      <div class="faq-item"><button class="faq-q">Ist es zu früh für mich? Der Verlust ist noch ganz frisch.</button><div class="faq-a"><p>Bücher über Trauer kommen fast immer zu früh. Leg es weg, wenn es zu nah geht. Es läuft nicht weg und es rechnet nicht mit. Es gibt Menschen, die es dreimal angefangen haben, bis es ging. Wenn du es jetzt aufschlägst, dann ist das der richtige Zeitpunkt.</p></div></div>
+      <div class="faq-item"><button class="faq-q">Ich bin in meinem Glauben gerade weit weg. Passt das Buch trotzdem?</button><div class="faq-a"><p>Gerade dann. Es verlangt keinen festen Glauben und keine richtigen Gefühle. Es beschreibt zuerst, wie es dir geht — und erst dann, wer in dieser Stille bei dir ist.</p></div></div>
+      <div class="faq-item"><button class="faq-q">Muss ich einer bestimmten Konfession angehören?</button><div class="faq-a"><p>Nein. Die Bibelverse sind nach der Lutherbibel 2017 und vergleichbaren Übersetzungen zitiert. Die Botschaft richtet sich an jeden, der an Gott glaubt oder ihn suchen möchte — unabhängig von Kirche oder Gemeinde.</p></div></div>
+      <div class="faq-item"><button class="faq-q">Wie läuft die Bestellung ab?</button><div class="faq-a"><p>Mit einem Klick auf den Bestell-Button gelangst du direkt zu Amazon, wo du das Buch sicher und mit gewohntem Käuferschutz bestellst. Die Lieferung erfolgt bequem nach Hause.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL -->
+<section class="final">
+  <div class="narrow">
+    <span class="eyebrow center" style="color:var(--gold-soft)">Der erste Schritt</span>
+    <h2 class="h-display">Ich habe erlebt, dass Menschen gehen. <em>Zeig mir, dass Du anders bist.</em></h2>
+    <p class="lead">Du musst nicht heilen wollen, um anzufangen. Du musst nur bleiben — noch eine Seite lang.</p>
+    <a href="https://www.amazon.de/dp/B0HJH8CB3Q" class="btn" id="buy-final" target="_blank" rel="noopener noreferrer">Mein Exemplar jetzt bestellen</a>
+    <span class="btn-sub" style="color:rgba(251,248,243,.6)">Sichere Bestellung über Amazon · Lieferung inklusive</span>
+  </div>
+</section>
+
+<footer>
+  <span class="brand">Zeit mit <span style="color:var(--gold)">Gott</span></span>
+  © 2026 Zeit mit Gott · Der Gott, der bleibt<br>
+  <a href="https://www.instagram.com/zeit.mit_gott/" target="_blank" rel="noopener noreferrer">@zeit.mit_gott</a>
+</footer>
+
+<script>
+  var nav=document.getElementById('nav');
+  var onScroll=function(){nav.classList.toggle('scrolled',window.scrollY>50)};
+  window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})
+  },{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
+
+  document.querySelectorAll('.faq-q').forEach(function(b){
+    b.addEventListener('click',function(){b.parentElement.classList.toggle('open')})
+  });
+</script>
+</body>
+</html>
