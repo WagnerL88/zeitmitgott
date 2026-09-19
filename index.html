@@ -31,6 +31,10 @@
     --festung-2: #46505E;
     --ruhe: #D9B877;     /* dawn gold */
     --ruhe-2: #8FA8B8;
+    --bleibt: #DFC08C;   /* window light gold */
+    --bleibt-2: #6E7F91;
+    --gabe: #E3C98E;     /* gift gold */
+    --gabe-2: #9AA88F;
   }
   * { margin:0; padding:0; box-sizing:border-box; }
   html { scroll-behavior:smooth; -webkit-text-size-adjust:100%; }
@@ -149,9 +153,36 @@
     <p class="verse">&bdquo;Sei still vor dem HERRN und warte auf ihn.&ldquo; &mdash; Psalm 37,7</p>
   </header>
 
+  <!-- NEU: ANDACHTEN ZUM HOEREN (Patreon) -->
+  <div class="section-label">Neu &middot; Zum H&ouml;ren</div>
+  <div class="books" style="margin-bottom:clamp(2.4rem,6vw,3.2rem)">
+    <a class="book reveal" href="https://zeitmitgott.com/unterwegs/" style="--accent:#E6A57F;">
+      <span class="book-badge">&#127911; Neu</span>
+      <div class="book-cover"><img src="https://zeitmitgott.com/unterwegs/img/fluss.jpg" alt="Unterwegs mit Gott, Andachten zum H&ouml;ren" loading="lazy" style="aspect-ratio:1/1;object-fit:cover"></div>
+      <div class="book-body">
+        <div class="book-kicker">Jeden Tag zum H&ouml;ren</div>
+        <div class="book-title">Unterwegs mit Gott</div>
+        <div class="book-sub">Jeden Tag eine neue Andacht zum H&ouml;ren, etwa 20 bis 30 Minuten. F&uuml;r den Spaziergang, die K&uuml;che oder den Bus.</div>
+        <span class="book-cta">7 Tage kostenlos h&ouml;ren <span class="arrow">&rarr;</span></span>
+      </div>
+    </a>
+  </div>
+
   <!-- BOOKS -->
   <div class="section-label">Unsere B&uuml;cher</div>
   <div class="books">
+
+    <!-- DER GOTT, DER BLEIBT -->
+    <a class="book reveal" href="https://zeitmitgott.com/dergottderbleit/" style="--accent:var(--bleibt);">
+      <span class="book-badge">&#10024; Neuerscheinung</span>
+      <div class="book-cover"><img src="https://zeitmitgott.com/dergottderbleit/img/cover.jpg" alt="Der Gott, der bleibt" loading="lazy"></div>
+      <div class="book-body">
+        <div class="book-kicker">F&uuml;r alle, die zur&uuml;ckbleiben</div>
+        <div class="book-title">Der Gott, der bleibt</div>
+        <div class="book-sub">Wenn Menschen gehen, Kr&auml;fte schwinden und du allein zur&uuml;ckbleibst.</div>
+        <span class="book-cta">Buch entdecken <span class="arrow">&rarr;</span></span>
+      </div>
+    </a>
 
     <!-- RUHE -->
     <a class="book reveal" href="https://zeitmitgott.com/ruhe/v1/" style="--accent:var(--ruhe);">
@@ -187,6 +218,18 @@
       </div>
     </a>
 
+    <!-- 7 TAGE MIT GOTT — GESCHENK -->
+    <a class="book reveal" href="https://zeitmitgott.com/7-tage/" style="--accent:var(--gabe);">
+      <span class="book-badge">&#127873; Geschenk f&uuml;r dich</span>
+      <div class="book-cover"><img src="https://zeitmitgott.com/7-tage/cover-7-tage.webp" alt="7 Tage mit Gott &mdash; kostenloses E-Book" loading="lazy"></div>
+      <div class="book-body">
+        <div class="book-kicker">100 % kostenlos</div>
+        <div class="book-title">7 Tage mit Gott</div>
+        <div class="book-sub">Sieben Tage. Sieben Verse. Sieben Begegnungen &mdash; ohne Kauf und ohne Kreditkarte.</div>
+        <span class="book-cta">Gratis herunterladen <span class="arrow">&rarr;</span></span>
+      </div>
+    </a>
+
   </div>
 
   <!-- DONATION -->
@@ -208,11 +251,10 @@
   <!-- FOOTER -->
   <footer class="foot">
     <div class="social">
-      <a href="https://www.instagram.com/zeit.mit_gott/" target="_blank" rel="noopener" aria-label="Instagram">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.2" fill="currentColor" stroke="none"/></svg>
-      </a>
+      <a href="mailto:hallo@zeitmitgott.com" aria-label="E-Mail"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2.5" y="4.5" width="19" height="15" rx="3"/><path d="M3.5 6.5l8.5 6.5 8.5-6.5"/></svg></a>
     </div>
     <div class="foot-brand">Zeit mit Gott</div>
+    <div class="foot-note" style="margin-bottom:.3rem"><a href="mailto:hallo@zeitmitgott.com" style="color:var(--gold-bright);text-decoration:none">hallo@zeitmitgott.com</a></div>
     <div class="foot-note">&copy; 2026 Zeit mit Gott &middot; Alle B&uuml;cher zu 100&nbsp;% auf Deutsch</div>
   </footer>
 
