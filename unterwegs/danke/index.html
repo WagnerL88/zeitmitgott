@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Zwei Monate geschenkt · Danke für deine Spende | Zeit mit Gott</title>
+<meta name="description" content="Ein Dankeschön für alle, die Zeit mit Gott mit einer Spende unterstützt haben: zwei Monate Andachten zum Hören, geschenkt. Einlösbar bis Dienstag, 22. September.">
+<meta property="og:title" content="Zwei Monate geschenkt · Danke für deine Spende">
+<meta property="og:description" content="Jeden Tag eine neue Andacht zum Hören. Keine Zahlungsdaten nötig. Einlösbar bis Dienstag, 22. September.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://zeitmitgott.com/unterwegs/img/poster.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Nunito:wght@400;500;600;700;800&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --dawn:#F6E4D2; --cream:#FBF6EE; --sand:#EFE3D1; --sand-deep:#E2D1B8;
+    --sage:#7C8B6F; --sage-deep:#4E5C45; --terra:#B35A33; --terra-deep:#8F4424; --terra-soft:#E6A57F;
+    --ink:#2A2622; --ink-soft:#5A534B; --muted:#857B6F;
+    --dusk:#2E3552; --night:#141A2C; --star:#F1DFB5;
+    --serif:'DM Serif Display',Georgia,serif; --sans:'Nunito',system-ui,sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  body{font-family:var(--sans);background:var(--cream);color:var(--ink);line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  img,video{max-width:100%;display:block}
+  a{color:inherit}
+  .wrap{max-width:1120px;margin:0 auto;padding-inline:clamp(1.1rem,5vw,2.5rem)}
+  .kicker{font-size:.74rem;letter-spacing:.22em;text-transform:uppercase;font-weight:700;color:var(--terra)}
+  h1,h2,h3{font-family:var(--serif);font-weight:400;letter-spacing:-.01em}
+  h2{font-size:clamp(1.9rem,4.6vw,3.2rem);line-height:1.1;margin:.6rem 0 1.1rem}
+  h2 i{color:var(--terra)}
+  .lead{font-size:clamp(1.02rem,1.6vw,1.18rem);color:var(--ink-soft);max-width:38rem}
+  .pill{display:inline-flex;align-items:center;justify-content:center;gap:.6rem;font-family:var(--sans);font-weight:700;font-size:1.02rem;color:#fff;background:var(--terra);text-decoration:none;padding:1.05rem 1.9rem;border-radius:999px;box-shadow:0 14px 30px rgba(143,68,36,.28);transition:transform .2s,background .2s}
+  .pill:hover{transform:translateY(-2px);background:var(--terra-deep)}
+  .pill.light{background:#fff;color:var(--terra-deep);box-shadow:0 14px 30px rgba(0,0,0,.25)}
+  .note{font-size:.86rem;color:var(--muted);margin-top:.8rem}
+
+  /* TOPO */
+  .top{position:fixed;inset:0 0 auto 0;z-index:50;transition:background .3s,box-shadow .3s}
+  .top.on{background:rgba(251,246,238,.94);backdrop-filter:blur(10px);box-shadow:0 1px 0 rgba(42,38,34,.08)}
+  .top .wrap{display:flex;justify-content:space-between;align-items:center;height:64px}
+  .brand{font-family:var(--serif);font-size:1.35rem;color:var(--ink)}
+  .brand i{color:var(--terra)}
+  .top a.mini{font-size:.82rem;font-weight:700;color:var(--terra-deep);text-decoration:none;border:1.5px solid var(--terra);padding:.5rem 1rem;border-radius:999px;white-space:nowrap}
+
+  /* HERO: amanhecer */
+  .hero{background:linear-gradient(180deg,var(--dawn) 0%,#F9ECDD 55%,var(--cream) 100%);padding:clamp(6.5rem,12vw,8.5rem) 0 clamp(3rem,7vw,5rem);position:relative;overflow:hidden}
+  .hero::before{content:"";position:absolute;right:-12%;top:-30%;width:70vw;max-width:820px;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(255,214,170,.75),rgba(255,214,170,0) 62%);pointer-events:none}
+  .hero .wrap{display:grid;grid-template-columns:1.08fr .92fr;gap:clamp(2rem,5vw,4rem);align-items:center;position:relative}
+  .hero h1{font-size:clamp(2.4rem,6.2vw,4.6rem);line-height:1.04;margin:.8rem 0 1.3rem}
+  .hero h1 i{color:var(--terra)}
+  .hero .lead{margin-bottom:1.8rem}
+  .verse{font-family:var(--serif);font-style:italic;font-size:1.25rem;color:var(--sage-deep);margin:1.8rem 0 0;max-width:30rem}
+  .verse small{display:block;font-family:var(--sans);font-style:normal;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-top:.3rem}
+
+  /* player */
+  .card{background:rgba(255,255,255,.72);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.9);border-radius:26px;padding:1.2rem;box-shadow:0 30px 70px rgba(120,80,40,.18)}
+  .card .cover{border-radius:18px;aspect-ratio:1/1;object-fit:cover;width:100%}
+  .card .row{display:flex;align-items:center;gap:1rem;margin-top:1.1rem}
+  .play{flex-shrink:0;width:64px;height:64px;border-radius:50%;border:0;background:var(--terra);color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 24px rgba(143,68,36,.35);transition:transform .2s}
+  .play:hover{transform:scale(1.06)}
+  .play svg{width:24px;height:24px}
+  .play .i-pause{display:none}.playing .play .i-pause{display:block}.playing .play .i-play{display:none}
+  .meta b{display:block;font-family:var(--serif);font-weight:400;font-size:1.45rem;line-height:1.1}
+  .meta span{font-size:.84rem;color:var(--muted)}
+  .wave{display:flex;align-items:center;gap:3px;height:44px;margin-top:1rem;cursor:pointer}
+  .wave i{flex:1;background:var(--sand-deep);border-radius:2px;transition:background .2s}
+  .wave i.done{background:var(--terra-soft)}
+  .playing .wave i{animation:pulse 1.2s ease-in-out infinite}
+  @keyframes pulse{50%{transform:scaleY(.72)}}
+  .time{display:flex;justify-content:space-between;font-size:.76rem;color:var(--muted);margin-top:.35rem;font-variant-numeric:tabular-nums}
+  .tag{display:inline-block;font-size:.66rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--sage-deep);background:rgba(124,139,111,.16);border-radius:999px;padding:.25rem .7rem;margin-bottom:.35rem}
+
+  /* strip */
+  .strip{display:flex;flex-wrap:wrap;justify-content:center;gap:.5rem 1.6rem;padding:1.2rem 1rem;border-block:1px solid var(--sand-deep);font-size:.9rem;color:var(--ink-soft);font-weight:500;background:var(--cream)}
+  .strip span::before{content:"●";color:var(--terra);font-size:.55rem;margin-right:.55rem;vertical-align:.18rem}
+
+  /* DIA: linha do tempo */
+  .day{padding:clamp(4rem,9vw,7rem) 0;background:linear-gradient(180deg,var(--sand) 0%,#F7EEDF 55%,#EEDCC4 82%,#C9B8A6 100%)}
+  .day header{text-align:center;margin:0 auto clamp(2.5rem,6vw,4rem);max-width:44rem}
+  .day header .lead{margin:0 auto}
+  .path{position:relative;max-width:980px;margin:0 auto}
+  .path::before{content:"";position:absolute;left:50%;top:0;bottom:0;width:0;border-left:2px dashed rgba(179,90,51,.45);transform:translateX(-1px)}
+  .stop{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.6rem,5vw,4rem);align-items:center;position:relative;margin-bottom:clamp(2.5rem,6vw,4.5rem)}
+  .stop::after{content:"";position:absolute;left:50%;top:50%;width:16px;height:16px;border-radius:50%;background:var(--terra);box-shadow:0 0 0 6px rgba(179,90,51,.18);transform:translate(-50%,-50%)}
+  .stop img{border-radius:22px;aspect-ratio:4/5;object-fit:cover;box-shadow:0 22px 50px rgba(80,55,30,.22);max-height:460px;width:100%}
+  .stop:nth-child(even) .pic{order:2}
+  .clock{font-family:var(--serif);font-size:clamp(2.4rem,5vw,3.4rem);color:var(--terra);line-height:1}
+  .stop h3{font-size:clamp(1.6rem,3.2vw,2.2rem);line-height:1.12;margin:.35rem 0 .6rem}
+  .stop p{color:var(--ink-soft);font-size:1.02rem;max-width:26rem}
+  .stop.pain .clock{color:var(--muted)}
+
+  /* ANATOMIA */
+  .anat{background:var(--sage-deep);color:#F4EFE6;padding:clamp(4rem,9vw,6.5rem) 0}
+  .anat .kicker{color:var(--terra-soft)}
+  .anat h2 i{color:var(--terra-soft)}
+  .anat .lead{color:rgba(244,239,230,.82)}
+  .track{margin-top:2.6rem;display:flex;height:74px;border-radius:14px;overflow:hidden;background:rgba(255,255,255,.08)}
+  .track div{position:relative;border-right:1px solid rgba(0,0,0,.18)}
+  .track .w{background:rgba(233,201,143,.9)}
+  .track .g{background:rgba(230,165,127,.85)}
+  .track .s{background:repeating-linear-gradient(135deg,rgba(255,255,255,.12) 0 6px,rgba(255,255,255,.03) 6px 12px)}
+  .track .a{background:rgba(244,239,230,.55)}
+  .track .p{background:#F4EFE6}
+  .legend{display:flex;flex-wrap:wrap;gap:.6rem 1.4rem;margin-top:1.1rem;font-size:.88rem;color:rgba(244,239,230,.85)}
+  .legend span{display:inline-flex;align-items:center;gap:.5rem}
+  .legend span::before{content:"";width:14px;height:14px;border-radius:4px;background:var(--c)}
+  .anat-cap{margin-top:.9rem;font-size:.82rem;color:rgba(244,239,230,.6)}
+  .feat{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:3rem}
+  .feat div{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:18px;padding:1.4rem}
+  .feat b{display:block;font-family:var(--serif);font-weight:400;font-size:1.5rem;color:#fff;margin-bottom:.3rem}
+  .feat p{font-size:.95rem;color:rgba(244,239,230,.78)}
+
+  /* VIDEO */
+  .vid-top{background:linear-gradient(180deg,var(--cream) 0%,var(--sand) 100%);padding-top:clamp(3rem,7vw,4.5rem)}
+  .vid{background:var(--cream);padding:clamp(4rem,9vw,6.5rem) 0;text-align:center}
+  .vid .lead{margin:0 auto}
+  .frame{max-width:920px;margin:2.4rem auto 0;border-radius:26px;overflow:hidden;box-shadow:0 34px 80px rgba(80,55,30,.25);aspect-ratio:16/9;background:#000}
+  .frame video{width:100%;height:100%;object-fit:cover}
+
+  /* HÖRPROBEN */
+  .listen{background:var(--sand);padding:clamp(4rem,9vw,6.5rem) 0}
+  .listen .grid{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem;margin-top:2.4rem}
+  .listen .card{display:grid;grid-template-columns:130px 1fr;gap:1.1rem;align-items:start;background:#fff}
+  .listen .card .cover{border-radius:14px}
+  .listen .card .row{margin-top:.6rem}
+  .listen .play{width:52px;height:52px}
+
+  /* KASSENBON */
+  .bon-sec{background:linear-gradient(180deg,var(--sand) 0%,#D9C3A8 100%);padding:clamp(4rem,9vw,6.5rem) 0}
+  .bon-sec .wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,6vw,5rem);align-items:center}
+  .bon{font-family:'Courier Prime',ui-monospace,monospace;background:#FFFEFB;color:#2b2b2b;padding:2rem 1.8rem 2.4rem;max-width:420px;margin:0 auto;box-shadow:0 26px 60px rgba(60,40,20,.25);transform:rotate(-1.6deg);position:relative;font-size:.98rem;line-height:1.55}
+  .bon::after{content:"";position:absolute;left:0;right:0;bottom:-12px;height:12px;background:linear-gradient(-45deg,transparent 8px,#FFFEFB 0) 0 0/16px 12px,linear-gradient(45deg,transparent 8px,#FFFEFB 0) 0 0/16px 12px}
+  .bon .c{text-align:center}
+  .bon .t{font-weight:700;letter-spacing:.12em}
+  .bon hr{border:0;border-top:1.5px dashed #9a9a9a;margin:.9rem 0}
+  .bon .l{display:flex;justify-content:space-between;gap:1rem}
+  .bon .hl{font-weight:700;color:var(--terra-deep)}
+  .bon .sum{font-size:1.15rem;font-weight:700}
+  .bon small{font-size:.8rem;color:#666}
+
+  /* OFERTA */
+  .offer{background:var(--cream);padding:clamp(4rem,9vw,6.5rem) 0}
+  .offer-box{display:grid;grid-template-columns:1.1fr .9fr;border-radius:30px;overflow:hidden;box-shadow:0 34px 80px rgba(80,55,30,.18);background:#fff}
+  .offer-box .pic{background:url('../img/fluss.jpg') center 30%/cover;min-height:360px}
+  .offer-box .in{padding:clamp(1.8rem,4vw,3rem)}
+  .offer-box h3{font-size:clamp(2rem,4vw,2.8rem);line-height:1.05;margin:.4rem 0 .4rem}
+  .offer-box ul{list-style:none;margin:1.2rem 0 1.6rem;display:grid;gap:.6rem}
+  .offer-box li{display:flex;gap:.7rem;color:var(--ink-soft)}
+  .offer-box li::before{content:"✓";color:var(--terra);font-weight:700}
+  .big{font-family:var(--serif);font-size:clamp(2.4rem,5vw,3.2rem);line-height:1}
+  .big small{display:block;font-family:var(--sans);font-size:.95rem;color:var(--muted);margin-top:.45rem}
+  .safe{margin-top:1.2rem;display:flex;gap:.8rem;align-items:flex-start;background:var(--cream);border-radius:16px;padding:1rem 1.1rem;font-size:.92rem;color:var(--ink-soft)}
+  .safe b{color:var(--ink)}
+  .safe .seal{flex-shrink:0;width:38px;height:38px;border-radius:50%;background:var(--sage);color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:1.3rem}
+
+  /* LIVROS */
+  .books{background:var(--cream);padding:0 0 clamp(4rem,9vw,6rem)}
+  .books .row{display:flex;flex-wrap:wrap;justify-content:center;gap:.7rem;margin-top:1.2rem}
+  .books a{text-decoration:none;font-family:var(--serif);font-size:1.12rem;padding:.55rem 1.1rem;border:1px solid var(--sand-deep);border-radius:999px;background:#fff;transition:border-color .2s}
+  .books a:hover{border-color:var(--terra)}
+
+  /* FAQ */
+  .faq{background:#EDE3D4;padding:clamp(4rem,9vw,6.5rem) 0}
+  .faq .list{max-width:820px;margin:2rem auto 0}
+  .faq details{border-bottom:1px solid rgba(42,38,34,.15);padding:1.15rem 0}
+  .faq summary{list-style:none;cursor:pointer;font-family:var(--serif);font-size:clamp(1.25rem,2.4vw,1.5rem);display:flex;justify-content:space-between;gap:1rem}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary::after{content:"+";font-family:var(--sans);color:var(--terra);font-size:1.4rem;line-height:1;transition:transform .25s}
+  .faq details[open] summary::after{transform:rotate(45deg)}
+  .faq details p{margin-top:.7rem;color:var(--ink-soft);max-width:44rem}
+
+  /* NOITE */
+  .night{position:relative;overflow:hidden;background:radial-gradient(120% 90% at 50% 0%,var(--dusk) 0%,var(--night) 70%);color:#F3EEE4;text-align:center;padding:clamp(5rem,11vw,8rem) 0}
+  .night .stars{position:absolute;inset:0;pointer-events:none}
+  .night .stars i{position:absolute;width:2px;height:2px;border-radius:50%;background:var(--star);opacity:.7;animation:tw 3.5s ease-in-out infinite}
+  @keyframes tw{50%{opacity:.15}}
+  .night .moon{width:74px;height:74px;border-radius:50%;margin:0 auto 1.6rem;box-shadow:inset -16px -6px 0 0 var(--star);transform:rotate(-20deg)}
+  .night h2 i{color:var(--terra-soft)}
+  .night .lead{color:rgba(243,238,228,.8);margin:0 auto 2.2rem}
+  .night .note{color:rgba(243,238,228,.6)}
+  .night .wrap{position:relative}
+
+  footer{background:var(--night);color:rgba(243,238,228,.55);text-align:center;padding:1.8rem 1rem 6rem;font-size:.86rem;border-top:1px solid rgba(255,255,255,.06)}
+  footer a{color:var(--terra-soft);text-decoration:none}
+  footer .brand{color:#F3EEE4;display:block;margin-bottom:.4rem}
+
+  .dock{position:fixed;left:.7rem;right:.7rem;bottom:.7rem;z-index:60;display:none;align-items:center;justify-content:space-between;gap:.8rem;padding:.6rem .6rem .6rem 1.1rem;background:rgba(42,38,34,.94);backdrop-filter:blur(8px);border-radius:999px;color:#fff;transform:translateY(140%);transition:transform .35s;box-shadow:0 12px 30px rgba(0,0,0,.3)}
+  .dock.on{transform:none}
+  .dock p{font-size:.8rem;line-height:1.3}
+  .dock p b{color:var(--terra-soft)}
+  .dock a{flex-shrink:0;font-size:.84rem;font-weight:700;color:#fff;background:var(--terra);text-decoration:none;padding:.7rem 1.1rem;border-radius:999px}
+
+  .rv{opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s ease}
+  .rv.in{opacity:1;transform:none}
+
+  @media(max-width:900px){
+    .hero .wrap{grid-template-columns:1fr}
+    .hero .card{max-width:420px;width:100%;margin:0 auto}
+    .path::before{left:14px}
+    .stop{grid-template-columns:1fr;padding-left:44px;gap:1.1rem}
+    .stop::after{left:15px;top:22px}
+    .stop:nth-child(even) .pic{order:0}
+    .stop img{aspect-ratio:4/3;max-height:none}
+    .feat{grid-template-columns:1fr}
+    .listen .grid{grid-template-columns:1fr}
+    .bon-sec .wrap{grid-template-columns:1fr}
+    .offer-box{grid-template-columns:1fr}
+    .offer-box .pic{min-height:240px}
+    .dock{display:flex}
+    .track{height:56px}
+  }
+  @media(max-width:520px){
+    .top a.mini{font-size:.74rem;padding:.45rem .8rem}
+    .listen .card{grid-template-columns:92px 1fr;gap:.9rem;padding:1rem}
+    .pill{width:100%}
+    .bon{padding:1.6rem 1.2rem 2rem;font-size:.9rem}
+  }
+
+  .countbox{display:inline-flex;flex-wrap:wrap;align-items:center;gap:.4rem .9rem;margin:0 0 1.5rem;padding:.75rem 1.1rem;border-radius:16px;background:rgba(179,90,51,.1);border:1px solid rgba(179,90,51,.25);font-size:.95rem;color:var(--terra-deep);font-weight:700}
+  .countbox .dot{width:9px;height:9px;border-radius:50%;background:var(--terra);animation:blink 1.6s ease-in-out infinite}
+  @keyframes blink{50%{opacity:.25}}
+  .countbox .count{font-variant-numeric:tabular-nums;color:var(--ink)}
+  .redeem{background:var(--sand);padding:clamp(3.5rem,8vw,5.5rem) 0}
+  .redeem .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem;margin-top:2.2rem}
+  .redeem .st{background:#fff;border-radius:22px;padding:1.6rem 1.5rem;box-shadow:0 14px 34px rgba(80,55,30,.1)}
+  .redeem .n{width:44px;height:44px;border-radius:50%;background:var(--terra);color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:1.4rem;margin-bottom:.9rem}
+  .redeem h3{font-size:1.45rem;line-height:1.15;margin-bottom:.45rem}
+  .redeem p{color:var(--ink-soft);font-size:1rem}
+  .redeem .cta{text-align:center;margin-top:2.2rem}
+  .fim{display:none;background:var(--terra-deep);color:#fff;text-align:center;padding:.8rem 1rem;font-weight:700;position:relative;z-index:60}
+  .acabou .fim{display:block}
+  @media(max-width:900px){.redeem .grid3{grid-template-columns:1fr}}
+
+  .live{width:100%;max-width:440px;margin:0 0 1.6rem;padding:1.3rem 1.2rem 1.1rem;border-radius:26px;background:#fff;box-shadow:0 22px 50px rgba(143,68,36,.18);border:1px solid rgba(179,90,51,.18);text-align:center}
+  .live-spots{display:flex;align-items:center;justify-content:center;gap:.8rem}
+  .live-spots b{font-family:var(--serif);font-weight:400;font-size:4.2rem;line-height:.9;color:var(--terra)}
+  .live-spots span{text-align:left;font-weight:800;color:var(--ink);font-size:1.02rem;line-height:1.25}
+  .live-spots em{font-style:normal}
+  .live-dots{display:flex;justify-content:center;gap:.4rem;margin:.9rem 0 1.1rem}
+  .live-dots i{width:18px;height:18px;border-radius:50%;background:var(--terra);box-shadow:0 0 0 3px rgba(179,90,51,.15)}
+  .live-dots i.off{background:var(--sand-deep);box-shadow:none}
+  .live-label{font-size:.72rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:.55rem}
+  .live-cd{display:grid;grid-template-columns:repeat(4,1fr);gap:.5rem}
+  .live-cd div{background:linear-gradient(160deg,var(--terra) 0%,var(--terra-deep) 100%);border-radius:16px;padding:.65rem 0 .5rem;color:#fff;box-shadow:inset 0 -3px 0 rgba(0,0,0,.12)}
+  .live-cd b{display:block;font-family:var(--sans);font-weight:800;font-size:2.3rem;line-height:1;font-variant-numeric:tabular-nums}
+  .live-cd span{display:block;font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;opacity:.85;margin-top:.3rem}
+  .live-date{font-family:var(--serif);font-size:1.7rem;line-height:1.15;color:var(--terra);margin:0 0 1rem}
+  .live-end{font-size:.84rem;color:var(--muted);margin-top:.7rem}
+  .acabou .live-cd div{background:var(--sand-deep)}
+  @media(max-width:520px){.live{max-width:none}.live-cd b{font-size:2rem}.live-spots b{font-size:3.6rem}}
+</style>
+</head>
+<body>
+
+<div class="fim">Die Zeit zum Einlösen ist vorbei. Du kannst „Unterwegs mit Gott“ aber weiterhin 7 Tage kostenlos testen.</div>
+
+<div class="top" id="top"><div class="wrap">
+  <div class="brand">Zeit mit <i>Gott</i></div>
+  <a class="mini" data-gift href="https://www.patreon.com/ZeitMitGott/redeem/E8279" target="_blank" rel="noopener">Geschenk einlösen</a>
+</div></div>
+
+<header class="hero">
+  <div class="wrap">
+    <div>
+      <span class="kicker">Für alle, die uns mit einer Spende unterstützt haben</span>
+      <h1>Zwei Monate zum Hören. <i>Danke.</i></h1>
+      <p class="lead">Du hast Zeit mit Gott mit einer Spende unterstützt. Dafür danken wir dir von Herzen, und als kleines Geschenk bekommst du zwei Monate „Unterwegs mit Gott“. Jeden Tag eine neue Andacht zum Hören, etwa 20 bis 30 Minuten, für den Spaziergang, die Küche oder den Abend.</p>
+      <div class="live">
+  <div class="live-label">Einlösen bis</div>
+  <div class="live-date">Dienstag, 22. September, 20 Uhr</div>
+  <div class="live-label">Noch Zeit zum Einlösen</div>
+  <div class="live-cd">
+    <div><b data-d>00</b><span>Tage</span></div>
+    <div><b data-h>00</b><span>Std.</span></div>
+    <div><b data-m>00</b><span>Min.</span></div>
+    <div><b data-s>00</b><span>Sek.</span></div>
+  </div>
+</div>
+      <div><a class="pill" data-gift href="https://www.patreon.com/ZeitMitGott/redeem/E8279" target="_blank" rel="noopener">Mein Geschenk einlösen</a></div>
+      <p class="note">Keine Zahlungsdaten nötig · endet nach zwei Monaten von selbst</p>
+      <p class="verse">„Einen fröhlichen Geber hat Gott lieb.“<small>2. Korinther 9,7</small></p>
+    </div>
+    <div class="card player rv" data-src="../media/er-geht-mit.mp3" data-dur="599">
+      <img class="cover" src="../img/capa-er-geht-mit.jpg" alt="Andacht Er geht mit, nach Emmaus">
+      <div class="row">
+        <button class="play" aria-label="Abspielen"><svg class="i-play" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg><svg class="i-pause" viewBox="0 0 24 24" fill="currentColor"><path d="M7 5h4v14H7zM13 5h4v14h-4z"/></svg></button>
+        <div class="meta"><span class="tag">Hör schon mal hinein</span><b>Er geht mit</b><span>Lukas 24 · ganze Andacht · 10 Minuten</span></div>
+      </div>
+      <div class="wave"></div>
+      <div class="time"><span class="cur">0:00</span><span class="tot">10:00</span></div>
+    </div>
+  </div>
+</header>
+
+<div class="strip">
+  <span>2 Monate geschenkt</span><span>Jeden Tag neu</span><span>20 bis 30 Minuten</span><span>Ohne Zahlungsdaten</span><span>Endet von selbst</span>
+</div>
+
+<section class="redeem">
+  <div class="wrap">
+    <div class="rv" style="text-align:center">
+      <span class="kicker">So löst du dein Geschenk ein</span>
+      <h2>In drei Schritten <i>dabei</i></h2>
+    </div>
+    <div class="grid3">
+      <div class="st rv"><div class="n">1</div><h3>Auf den Knopf tippen</h3><p>Tippe auf „Mein Geschenk einlösen“. Am besten öffnest du den Link im Browser deines Handys oder am Computer.</p></div>
+      <div class="st rv"><div class="n">2</div><h3>Bei Patreon anmelden</h3><p>Melde dich an oder erstelle kostenlos ein Konto mit deiner E-Mail Adresse. Zahlungsdaten brauchst du nicht.</p></div>
+      <div class="st rv"><div class="n">3</div><h3>Sofort anhören</h3><p>Deine zwei Monate beginnen sofort. Alle Andachten findest du auf unserer Seite bei Patreon, und jeden Tag kommt eine neue dazu.</p></div>
+    </div>
+    <div class="cta rv"><a class="pill" data-gift href="https://www.patreon.com/ZeitMitGott/redeem/E8279" target="_blank" rel="noopener">Mein Geschenk einlösen</a><p class="note">Einlösbar bis Dienstag, 22. September, 20 Uhr</p></div>
+  </div>
+</section>
+
+<section class="vid vid-top">
+  <div class="wrap">
+    <div class="rv">
+      <span class="kicker">In einer Minute erklärt</span>
+      <h2>Nimm uns einfach <i>mit</i></h2>
+    </div>
+    <div class="frame rv">
+      <video controls preload="none" playsinline poster="../img/poster.jpg"><source src="../media/vorstellung.mp4" type="video/mp4"></video>
+    </div>
+  </div>
+</section>
+
+<section class="day">
+  <div class="wrap">
+    <header class="rv">
+      <span class="kicker">Deine zwei Monate mit Gott</span>
+      <h2>Die Zeit hast du schon. <i>Du teilst sie nur mit Gott.</i></h2>
+      <p class="lead">Du gehst sowieso spazieren, räumst die Küche auf oder fährst mit dem Bus. So kann ein Tag in deinen geschenkten Monaten aussehen.</p>
+    </header>
+    <div class="path">
+      <div class="stop rv">
+        <div class="pic"><img src="../img/tor.jpg" alt="Die Frau setzt am Gartentor einen Kopfhörer ein" loading="lazy"></div>
+        <div><div class="clock">07:40</div><h3>Kopfhörer rein</h3><p>Die Andacht des Tages kommt einfach mit, im Handy oder schon heruntergeladen.</p></div>
+      </div>
+      <div class="stop rv">
+        <div class="pic"><img src="../img/spaziergang.jpg" alt="Die Frau geht einen Feldweg entlang" loading="lazy"></div>
+        <div><div class="clock">09:15</div><h3>Der Spaziergang wird zum Gebetsweg</h3><p>Ein Wort aus der Bibel, ruhige Gedanken und kleine Pausen, in denen du einfach weitergehst und nachdenkst.</p></div>
+      </div>
+      <div class="stop rv">
+        <div class="pic"><img src="../img/abend.jpg" alt="Die Frau liest am Abend in der Bibel" loading="lazy"></div>
+        <div><div class="clock">20:30</div><h3>Am Abend liegt die Bibel offen</h3><p>Und vielleicht merkst du, dass Gott den ganzen Tag mit dir gegangen ist.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="anat">
+  <div class="wrap">
+    <div class="rv">
+      <span class="kicker">So ist eine Andacht aufgebaut</span>
+      <h2>Ein ruhiger Weg, <i>kein Vortrag</i></h2>
+      <p class="lead">Jede Andacht hat einen festen Ablauf. Du weißt immer, wo du bist, und es gibt Stille, in der du einfach weitergehst.</p>
+    </div>
+    <div class="track rv" id="track" aria-label="Ablauf einer Andacht"></div>
+    <div class="legend rv">
+      <span style="--c:rgba(244,239,230,.55)">Ankommen</span>
+      <span style="--c:rgba(233,201,143,.9)">Das Wort aus der Bibel</span>
+      <span style="--c:rgba(230,165,127,.85)">Gedanken für heute</span>
+      <span style="--c:rgba(255,255,255,.25)">Stille zum Weitergehen</span>
+      <span style="--c:#F4EFE6">Gebet und Segen</span>
+    </div>
+    <p class="anat-cap rv">Echter Ablauf der Andacht „Der Friede, der dein Herz bewahrt“, 21 Minuten.</p>
+  </div>
+</section>
+
+<section class="bon-sec">
+  <div class="wrap">
+    <div class="rv">
+      <span class="kicker">Unser Dankeschön</span>
+      <h2>Ein Geschenk im Wert <i>von 11,90 €</i></h2>
+      <p class="lead">Deine Spende hat mitgeholfen, dass es Zeit mit Gott gibt. Jetzt möchten wir etwas zurückgeben: Zwei Monate lang begleitet dich jeden Tag eine neue Andacht, ohne dass du etwas bezahlst.</p>
+    </div>
+    <div class="bon rv" aria-label="Kassenbon">
+      <div class="c t">ZEIT MIT GOTT</div>
+      <div class="c"><small>Dankeschön für deine Spende</small></div>
+      <hr>
+      <div class="l"><span>Unterwegs mit Gott, 2 Monate</span><span>11,90</span></div>
+      <div class="l"><span>60 Andachten zum Hören</span><span></span></div>
+      <div class="l hl"><span>Geschenk für dich</span><span>-11,90</span></div>
+      <hr>
+      <div class="l sum"><span>DU ZAHLST</span><span>0,00 €</span></div>
+      <div><small>keine Zahlungsdaten · endet von selbst</small></div>
+      <hr>
+      <div class="c"><small>Danke für deine Unterstützung.<br>Gott segne dich.</small></div>
+    </div>
+  </div>
+</section>
+
+<section class="offer" id="angebot">
+  <div class="wrap">
+    <div class="offer-box rv">
+      <div class="pic" role="img" aria-label="Die Frau am Fluss mit Kopfhörer"></div>
+      <div class="in">
+        <span class="kicker">Dein Geschenk</span>
+        <h3>Unterwegs mit Gott</h3>
+        <ul>
+          <li>Zwei Monate lang jeden Tag eine neue Andacht</li>
+          <li>Etwa 20 bis 30 Minuten, für unterwegs</li>
+          <li>Das ganze Archiv zum Nachhören</li>
+          <li>Herunterladen und ohne Internet hören</li>
+          <li>Auf Wunsch in deiner gewohnten Podcast App</li>
+        </ul>
+        <div class="big">0 € <small>für zwei Monate, statt 11,90 €</small></div>
+        <div class="live">
+  <div class="live-label">Einlösen bis</div>
+  <div class="live-date">Dienstag, 22. September, 20 Uhr</div>
+  <div class="live-label">Noch Zeit zum Einlösen</div>
+  <div class="live-cd">
+    <div><b data-d>00</b><span>Tage</span></div>
+    <div><b data-h>00</b><span>Std.</span></div>
+    <div><b data-m>00</b><span>Min.</span></div>
+    <div><b data-s>00</b><span>Sek.</span></div>
+  </div>
+</div>
+        <div><a class="pill" data-gift href="https://www.patreon.com/ZeitMitGott/redeem/E8279" target="_blank" rel="noopener">Mein Geschenk einlösen</a></div>
+        <div class="safe"><div class="seal">?</div><div><b>Und danach?</b> Nach den zwei Monaten endet dein Geschenk von selbst, und es wird nichts berechnet. Drei Tage vorher erinnert dich Patreon daran. Wenn dir die Andachten guttun, kannst du dann selbst entscheiden, ob du für 5,95 € im Monat dabei bleiben möchtest.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="faq">
+  <div class="wrap">
+    <div class="rv" style="text-align:center">
+      <span class="kicker">Häufige Fragen</span>
+      <h2>Gut zu <i>wissen</i></h2>
+    </div>
+    <div class="list">
+      <details class="rv"><summary>Muss ich etwas bezahlen?</summary><p>Nein. Das Geschenk sind zwei Monate kostenlos, und du brauchst keine Zahlungsdaten.</p></details>
+      <details class="rv"><summary>Was passiert nach den zwei Monaten?</summary><p>Dein Geschenk endet von selbst, und es wird nichts berechnet. Drei Tage vorher erinnert dich Patreon. Wenn du weiter hören möchtest, kannst du dann Mitglied werden, für 5,95 € im Monat inkl. MwSt.</p></details>
+      <details class="rv"><summary>Bis wann kann ich das Geschenk einlösen?</summary><p>Bis Dienstag, 22. September, 20 Uhr. Danach funktioniert der Link nicht mehr. Deine zwei Monate beginnen an dem Tag, an dem du einlöst.</p></details>
+      <details class="rv"><summary>Warum brauche ich ein Patreon Konto?</summary><p>Die Andachten liegen auf unserer Seite bei Patreon. Mit einem kostenlosen Konto weiß Patreon, dass das Geschenk dir gehört, und du findest jeden Tag die neue Andacht.</p></details>
+      <details class="rv"><summary>Brauche ich eine App?</summary><p>Nein. Du kannst alles im Browser hören, am Computer, am Tablet oder am Handy. Mit der kostenlosen App von Patreon kannst du die Andachten zusätzlich herunterladen und ohne Internet hören.</p></details>
+      <details class="rv"><summary>Kann ich die Andachten in meiner Podcast App hören?</summary><p>Ja. Nach der Anmeldung bekommst du einen persönlichen Link für deine Podcast App, zum Beispiel Apple Podcasts. Wir zeigen dir in einem eigenen Beitrag Schritt für Schritt, wie das geht.</p></details>
+      <details class="rv"><summary>Darf ich den Link weitergeben?</summary><p>Dieses Geschenk ist ein Dankeschön an alle, die uns mit einer Spende unterstützt haben. Bitte teile den Link nicht öffentlich, damit er bei den Menschen ankommt, für die er gedacht ist.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="night">
+  <div class="stars" id="stars"></div>
+  <div class="wrap rv">
+    <div class="moon" aria-hidden="true"></div>
+    <span class="kicker" style="color:var(--terra-soft)">Dein Geschenk wartet</span>
+    <h2>Morgen früh wartet <i>eine neue Andacht</i> auf dich</h2>
+    <p class="lead">Du kannst dein Geschenk bis Dienstag, 22. September, 20 Uhr einlösen.</p>
+    <a class="pill light" data-gift href="https://www.patreon.com/ZeitMitGott/redeem/E8279" target="_blank" rel="noopener">Mein Geschenk einlösen</a>
+    <p class="note">Keine Zahlungsdaten nötig · endet nach zwei Monaten von selbst</p>
+  </div>
+</section>
+
+<footer>
+  <span class="brand">Zeit mit Gott</span>
+  © 2026 Zeit mit Gott · Unterwegs mit Gott<br>
+  <a href="https://www.youtube.com/@Zeit-mit-Gott" target="_blank" rel="noopener">YouTube</a> ·
+  <a href="mailto:hallo@zeitmitgott.com">hallo@zeitmitgott.com</a> ·
+  <a href="https://zeitmitgott.com/datenschutz" target="_blank" rel="noopener">Datenschutz</a>
+</footer>
+
+<div class="dock" id="dock">
+  <p><b>2 Monate geschenkt</b><br>Danke für deine Spende</p>
+  <a data-gift href="https://www.patreon.com/ZeitMitGott/redeem/E8279" target="_blank" rel="noopener">Einlösen</a>
+</div>
+
+<script>
+(function(){
+  // topo e barra do celular
+  var top=document.getElementById('top'), dock=document.getElementById('dock');
+  var hero=document.querySelector('.hero'), night=document.querySelector('.night');
+  function sc(){
+    top.classList.toggle('on',scrollY>30);
+    dock.classList.toggle('on',scrollY>hero.offsetHeight*.7 && scrollY+innerHeight<night.offsetTop+160);
+  }
+  addEventListener('scroll',sc,{passive:true});sc();
+
+  // aparecer ao rolar
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+  document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
+
+  // anatomia: tempos reais da Andacht 02 (segundos)
+  var seg=[['a',1,104.6],['w',108.6,244.2],['g',249.2,462.7],['s',462.7,482.7],['g',482.7,684.1],['s',684.1,704.1],['g',704.1,892.5],['s',892.5,907.5],['g',907.5,1155.4],['s',1155.4,1170.4],['p',1170.4,1271.8]];
+  var tr=document.getElementById('track'), tot=1271.8;
+  if(tr)seg.forEach(function(s){var d=document.createElement('div');d.className=s[0];d.style.width=((s[2]-s[1])/tot*100)+'%';tr.appendChild(d)});
+
+  // estrelas
+  var st=document.getElementById('stars');
+  for(var i=0;i<70;i++){var s=document.createElement('i');s.style.left=(Math.random()*100)+'%';s.style.top=(Math.random()*85)+'%';s.style.animationDelay=(Math.random()*3.5)+'s';if(Math.random()<.2){s.style.width=s.style.height='3px'}st.appendChild(s)}
+
+  // players proprios
+  var fmt=function(t){t=Math.max(0,Math.floor(t));return Math.floor(t/60)+':'+String(t%60).padStart(2,'0')};
+  var atual=null;
+  document.querySelectorAll('.player').forEach(function(p,k){
+    var a=new Audio();a.preload='none';a.src=p.dataset.src;
+    var wave=p.querySelector('.wave'),cur=p.querySelector('.cur'),tot=p.querySelector('.tot'),btn=p.querySelector('.play');
+    var n=innerWidth<520?34:46, bars=[];
+    for(var i=0;i<n;i++){var b=document.createElement('i');var h=18+Math.abs(Math.sin(i*1.7+k)*60)+((i*37+k*11)%23);b.style.height=Math.min(100,h)+'%';b.style.animationDelay=(i%7)*.09+'s';wave.appendChild(b);bars.push(b)}
+    function pinta(){var f=a.duration?a.currentTime/a.duration:0;var m=Math.round(f*n);bars.forEach(function(b,i){b.classList.toggle('done',i<m)});cur.textContent=fmt(a.currentTime);if(a.duration)tot.textContent=fmt(a.duration)}
+    a.addEventListener('timeupdate',pinta);
+    a.addEventListener('ended',function(){p.classList.remove('playing')});
+    btn.addEventListener('click',function(){
+      if(a.paused){if(atual&&atual!==a){atual.pause()}atual=a;a.play();p.classList.add('playing')}
+      else{a.pause();p.classList.remove('playing')}
+    });
+    a.addEventListener('pause',function(){p.classList.remove('playing')});
+    wave.addEventListener('click',function(e){var r=wave.getBoundingClientRect();var f=(e.clientX-r.left)/r.width;var go=function(){a.currentTime=f*a.duration;pinta()};if(a.duration){go()}else{a.addEventListener('loadedmetadata',go,{once:true});a.load()}});
+  });
+})();
+
+(function(){
+  var fim=new Date('2026-09-22T20:00:00+02:00').getTime();
+  function tick(){
+    var ms=fim-Date.now();
+    if(ms<=0){
+      document.body.classList.add('acabou');
+      document.querySelectorAll('[data-gift]').forEach(function(a){a.href='https://zeitmitgott.com/unterwegs/';if(a.classList.contains('pill')||a.parentElement.id==='dock'){a.textContent='7 Tage kostenlos hören'}});
+      document.querySelectorAll('[data-count]').forEach(function(c){c.textContent='Aktion beendet'});
+      return;
+    }
+    var m=Math.floor(ms/60000),d=Math.floor(m/1440),h=Math.floor(m%1440/60),mi=m%60;
+    var t='noch '+(d?d+(d>1?' Tage ':' Tag '):'')+h+' Std. '+mi+' Min.';
+    document.querySelectorAll('[data-count]').forEach(function(c){c.textContent=t});
+    setTimeout(tick,30000);
+  }
+  tick();
+})();
+
+(function(){
+  var fim=new Date('2026-09-22T20:00:00+02:00').getTime();
+  var two=function(n){return String(n).padStart(2,'0')};
+  function tick(){
+    var ms=Math.max(0,fim-Date.now()), s=Math.floor(ms/1000);
+    var d=Math.floor(s/86400), hh=Math.floor(s%86400/3600), mm=Math.floor(s%3600/60), ss=s%60;
+    document.querySelectorAll('[data-d]').forEach(function(e){e.textContent=two(d)});
+    document.querySelectorAll('[data-h]').forEach(function(e){e.textContent=two(hh)});
+    document.querySelectorAll('[data-m]').forEach(function(e){e.textContent=two(mm)});
+    document.querySelectorAll('[data-s]').forEach(function(e){e.textContent=two(ss)});
+    if(ms>0)setTimeout(tick,1000);
+  }
+  tick();
+})();
+</script>
+</body>
+</html>
