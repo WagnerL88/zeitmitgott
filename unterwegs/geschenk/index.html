@@ -233,6 +233,23 @@
   .fim{display:none;background:var(--terra-deep);color:#fff;text-align:center;padding:.8rem 1rem;font-weight:700;position:relative;z-index:60}
   .acabou .fim{display:block}
   @media(max-width:900px){.redeem .grid3{grid-template-columns:1fr}}
+
+  .live{width:100%;max-width:440px;margin:0 0 1.6rem;padding:1.3rem 1.2rem 1.1rem;border-radius:26px;background:#fff;box-shadow:0 22px 50px rgba(143,68,36,.18);border:1px solid rgba(179,90,51,.18);text-align:center}
+  .live-spots{display:flex;align-items:center;justify-content:center;gap:.8rem}
+  .live-spots b{font-family:var(--serif);font-weight:400;font-size:4.2rem;line-height:.9;color:var(--terra)}
+  .live-spots span{text-align:left;font-weight:800;color:var(--ink);font-size:1.02rem;line-height:1.25}
+  .live-spots em{font-style:normal}
+  .live-dots{display:flex;justify-content:center;gap:.4rem;margin:.9rem 0 1.1rem}
+  .live-dots i{width:18px;height:18px;border-radius:50%;background:var(--terra);box-shadow:0 0 0 3px rgba(179,90,51,.15)}
+  .live-dots i.off{background:var(--sand-deep);box-shadow:none}
+  .live-label{font-size:.72rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:.55rem}
+  .live-cd{display:grid;grid-template-columns:repeat(4,1fr);gap:.5rem}
+  .live-cd div{background:linear-gradient(160deg,var(--terra) 0%,var(--terra-deep) 100%);border-radius:16px;padding:.65rem 0 .5rem;color:#fff;box-shadow:inset 0 -3px 0 rgba(0,0,0,.12)}
+  .live-cd b{display:block;font-family:var(--sans);font-weight:800;font-size:2.3rem;line-height:1;font-variant-numeric:tabular-nums}
+  .live-cd span{display:block;font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;opacity:.85;margin-top:.3rem}
+  .live-end{font-size:.84rem;color:var(--muted);margin-top:.7rem}
+  .acabou .live-cd div{background:var(--sand-deep)}
+  @media(max-width:520px){.live{max-width:none}.live-cd b{font-size:2rem}.live-spots b{font-size:3.6rem}}
 </style>
 </head>
 <body>
@@ -250,7 +267,18 @@
       <span class="kicker">Nur für unsere WhatsApp Gruppe</span>
       <h1>Ein Monat zum Hören. <i>Geschenkt.</i></h1>
       <p class="lead">Weil du Teil unserer WhatsApp Gruppe bist, schenken wir dir einen ganzen Monat „Unterwegs mit Gott“. Jeden Tag eine neue Andacht zum Hören, etwa 20 bis 30 Minuten, für den Spaziergang, die Küche oder den Bus.</p>
-      <div class="countbox"><span class="dot"></span><span data-vagas>Nur für die ersten 10</span><span class="count" data-count>bis Sonntag, 20. September, 20 Uhr</span></div>
+      <div class="live">
+  <div class="live-spots"><b data-left>10</b><span>von <em data-total>10</em> Geschenken<br>noch frei</span></div>
+  <div class="live-dots" data-dots></div>
+  <div class="live-label">Das Geschenk endet in</div>
+  <div class="live-cd">
+    <div><b data-d>00</b><span>Tage</span></div>
+    <div><b data-h>00</b><span>Std.</span></div>
+    <div><b data-m>00</b><span>Min.</span></div>
+    <div><b data-s>00</b><span>Sek.</span></div>
+  </div>
+  <div class="live-end">Sonntag, 20. September, 20 Uhr</div>
+</div>
       <div><a class="pill" data-gift href="https://www.patreon.com/ZeitMitGott/redeem/4F465" target="_blank" rel="noopener">Mein Geschenk einlösen</a></div>
       <p class="note">Keine Zahlungsdaten nötig · endet nach einem Monat von selbst</p>
       <p class="verse">„Dein Wort ist meines Fußes Leuchte und ein Licht auf meinem Wege.“<small>Psalm 119,105</small></p>
@@ -379,7 +407,18 @@
           <li>Auf Wunsch in deiner gewohnten Podcast App</li>
         </ul>
         <div class="big">0 € <small>für einen ganzen Monat, statt 5,95 €</small></div>
-        <div class="countbox"><span class="dot"></span><span data-vagas>Nur für die ersten 10</span><span class="count" data-count>bis Sonntag, 20. September, 20 Uhr</span></div>
+        <div class="live">
+  <div class="live-spots"><b data-left>10</b><span>von <em data-total>10</em> Geschenken<br>noch frei</span></div>
+  <div class="live-dots" data-dots></div>
+  <div class="live-label">Das Geschenk endet in</div>
+  <div class="live-cd">
+    <div><b data-d>00</b><span>Tage</span></div>
+    <div><b data-h>00</b><span>Std.</span></div>
+    <div><b data-m>00</b><span>Min.</span></div>
+    <div><b data-s>00</b><span>Sek.</span></div>
+  </div>
+  <div class="live-end">Sonntag, 20. September, 20 Uhr</div>
+</div>
         <div><a class="pill" data-gift href="https://www.patreon.com/ZeitMitGott/redeem/4F465" target="_blank" rel="noopener">Mein Geschenk einlösen</a></div>
         <div class="safe"><div class="seal">?</div><div><b>Und danach?</b> Nach dem Monat endet dein Geschenk von selbst, und es wird nichts berechnet. Drei Tage vorher erinnert dich Patreon daran. Wenn dir die Andachten guttun, kannst du dann selbst entscheiden, ob du für 5,95 € im Monat dabei bleiben möchtest.</div></div>
       </div>
@@ -502,6 +541,33 @@
     }
     document.querySelectorAll('[data-vagas]').forEach(function(e){e.textContent='Noch '+n+' von '+tot+' Geschenken frei'});
     var d=document.querySelector('#dock p');if(d)d.innerHTML='<b>1 Monat geschenkt</b><br>noch '+n+' von '+tot+' frei';
+  }).catch(function(){});
+})();
+
+(function(){
+  var fim=new Date('2026-09-20T20:00:00+02:00').getTime();
+  var two=function(n){return String(n).padStart(2,'0')};
+  function tick(){
+    var ms=Math.max(0,fim-Date.now()), s=Math.floor(ms/1000);
+    var d=Math.floor(s/86400), hh=Math.floor(s%86400/3600), mm=Math.floor(s%3600/60), ss=s%60;
+    document.querySelectorAll('[data-d]').forEach(function(e){e.textContent=two(d)});
+    document.querySelectorAll('[data-h]').forEach(function(e){e.textContent=two(hh)});
+    document.querySelectorAll('[data-m]').forEach(function(e){e.textContent=two(mm)});
+    document.querySelectorAll('[data-s]').forEach(function(e){e.textContent=two(ss)});
+    if(ms>0)setTimeout(tick,1000);
+  }
+  tick();
+  function pinta(n,tot){
+    document.querySelectorAll('[data-left]').forEach(function(e){e.textContent=n});
+    document.querySelectorAll('[data-total]').forEach(function(e){e.textContent=tot});
+    document.querySelectorAll('[data-dots]').forEach(function(box){
+      box.innerHTML='';for(var i=0;i<tot;i++){var b=document.createElement('i');if(i>=n)b.className='off';box.appendChild(b)}
+    });
+  }
+  pinta(10,10);
+  fetch('vagas.json?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.json()}).then(function(v){
+    var n=Math.max(0,parseInt(v.restantes,10)), tot=v.total||10;
+    if(!isNaN(n))pinta(n,tot);
   }).catch(function(){});
 })();
 </script>
