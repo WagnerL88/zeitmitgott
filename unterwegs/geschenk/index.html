@@ -519,7 +519,7 @@
     var ms=fim-Date.now();
     if(ms<=0){
       document.body.classList.add('acabou');
-      document.querySelectorAll('[data-gift]').forEach(function(a){a.href='https://zeitmitgott.com/unterwegs/';if(a.classList.contains('pill')||a.parentElement.id==='dock'){a.textContent='7 Tage kostenlos hören'}});
+      document.querySelectorAll('[data-gift]').forEach(function(a){a.href='https://www.patreon.com/zeitmitgott/membership';if(a.classList.contains('pill')||a.parentElement.id==='dock'){a.textContent='7 Tage kostenlos testen'}});
       document.querySelectorAll('[data-count]').forEach(function(c){c.textContent='Aktion beendet'});
       return;
     }
@@ -535,7 +535,7 @@
     if(n===0){
       document.body.classList.add('acabou');
       document.querySelector('.fim').textContent='Alle 10 Geschenke sind vergeben. Du kannst „Unterwegs mit Gott“ aber weiterhin 7 Tage kostenlos testen.';
-      document.querySelectorAll('[data-gift]').forEach(function(a){a.href='https://zeitmitgott.com/unterwegs/';if(a.classList.contains('pill')||a.parentElement.id==='dock'){a.textContent='7 Tage kostenlos hören'}});
+      document.querySelectorAll('[data-gift]').forEach(function(a){a.href='https://www.patreon.com/zeitmitgott/membership';if(a.classList.contains('pill')||a.parentElement.id==='dock'){a.textContent='7 Tage kostenlos testen'}});
       document.querySelectorAll('[data-vagas]').forEach(function(e){e.textContent='Alle Geschenke vergeben'});
       return;
     }
