@@ -224,6 +224,34 @@
     .facts{gap:.7rem}
     .fact{padding:1.1rem .5rem}
   }
+
+  /* HÖRBUCH */
+  .offer-duo { display: grid; grid-template-columns: 1fr 1fr; gap: 1.6rem; max-width: 1040px; margin: 2.4rem auto 0; }
+  .offer-duo .offer-card { margin: 0; max-width: none; display: flex; flex-direction: column; }
+  .offer-duo .offer-card .btn { margin-top: 0; }
+  .offer-duo .offer-includes { flex: 1 0 auto; max-width: none; }
+  .offer-duo .price-now { margin-top: auto; }
+  .hoer-probe { background: rgba(0,0,0,.04); border: 1px solid rgba(0,0,0,.12); border-radius: 8px; padding: .9rem 1rem 1rem; margin: 0 0 1.4rem; text-align: left; }
+  .hoer-probe span { display: block; font-size: .78rem; letter-spacing: .12em; text-transform: uppercase; opacity: .75; margin-bottom: .5rem; }
+  .hoer-probe audio { width: 100%; height: 40px; }
+  .hero-cover-wrap { flex-direction: column; align-items: center; }
+  .hero-hoer { margin-top: 1.4rem; width: min(calc(100% - 2rem), 420px); margin-inline: auto; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.18); border-radius: 10px; padding: .9rem 1rem 1rem; position: relative; z-index: 2; }
+  .hero-hoer-top { display: flex; justify-content: space-between; align-items: baseline; gap: .8rem; margin-bottom: .55rem; }
+  .hero-hoer-top span { font-size: .72rem; letter-spacing: .18em; text-transform: uppercase; opacity: .85; }
+  .hero-hoer-top b { font-size: .8rem; font-weight: 500; opacity: .7; }
+  .hero-hoer audio { width: 100%; height: 38px; }
+  .hero-hoer-nota { display: inline-block; margin-top: .55rem; font-size: .82rem; opacity: .7; }
+  .final-hoer { margin-top: 2.6rem; padding-top: 2.2rem; border-top: 1px solid rgba(255,255,255,.18); }
+  .final-oder { display: inline-block; font-size: .72rem; letter-spacing: .22em; text-transform: uppercase; opacity: .8; margin-bottom: .9rem; }
+  .final-hoer-title { font-size: clamp(1.5rem,4vw,2.1rem); line-height: 1.15; margin: 0 0 .5rem; }
+  .final-hoer-text { font-size: clamp(.95rem,2vw,1.05rem); max-width: 34rem; margin: 0 auto; opacity: .85; }
+  .final-preis { display: flex; align-items: baseline; justify-content: center; gap: .55rem; flex-wrap: wrap; margin: .6rem 0 1.5rem; }
+  .final-preis .was { font-size: .9rem; opacity: .75; }
+  .final-preis s { font-size: clamp(1.1rem,2.6vw,1.4rem); opacity: .8; }
+  .final-preis strong { font-size: clamp(2rem,5.5vw,2.8rem); font-weight: 700; margin-left: .3rem; }
+  .btn-ghost { background: transparent !important; border: 1.5px solid currentColor; box-shadow: none !important; }
+  .btn-ghost::after { display: none; }
+  @media (max-width: 860px) { .offer-duo { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
@@ -248,6 +276,11 @@
     </div>
     <div class="hero-cover-wrap">
       <img class="hero-cover" src="img/cover.jpg" alt="Der Gott, der bleibt — Andachtsbuch, Zeit mit Gott">
+      <div class="hero-hoer">
+        <div class="hero-hoer-top"><span>Auch als H&ouml;rbuch</span><b>8 Std. 45 Min.</b></div>
+        <audio controls preload="none" src="hoerprobe.mp3"></audio>
+        <span class="hero-hoer-nota">H&ouml;rprobe l&auml;uft 3 Minuten</span>
+      </div>
     </div>
   </div>
 </header>
@@ -449,7 +482,8 @@
       <h2 class="h-display">Du musst nur bleiben — <em>noch eine Seite lang</em>.</h2>
       <p class="lead">Sichere dir dein gedrucktes Exemplar und nimm dir abends ein Kapitel Zeit.</p>
     </div>
-    <div class="offer-card reveal">
+    <div class="offer-duo">
+      <div class="offer-card reveal">
       <div class="offer-badge">Gedruckte Ausgabe · Großdruck</div>
       <h3>Der Gott, der bleibt</h3>
       <ul class="offer-includes">
@@ -465,6 +499,28 @@
       <div class="price-note">Gedruckte Ausgabe · Preis und Verfügbarkeit auf Amazon</div>
       <a href="https://www.amazon.de/dp/B0HJH8CB3Q" class="btn" id="buy-main" target="_blank" rel="noopener noreferrer">Jetzt bei Amazon bestellen</a>
       <span class="btn-sub">Sichere Bezahlung · Lieferung nach Hause</span>
+    </div>
+      <div class="offer-card reveal">
+        <div class="offer-badge">H&ouml;rbuch</div>
+        <h3>Der Gott, der bleibt zum H&ouml;ren</h3>
+        <div class="hoer-probe">
+          <span>H&ouml;rprobe &middot; 3 Minuten</span>
+          <audio controls preload="none" src="hoerprobe.mp3"></audio>
+        </div>
+        <ul class="offer-includes">
+        <li>Das ganze Buch, vollständig gesprochen</li>
+        <li>52 Kapitel, sieben Stimmen aus der Bibel und 36 kurze Andachten</li>
+        <li>Kapitelübersicht zum Springen</li>
+        <li>Sofort anhören oder herunterladen</li>
+        <li>Immer wieder hören, so oft du willst</li>
+        <li>Ruhiges Tempo, mit Pausen zum Nachdenken</li>
+        <li>Gesprochen mit einer KI-Stimme</li>
+        </ul>
+        <div class="price-old"><span class="was">Statt</span> <span class="amount">&euro;42,30</span></div>
+        <div class="price-now">&euro;24,90 <small>einmalig, 8 Std. 45 Min.</small></div>
+        <a href="https://www.patreon.com/ZeitMitGott/shop" class="btn" target="_blank" rel="noopener">H&ouml;rbuch kaufen</a>
+        <span class="btn-sub">Sofort verf&uuml;gbar &middot; auf Handy, Tablet und Computer</span>
+      </div>
     </div>
   </div>
 </section>
@@ -511,6 +567,14 @@
     <p class="lead">Du musst nicht heilen wollen, um anzufangen. Du musst nur bleiben — noch eine Seite lang.</p>
     <a href="https://www.amazon.de/dp/B0HJH8CB3Q" class="btn" id="buy-final" target="_blank" rel="noopener noreferrer">Mein Exemplar jetzt bestellen</a>
     <span class="btn-sub" style="color:rgba(251,248,243,.6)">Sichere Bestellung über Amazon · Lieferung inklusive</span>
+    <div class="final-hoer">
+      <span class="final-oder">oder</span>
+      <h3 class="mono final-hoer-title">Lieber h&ouml;ren?</h3>
+      <p class="final-hoer-text">Das ganze Buch gesprochen, 8 Std. 45 Min.</p>
+      <div class="final-preis"><span class="was">Statt</span> <s>&euro;42,30</s><strong>&euro;24,90</strong></div>
+      <a href="https://www.patreon.com/ZeitMitGott/shop" class="btn btn-ghost" target="_blank" rel="noopener">H&ouml;rbuch jetzt h&ouml;ren</a>
+      <span class="btn-sub">Sofort verf&uuml;gbar &middot; auf Handy, Tablet und Computer</span>
+    </div>
   </div>
 </section>
 
