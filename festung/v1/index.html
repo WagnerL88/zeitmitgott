@@ -251,7 +251,9 @@
   /* HÖRBUCH: dois caminhos lado a lado */
   .offer-duo { display: grid; grid-template-columns: 1fr 1fr; gap: 1.6rem; max-width: 1040px; margin: 2.4rem auto 0; }
   .offer-duo .offer-card { margin: 0; max-width: none; display: flex; flex-direction: column; }
-  .offer-duo .offer-card .btn { margin-top: auto; }
+  .offer-duo .offer-card .btn { margin-top: 0; }
+  .offer-duo .offer-includes { flex: 1 0 auto; }
+  .offer-duo .price-now { margin-top: auto; }
   .offer-duo .offer-includes { max-width: none; }
   .hoer-probe { background: var(--parchment-warm, #f6f1e7); border: 1px solid var(--line-light, #e4ddd0); border-radius: 8px; padding: .9rem 1rem 1rem; margin: 0 0 1.4rem; text-align: left; }
   .hoer-probe span { display: block; font-family: 'Outfit', sans-serif; font-size: .78rem; letter-spacing: .12em; text-transform: uppercase; color: var(--gold-deep, #A47C2B); margin-bottom: .5rem; }
@@ -463,14 +465,16 @@
         <div class="offer-badge">H&ouml;rbuch</div>
         <h3>Festung der Seele zum H&ouml;ren</h3>
         <div class="hoer-probe">
-          <span>H&ouml;rprobe</span>
+          <span>H&ouml;rprobe &middot; 6 Minuten</span>
           <audio controls preload="none" src="hoerprobe.mp3"></audio>
         </div>
         <ul class="offer-includes">
         <li>Das ganze Buch, vollständig gesprochen</li>
         <li>39 Kapitel mit Kapitelübersicht zum Springen</li>
         <li>Sofort anhören oder herunterladen</li>
+        <li>Immer wieder hören, so oft du willst</li>
         <li>Ruhiges Tempo, mit Pausen zum Nachdenken</li>
+        <li>Beim Spazieren, im Auto oder in der Küche</li>
         <li>Gesprochen mit einer KI-Stimme</li>
         </ul>
         <div class="price-now">&euro;14,90 <small>einmalig, 3 Std. 49 Min.</small></div>
