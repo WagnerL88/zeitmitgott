@@ -285,6 +285,20 @@
   .final-preis .was { font-size: .9rem; color: var(--muted-light, #b9c0cb); }
   .final-preis s { font-size: clamp(1.1rem,2.6vw,1.4rem); color: var(--gold-deep, #A47C2B); }
   .final-preis strong { font-family: 'Cinzel', serif; font-size: clamp(2rem,5.5vw,2.8rem); color: var(--gold-bright, #ECCE80); font-weight: 700; margin-left: .3rem; }
+
+  /* pacote com os quatro Hörbücher */
+  .pacote-box { max-width: 1040px; margin: 1.6rem auto 0; display: grid; grid-template-columns: 300px 1fr; gap: clamp(1.2rem,3vw,2.2rem); align-items: center; background: linear-gradient(135deg, #171C25 0%, #222A36 100%); border: 1px solid rgba(217,180,90,.3); border-radius: 12px; padding: clamp(1.2rem,3vw,1.8rem); text-align: left; }
+  .pacote-box img { width: 100%; border-radius: 8px; display: block; }
+  .pacote-eyebrow { font-family:'Outfit',sans-serif; font-size: .72rem; letter-spacing: .2em; text-transform: uppercase; color: var(--gold, #D9B45A); }
+  .pacote-box h3 { font-family:'Cinzel',serif; color: #fff; font-size: clamp(1.4rem,3.2vw,1.9rem); line-height: 1.15; margin: .3rem 0 .6rem; }
+  .pacote-box h3 em { color: var(--gold-bright, #ECCE80); font-style: italic; }
+  .pacote-box p { color: rgba(255,255,255,.72); font-size: clamp(.9rem,1.8vw,1rem); margin-bottom: .9rem; }
+  .pacote-preis { font-family:'Outfit',sans-serif; display: flex; align-items: baseline; gap: .5rem; flex-wrap: wrap; margin-bottom: 1.1rem; }
+  .pacote-preis .was { font-size: .85rem; color: rgba(255,255,255,.6); }
+  .pacote-preis s { color: var(--gold-deep, #A47C2B); font-size: 1.1rem; }
+  .pacote-spar { font-family:'Outfit',sans-serif; font-size: .8rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: #14181F; background: var(--gold-bright, #ECCE80); border-radius: 999px; padding: .32rem .8rem; margin-left: .4rem; }
+  .pacote-preis strong { font-family:'Cinzel',serif; font-size: clamp(1.8rem,4.5vw,2.4rem); color: var(--gold-bright, #ECCE80); }
+  @media (max-width: 760px) { .pacote-box { grid-template-columns: 1fr; text-align: center; } .pacote-box img { max-width: 300px; margin: 0 auto; } .pacote-preis { justify-content: center; } }
 </style>
 </head>
 <body>
@@ -515,6 +529,17 @@
         <div class="price-now">&euro;14,90 <small>einmalig, 3 Std. 49 Min.</small></div>
         <a href="https://www.patreon.com/ZeitMitGott/posts/horbuch-festung-170306444" class="btn" target="_blank" rel="noopener">H&ouml;rbuch kaufen</a>
         <span class="btn-sub">Sofort verf&uuml;gbar &middot; auf Handy, Tablet und Computer</span>
+      </div>
+    </div>
+
+    <div class="pacote-box reveal">
+      <img src="pacote.jpg" alt="Vier H&ouml;rb&uuml;cher von Zeit mit Gott" loading="lazy">
+      <div class="pacote-txt">
+        <span class="pacote-eyebrow">Noch ein Schritt weiter</span>
+        <h3>Nimm gleich <em>alle vier</em></h3>
+        <p>Du h&ouml;rst „Festung der Seele&ldquo; f&uuml;r &euro;14,90. F&uuml;r &euro;40 mehr bekommst du die ganze Reihe: dazu noch <strong>Der Gott, der bleibt</strong>, <strong>Wenn Gott wiederherstellt, was zerbrochen war</strong> und <strong>Ruhe f&uuml;r die m&uuml;de Seele</strong>. Zusammen &uuml;ber 22 Stunden zum H&ouml;ren.</p>
+        <div class="pacote-preis"><span class="was">Einzeln</span> <s>&euro;69,60</s> <strong>&euro;54,90</strong> <span class="pacote-spar">Du sparst &euro;14,70</span></div>
+        <a href="https://www.patreon.com/ZeitMitGott/shop" class="btn" target="_blank" rel="noopener">Alle vier f&uuml;r &euro;54,90</a>
       </div>
     </div>
   </div>
