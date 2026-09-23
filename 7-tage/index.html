@@ -3,29 +3,30 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>100 % kostenloses E-Book &mdash; 7 Tage mit Gott | Zeit mit Gott</title>
-<meta name="description" content="Erhalte das 100 % kostenlose E-Book '7 Tage mit Gott' &mdash; sieben Tage, sieben Verse. Und danach jeden Tag eine kurze Andacht, wenn du m&ouml;chtest.">
+<title>7 Tage mit Gott: 100 % kostenloses E-Book | Zeit mit Gott</title>
+<meta name="description" content="Das kostenlose E-Book &bdquo;7 Tage mit Gott&ldquo;: jeden Tag ein Bibelvers, Gedanken, ein Gebet und ein kleiner Schritt f&uuml;r deinen Alltag. Danach jeden Tag eine kurze Andacht, wenn du m&ouml;chtest.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=Outfit:wght@300;400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
 <style>
+  /* Farben und Schriften wie im E-Book (Version Nachtblau) */
   :root {
-    --night: #0E1422;
-    --night-2: #151D30;
-    --deep: #1E2942;
-    --cream: #F7F1E5;
-    --cream-soft: rgba(247,241,229,.74);
-    --muted: rgba(247,241,229,.5);
-    --gold: #D8B45C;
-    --gold-bright: #ECCE87;
-    --gold-deep: #B0863A;
-    --paper: #FBF7EE;
-    --ink: #2A2A28;
-    --line: rgba(216,180,92,.2);
-    --line-soft: rgba(247,241,229,.12);
-    --field: rgba(255,255,255,.05);
-    --field-focus: rgba(216,180,92,.1);
-    --error: #E39089;
+    --night: #13243D;
+    --night-2: #1A3050;
+    --deep: #1F3A5F;
+    --cream: #F5EEE1;
+    --cream-soft: rgba(245,238,225,.78);
+    --muted: rgba(245,238,225,.52);
+    --gold: #C9A24E;
+    --gold-bright: #E8C57E;
+    --gold-deep: #A8832F;
+    --paper: #FAF6EE;
+    --ink: #2B2B33;
+    --line: rgba(201,162,78,.28);
+    --line-soft: rgba(245,238,225,.14);
+    --field: rgba(255,255,255,.06);
+    --field-focus: rgba(201,162,78,.12);
+    --error: #F0A39B;
   }
   * { margin:0; padding:0; box-sizing:border-box; }
   html { scroll-behavior:smooth; -webkit-text-size-adjust:100%; }
@@ -39,16 +40,26 @@
   .stage {
     min-height:100vh; position:relative; overflow:hidden;
     background:
-      radial-gradient(ellipse 80% 55% at 50% -8%, rgba(216,180,92,.22), transparent 60%),
-      radial-gradient(ellipse 60% 50% at 80% 110%, rgba(216,180,92,.08), transparent 55%),
-      linear-gradient(180deg, var(--night) 0%, var(--night-2) 55%, var(--night) 100%);
+      radial-gradient(ellipse 70% 45% at 50% 0%, rgba(232,197,126,.20), transparent 62%),
+      radial-gradient(ellipse 60% 50% at 75% 45%, rgba(60,92,134,.55), transparent 65%),
+      radial-gradient(ellipse 60% 50% at 80% 110%, rgba(201,162,78,.08), transparent 55%),
+      linear-gradient(180deg, #172C49 0%, var(--night) 60%, #101E33 100%);
     display:flex; align-items:center; justify-content:center;
     padding:clamp(2rem,6vw,4rem) clamp(1.2rem,5vw,3rem);
   }
   .wrap { width:100%; max-width:1080px; position:relative; z-index:2; }
 
-  .brand { font-family:'Fraunces',serif; font-style:italic; font-size:clamp(.95rem,2.4vw,1.1rem); letter-spacing:.02em; color:var(--cream); text-align:center; margin-bottom:clamp(1.8rem,5vw,3rem); }
-  .brand span { color:var(--gold); }
+  .brand { font-family:'Fraunces',serif; font-weight:500; font-size:clamp(1.15rem,2.8vw,1.35rem); letter-spacing:.01em; color:var(--cream); text-align:center; margin-bottom:clamp(1.8rem,5vw,3rem); }
+  .brand span { font-style:italic; color:var(--gold-bright); }
+  .sub, .bridge, .card-p, .thanks p, .inside li { font-family:'Source Serif 4',Georgia,serif; font-weight:400; }
+
+  /* Was im E-Book steckt */
+  .inside { list-style:none; margin:0 0 1.8rem; padding:0; max-width:30rem; }
+  .inside li { position:relative; padding:.55rem 0 .55rem 2rem; border-bottom:1px solid var(--line-soft); font-size:clamp(.95rem,1.6vw,1.03rem); color:var(--cream-soft); line-height:1.5; text-align:left; }
+  .inside li:last-child { border-bottom:none; }
+  .inside li::before { content:""; position:absolute; left:.35rem; top:1.05rem; width:.55rem; height:.55rem; border:1.5px solid var(--gold); transform:rotate(45deg); }
+  .inside b { color:var(--cream); font-weight:600; }
+  .inside-h { font-size:.74rem; letter-spacing:.24em; text-transform:uppercase; color:var(--gold-bright); font-weight:500; margin-bottom:.4rem; }
 
   .grid { display:grid; grid-template-columns:1fr 1fr; gap:clamp(2rem,6vw,5rem); align-items:center; }
 
@@ -70,7 +81,7 @@
   .cover-wrap::before { content:""; position:absolute; inset:-12% -8%; background:radial-gradient(ellipse at center, rgba(216,180,92,.28), transparent 66%); pointer-events:none; }
   .cover { position:relative; transform:perspective(1400px) rotateY(-13deg) rotateX(3deg); transform-style:preserve-3d; transition:transform .5s ease; }
   .cover-wrap:hover .cover { transform:perspective(1400px) rotateY(-7deg) rotateX(2deg); }
-  .cover img { width:clamp(230px,28vw,330px); height:auto; border-radius:4px 8px 8px 4px; box-shadow:24px 30px 60px rgba(0,0,0,.55), 2px 2px 0 rgba(255,255,255,.04); }
+  .cover img { width:clamp(230px,28vw,330px); height:auto; border-radius:4px 8px 8px 4px; box-shadow:24px 30px 60px rgba(0,0,0,.55), 0 0 0 1px rgba(232,197,126,.35), 0 0 40px rgba(232,197,126,.18); }
   .cover::after { content:""; position:absolute; top:0; bottom:0; left:0; width:14px; background:linear-gradient(90deg, rgba(0,0,0,.4), rgba(255,255,255,.06) 60%, transparent); border-radius:4px 0 0 4px; }
   .cover-float { position:absolute; bottom:-14px; right:clamp(-6px,2vw,8px); background:var(--paper); color:var(--ink); font-size:.74rem; font-weight:500; padding:.55rem .9rem; border-radius:10px; box-shadow:0 12px 30px rgba(0,0,0,.4); display:flex; align-items:center; gap:.4rem; z-index:3; }
   .cover-float b { color:var(--gold-deep); }
@@ -166,6 +177,7 @@
     .sub, .bridge, .verse { margin-left:auto; margin-right:auto; }
     .verse { display:inline-block; text-align:left; }
     .seven { justify-content:center; }
+    .inside { margin-left:auto; margin-right:auto; }
     .gift-tag { margin-left:auto; margin-right:auto; }
     .cover-col { order:-1; }
   }
@@ -187,9 +199,16 @@
       <div class="offer-col">
         <span class="gift-tag">&#127873; 100 % kostenloses E-Book</span>
         <h1>7 Tage <em>mit Gott</em></h1>
-        <p class="sub">Hol dir dieses E-Book jetzt v&ouml;llig kostenlos &mdash; ohne Kauf und ohne Kreditkarte. Sieben Tage. Sieben Verse. Sieben Begegnungen. Eine stille Einladung, deine Seele neu mit der Stimme Gottes zu verbinden &mdash; Tag f&uuml;r Tag.</p>
-        <p class="bridge">Und wenn die sieben Tage vorbei sind? <b>Dann geht es weiter.</b> Du erh&auml;ltst jeden Tag eine kurze Andacht &mdash; solange du m&ouml;chtest. Jederzeit widerrufbar.</p>
-        <div class="verse">&bdquo;Der HERR ist nahe denen, die zerbrochenen Herzens sind.&ldquo; &mdash; Psalm 34,19</div>
+        <p class="sub">Ein Andachtsbegleiter f&uuml;r eine Woche mit Gott. Nicht mehr als eine Viertelstunde am Tag, aber eine Zeit, die wirklich dir und Gott geh&ouml;rt. Ohne Kauf und ohne Kreditkarte.</p>
+        <div class="inside-h">Das erwartet dich im E-Book</div>
+        <ul class="inside">
+          <li><b>Sieben Tage mit Gott:</b> jeden Tag ein Bibelvers, Gedanken f&uuml;r heute, Fragen f&uuml;r dein Herz und ein Gebet</li>
+          <li><b>Ein kleiner Schritt f&uuml;r jeden Tag,</b> damit der Glaube nicht nur auf dem Papier bleibt</li>
+          <li><b>Bibelverse f&uuml;r besondere Momente,</b> wenn du Angst hast, m&uuml;de bist oder nicht schlafen kannst</li>
+          <li><b>Gebete f&uuml;r den Morgen und den Abend</b></li>
+        </ul>
+        <p class="bridge">Und wenn die sieben Tage vorbei sind? <b>Dann geht es weiter.</b> Du bekommst jeden Tag eine kurze Andacht, solange du m&ouml;chtest. Du kannst dich jederzeit abmelden.</p>
+        <div class="verse">&bdquo;Der HERR ist nahe denen, die zerbrochenen Herzens sind.&ldquo;<br>Psalm 34,19</div>
         <div class="seven" aria-label="Sieben Themen">
           <span>Vertrauen</span><span>Frieden</span><span>Vergebung</span><span>Hoffnung</span><span>Heilung</span><span>Kraft</span><span>Liebe</span>
         </div>
@@ -198,14 +217,14 @@
       <div class="cover-col">
         <div class="cover-wrap" style="margin-bottom:2rem;">
           <div class="cover">
-            <img src="cover-7-tage.webp" width="571" height="775" fetchpriority="high" decoding="async" alt="E-Book Cover: 7 Tage mit Gott">
+            <img src="cover-7-tage.webp?v=2" width="600" height="848" fetchpriority="high" decoding="async" alt="E-Book Cover: 7 Tage mit Gott">
           </div>
           <div class="cover-float">&#128231; <span>Per <b>E-Mail</b> &amp; <b>WhatsApp</b></span></div>
         </div>
 
         <div class="card">
           <div class="card-h">Kostenloses E-Book erhalten</div>
-          <p class="card-p">Trag dich kostenlos ein &mdash; du bekommst das E-Book und danach jeden Tag eine kurze Andacht.</p>
+          <p class="card-p">Trag dich kostenlos ein. Du bekommst das E-Book und danach jeden Tag eine kurze Andacht.</p>
 
           <form id="lead-form" novalidate>
             <div class="field" id="f-firstname">
@@ -230,7 +249,7 @@
             <!-- OPTIONAL — WHATSAPP -->
             <div class="optional-block">
               <div class="ob-h">Lieber als Sprachnachricht?</div>
-              <p class="ob-p">Erhalte die Andacht zus&auml;tzlich als kurze Audio-Andacht auf WhatsApp. Ganz optional &mdash; das E-Book bekommst du auch ohne Nummer.</p>
+              <p class="ob-p">Erhalte die Andacht zus&auml;tzlich als kurze Audio-Andacht auf WhatsApp. Ganz optional, das E-Book bekommst du auch ohne Nummer.</p>
 
               <div class="field" id="f-whatsapp" style="margin-bottom:.9rem;">
                 <label for="whatsapp">WhatsApp <span class="hint">(optional)</span></label>
@@ -292,7 +311,7 @@
                 </select>
                 <input type="tel" id="whatsapp" class="phone-input" placeholder="Deine Nummer ohne Ländervorwahl" autocomplete="tel" inputmode="tel">
                 <p class="phone-note" id="phone-preview">Aus einem anderen Land? Schreib deine Nummer mit <b>+</b> und Landesvorwahl.</p>
-                <p class="err" id="err-whatsapp">Diese Nummer sieht nicht vollst&auml;ndig aus. Bitte pr&uuml;fe sie &mdash; oder lass das Feld einfach leer.</p>
+                <p class="err" id="err-whatsapp">Diese Nummer sieht nicht vollst&auml;ndig aus. Bitte pr&uuml;fe sie oder lass das Feld einfach leer.</p>
               </div>
 
               <!-- CONSENT 2 — WHATSAPP -->
@@ -300,7 +319,7 @@
                 <input type="checkbox" id="consent-whatsapp">
                 <label for="consent-whatsapp" id="consent-whatsapp-label">Ja, ich m&ouml;chte t&auml;glich &uuml;ber WhatsApp Impulse, Andachten und gelegentlich Informationen zu B&uuml;chern und Angeboten von Zeit Mit Gott erhalten. Ich kann meine Einwilligung jederzeit widerrufen.</label>
               </div>
-              <p class="err" id="err-consent-whatsapp">Du hast eine Nummer eingetragen &mdash; bitte best&auml;tige den WhatsApp-Empfang oder lass das Feld leer.</p>
+              <p class="err" id="err-consent-whatsapp">Du hast eine Nummer eingetragen. Bitte best&auml;tige den WhatsApp-Empfang oder lass das Feld leer.</p>
             </div>
 
             <!-- honeypot -->
@@ -328,21 +347,21 @@
       </div>
       <h2>Fast fertig, <em><span id="thanks-name">dir</span></em>!</h2>
       <p class="step" id="thanks-step">Noch ein Schritt: bitte best&auml;tige deine E-Mail-Adresse.</p>
-      <p>Wir haben dir gerade eine E-Mail geschickt. Klicke auf den Best&auml;tigungslink &mdash; und du bekommst dein E-Book sofort danach.</p>
+      <p>Wir haben dir gerade eine E-Mail geschickt. Klicke auf den Best&auml;tigungslink, dann bekommst du dein E-Book sofort.</p>
       <p class="mail-note">Pr&uuml;fe auch den Spam- oder Werbeordner. Ohne die Best&auml;tigung k&ouml;nnen wir dir nichts senden.</p>
 
       <div class="wa-note" id="wa-note">
-        <div class="wa-h">Schritt 2 &mdash; deine Andacht auf WhatsApp</div>
+        <div class="wa-h">Schritt 2: deine Andacht auf WhatsApp</div>
 
         <p class="wa-p">
           WhatsApp erlaubt es uns nicht, ein Gespr&auml;ch zu beginnen.
           <b>Erst wenn du uns schreibst, d&uuml;rfen wir dir senden.</b>
-          Eine Nachricht von dir gen&uuml;gt &mdash; dann bekommst du:
+          Eine Nachricht von dir gen&uuml;gt, dann bekommst du:
         </p>
 
         <ul class="wa-list">
           <li>Dein E-Book <b>&bdquo;7 Tage mit Gott&ldquo;</b> als PDF</li>
-          <li>Jeden Morgen einen Vers und eine <b>Audio-Andacht</b> &mdash; 1 bis 2 Minuten</li>
+          <li>Jeden Morgen einen Vers und eine <b>Audio-Andacht</b> von 1 bis 2 Minuten</li>
           <li>Jeden Abend einen kurzen Gedanken zum Tag</li>
           <li>Die Einladung in unsere <b>t&auml;gliche WhatsApp-Gruppe</b></li>
         </ul>
