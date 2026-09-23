@@ -289,7 +289,7 @@
   /* pacote com os quatro Hörbücher */
   .pacote-box { max-width: 1040px; margin: 1.6rem auto 0; display: grid; grid-template-columns: 300px 1fr; gap: clamp(1.2rem,3vw,2.2rem); align-items: center; background: linear-gradient(135deg, #171C25 0%, #222A36 100%); border: 1px solid rgba(217,180,90,.3); border-radius: 12px; padding: clamp(1.2rem,3vw,1.8rem); text-align: left; }
   .pacote-box img { width: 100%; border-radius: 8px; display: block; }
-  .pacote-eyebrow { font-family:'Outfit',sans-serif; font-size: .72rem; letter-spacing: .2em; text-transform: uppercase; color: var(--gold, #D9B45A); }
+  .pacote-eyebrow { display:block; font-family:'Outfit',sans-serif; font-size: .86rem; margin-bottom:.5rem; font-weight:700; letter-spacing: .2em; text-transform: uppercase; color: var(--gold, #D9B45A); }
   .pacote-box h3 { font-family:'Cinzel',serif; color: #fff; font-size: clamp(1.4rem,3.2vw,1.9rem); line-height: 1.15; margin: .3rem 0 .6rem; }
   .pacote-box h3 em { color: var(--gold-bright, #ECCE80); font-style: italic; }
   .pacote-box p { color: rgba(255,255,255,.72); font-size: clamp(.9rem,1.8vw,1rem); margin-bottom: .9rem; }
@@ -297,6 +297,12 @@
   .pacote-box p strong { color: #fff; }
   .pacote-box p em { color: rgba(255,255,255,.9); font-style: italic; }
   .pacote-fecho { color: #fff !important; font-weight: 600; margin: .9rem 0 .2rem !important; }
+
+  .pacote-gewaehlt { font-size: .95rem !important; color: rgba(255,255,255,.6) !important; margin-bottom: .7rem !important; }
+  .pacote-mehr { font-family:'Cinzel',serif; font-size: clamp(1.4rem,3.4vw,2.1rem) !important; line-height: 1.2; color: #fff !important; margin-bottom: .5rem !important; }
+  .pacote-mehr b { color: var(--gold-bright, #ECCE80); font-size: 1.22em; }
+  .pacote-mehr em { font-style: normal; color: var(--gold-bright, #ECCE80); }
+  .pacote-stunden { font-family:'Outfit',sans-serif; font-size: 1.02rem !important; color: rgba(255,255,255,.82) !important; margin-bottom: 1rem !important; }
   .pacote-preis { font-family:'Outfit',sans-serif; display: flex; align-items: baseline; gap: .5rem; flex-wrap: wrap; margin-bottom: 1.1rem; }
   .pacote-preis .was { font-size: .85rem; color: rgba(255,255,255,.6); }
   .pacote-preis s { color: var(--gold-deep, #A47C2B); font-size: 1.1rem; }
@@ -539,11 +545,10 @@
     <div class="pacote-box reveal">
       <img src="pacote.jpg" alt="Vier H&ouml;rb&uuml;cher von Zeit mit Gott" loading="lazy">
       <div class="pacote-txt">
-        <span class="pacote-eyebrow">Noch ein Schritt weiter</span>
-        <h3>Nimm gleich <em>alle vier</em></h3>
-        <p>Du h&ouml;rst &bdquo;Festung der Seele&ldquo; f&uuml;r &euro;14,90.</p>
-        <p><strong>F&uuml;r nur &euro;40 mehr bekommst du alle vier H&ouml;rb&uuml;cher</strong>, darunter <em>Der Gott, der bleibt</em>, <em>Wenn Gott wiederherstellt, was zerbrochen war</em> und <em>Ruhe f&uuml;r die m&uuml;de Seele</em>.</p>
-        <p class="pacote-fecho">&Uuml;ber 22 Stunden f&uuml;r deinen Glauben, zum H&ouml;ren, wann immer du sie brauchst.</p>
+        <span class="pacote-eyebrow">Nimm gleich alle vier</span>
+        <p class="pacote-gewaehlt">Du hast &bdquo;Festung der Seele&ldquo; f&uuml;r &euro;14,90 gew&auml;hlt.</p>
+        <p class="pacote-mehr">F&uuml;r nur <b>&euro;40 mehr</b> bekommst du <em>alle 4 H&ouml;rb&uuml;cher</em>.</p>
+        <p class="pacote-stunden">&Uuml;ber 22 Stunden zum H&ouml;ren.</p>
         <div class="pacote-preis"><span class="was">Statt</span> <s>&euro;125,70</s> <strong>&euro;54,90</strong> <span class="pacote-spar">Du sparst &euro;70,80</span></div>
         <a href="https://www.patreon.com/ZeitMitGott/shop" class="btn" target="_blank" rel="noopener">Ja, ich m&ouml;chte alle vier</a>
       </div>
