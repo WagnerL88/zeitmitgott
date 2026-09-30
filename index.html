@@ -92,6 +92,10 @@
   .book-cta { display:inline-flex; align-items:center; gap:.5rem; font-size:.86rem; font-weight:600; letter-spacing:.02em; color:var(--accent,var(--gold)); }
   .book-cta .arrow { transition:transform .3s; }
   .book:hover .book-cta .arrow { transform:translateX(4px); }
+  .book-kreis .book-badge { color:#fff; background:linear-gradient(135deg,#F47A20,#C2471A); }
+  .book-cta-fill { color:#fff; background:linear-gradient(135deg,#E0662A,#C2471A 60%,#A83A14); padding:.72rem 1.15rem; border-radius:6px; box-shadow:0 8px 22px rgba(194,71,26,.35); transition:box-shadow .3s, transform .3s; }
+  .book:hover .book-cta-fill { box-shadow:0 12px 30px rgba(194,71,26,.5); }
+  .book-note { display:block; margin-top:.55rem; font-size:.76rem; color:var(--cream-soft); opacity:.8; }
   .book-badge { position:absolute; top:1.1rem; right:1.2rem; z-index:2; font-size:.62rem; letter-spacing:.12em; text-transform:uppercase; font-weight:600; color:#1a1611; background:linear-gradient(135deg,var(--gold-bright),var(--gold)); padding:.28rem .6rem; border-radius:20px; display:inline-flex; align-items:center; gap:.3rem; box-shadow:0 4px 12px rgba(0,0,0,.3); }
 
   /* FOOTER */
@@ -217,17 +221,33 @@
 
   </div>
 
-  <!-- NEU: ANDACHTEN ZUM HOEREN (Patreon) -->
-  <div class="section-label" style="margin-top:clamp(2.6rem,6vw,3.6rem)">Neu &middot; Zum H&ouml;ren</div>
+  <!-- HOERBUECHER -->
+  <div class="section-label" style="margin-top:clamp(2.6rem,6vw,3.6rem)">H&ouml;rb&uuml;cher &middot; Zum H&ouml;ren</div>
   <div class="books">
-    <a class="book reveal" href="https://zeitmitgott.com/unterwegs/" style="--accent:#E6A57F;">
+    <a class="book book-hoer reveal" href="/hoerbuecher/" style="--accent:var(--gold);">
       <span class="book-badge">&#127911; Neu</span>
-      <div class="book-cover"><img src="https://zeitmitgott.com/unterwegs/img/fluss.jpg" alt="Unterwegs mit Gott, Andachten zum H&ouml;ren" loading="lazy" style="aspect-ratio:1/1;object-fit:cover"></div>
+      <div class="book-cover"><img src="/hoerbuecher/img/pacote.jpg" alt="Die vier H&ouml;rb&uuml;cher von Zeit mit Gott" loading="lazy" style="aspect-ratio:1/1;object-fit:cover"></div>
       <div class="book-body">
-        <div class="book-kicker">Jeden Tag zum H&ouml;ren</div>
-        <div class="book-title">Unterwegs mit Gott</div>
-        <div class="book-sub">Jeden Tag eine neue Andacht zum H&ouml;ren, etwa 20 bis 30 Minuten. F&uuml;r den Spaziergang, die K&uuml;che oder den Bus.</div>
-        <span class="book-cta">7 Tage kostenlos h&ouml;ren <span class="arrow">&rarr;</span></span>
+        <div class="book-kicker">Vier H&ouml;rb&uuml;cher &middot; &uuml;ber 22 Stunden</div>
+        <div class="book-title">Unsere B&uuml;cher zum H&ouml;ren</div>
+        <div class="book-sub">Alle vier Andachtsb&uuml;cher, vollst&auml;ndig gesprochen. Einzeln ab 9,90 &euro; oder alle vier zusammen f&uuml;r 54,90 &euro;. Buch schon gekauft? Dann bekommst du 35&nbsp;% Rabatt.</div>
+        <span class="book-cta">H&ouml;rb&uuml;cher ansehen <span class="arrow">&rarr;</span></span>
+      </div>
+    </a>
+  </div>
+
+  <!-- GEMEINSCHAFT (Patreon) -->
+  <div class="section-label" style="margin-top:clamp(2.6rem,6vw,3.6rem)">Die Gemeinschaft &middot; 7 Tage gratis</div>
+  <div class="books">
+    <a class="book book-kreis reveal" href="https://zeitmitgott.com/unterwegs/" style="--accent:#F08A4B;">
+      <span class="book-badge">Nicht verpassen</span>
+      <div class="book-cover"><img src="https://zeitmitgott.com/unterwegs/img/hero-gemeinschaft.jpg" alt="Ein Mann liest am Küchentisch in der Bibel und auf seinem Handy" loading="lazy" style="aspect-ratio:1/1;object-fit:cover;object-position:66% 40%"></div>
+      <div class="book-body">
+        <div class="book-kicker">Die Gemeinschaft von Zeit mit Gott</div>
+        <div class="book-title">Gott möchte heute zu dir sprechen</div>
+        <div class="book-sub">Jeden Tag ein Wort aus der Bibel zum H&ouml;ren, Bibelstudien und Gebet f&uuml;r deine Anliegen. In einem geschlossenen Kreis, mit Br&uuml;dern und Schwestern, die dasselbe suchen wie du.</div>
+        <span class="book-cta book-cta-fill">Ich will h&ouml;ren, was Gott mir sagt <span class="arrow">&rarr;</span></span>
+        <span class="book-note">7 Tage kostenlos &middot; mit wenigen Klicks k&uuml;ndbar</span>
       </div>
     </a>
   </div>
