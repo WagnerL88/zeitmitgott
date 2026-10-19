@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>7 Tage mit Gott: 100 % kostenloses E-Book | Zeit mit Gott</title>
-<meta name="description" content="Das kostenlose E-Book &bdquo;7 Tage mit Gott&ldquo;: jeden Tag ein Bibelvers, Gedanken, ein Gebet und ein kleiner Schritt f&uuml;r deinen Alltag. Danach jeden Tag eine kurze Andacht, wenn du m&ouml;chtest.">
+<meta name="description" content="Das kostenlose E-Book &bdquo;7 Tage mit Gott&ldquo;: ein Andachtsbegleiter f&uuml;r eine Woche mit Bibelvers, Gedanken, Fragen, Gebet und einem kleinen Schritt f&uuml;r den Alltag. Per E-Mail.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=Outfit:wght@300;400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
@@ -61,7 +61,46 @@
   .inside b { color:var(--cream); font-weight:600; }
   .inside-h { font-size:.74rem; letter-spacing:.24em; text-transform:uppercase; color:var(--gold-bright); font-weight:500; margin-bottom:.4rem; }
 
-  .grid { display:grid; grid-template-columns:1fr 1fr; gap:clamp(2rem,6vw,5rem); align-items:center; }
+  .grid { display:grid; grid-template-columns:1fr 1fr; grid-template-areas:"head cover" "card cover"; column-gap:clamp(2rem,6vw,5rem); row-gap:1.6rem; align-items:start; }
+  .offer-col { grid-area:head; }
+  .form-col { grid-area:card; }
+  .cover-col { grid-area:cover; align-self:center; }
+  .start { font-family:'Source Serif 4',Georgia,serif; font-size:clamp(.92rem,1.5vw,1rem); color:var(--cream-soft); max-width:30rem; line-height:1.55; }
+  .start b { color:var(--gold-bright); font-weight:500; }
+
+  /* Abschnitte unter dem Formular */
+  .more { max-width:760px; margin:clamp(3.5rem,9vw,6rem) auto 0; }
+  .sec { padding:clamp(2.2rem,6vw,3.4rem) 0; border-top:1px solid var(--line-soft); }
+  .sec-h { font-family:'Fraunces',serif; font-weight:400; font-size:clamp(1.55rem,3.6vw,2.2rem); line-height:1.2; color:#fff; margin-bottom:1.3rem; }
+  .sec-h em { font-style:italic; color:var(--gold-bright); }
+  .sec .seven { margin-bottom:1.4rem; }
+  .sec .inside { max-width:none; }
+  .sample { background:var(--paper); color:var(--ink); border-radius:16px; padding:clamp(1.4rem,4vw,2rem); margin-top:1.6rem; font-family:'Source Serif 4',Georgia,serif; box-shadow:0 20px 50px rgba(0,0,0,.35); }
+  .sample p { font-size:1rem; line-height:1.65; margin-bottom:.9rem; }
+  .sample p:last-child { margin-bottom:0; }
+  .sample-h { font-family:'Outfit',sans-serif !important; font-size:.72rem !important; letter-spacing:.22em; text-transform:uppercase; color:var(--gold-deep); font-weight:500; }
+  .sample-verse { font-style:italic; border-left:3px solid var(--gold); padding-left:1rem; }
+  .sample-verse span { display:block; font-style:normal; font-size:.85rem; color:var(--gold-deep); margin-top:.3rem; }
+  .sample-step { background:rgba(201,162,78,.14); border-radius:10px; padding:.9rem 1rem; }
+  .sample-step b { color:var(--deep); }
+  .steps { list-style:none; counter-reset:s; margin:0; padding:0; }
+  .steps li { position:relative; padding:0 0 1.3rem 3rem; font-family:'Source Serif 4',Georgia,serif; font-size:1rem; line-height:1.6; color:var(--cream-soft); }
+  .steps li:last-child { padding-bottom:0; }
+  .steps li::before { counter-increment:s; content:counter(s); position:absolute; left:0; top:0; width:2rem; height:2rem; border:1.5px solid var(--gold); border-radius:50%; display:flex; align-items:center; justify-content:center; font-family:'Fraunces',serif; color:var(--gold-bright); font-size:.95rem; }
+  .steps b { display:block; color:var(--cream); font-family:'Outfit',sans-serif; font-weight:500; margin-bottom:.15rem; }
+  .sec .verse { margin:1.4rem 0; }
+  .not { font-family:'Source Serif 4',Georgia,serif; font-size:.95rem; color:var(--muted); }
+  .not b { color:var(--cream-soft); font-weight:600; }
+  .faq details { border-bottom:1px solid var(--line-soft); padding:.95rem 0; }
+  .faq summary { cursor:pointer; list-style:none; position:relative; padding-right:1.8rem; font-family:'Fraunces',serif; font-size:1.06rem; color:#fff; }
+  .faq summary::-webkit-details-marker { display:none; }
+  .faq summary::after { content:"+"; position:absolute; right:0; top:0; color:var(--gold); font-size:1.2rem; line-height:1.4; }
+  .faq details[open] summary::after { content:"\2212"; }
+  .faq details p { margin-top:.6rem; font-family:'Source Serif 4',Georgia,serif; font-size:.98rem; color:var(--cream-soft); }
+  .faq a { color:var(--gold); }
+  .final { text-align:center; }
+  .final-p { font-family:'Source Serif 4',Georgia,serif; color:var(--cream-soft); }
+  .cta-link { display:block; max-width:22rem; margin:1.4rem auto 0; text-align:center; text-decoration:none; }
 
   /* LEFT — offer */
   .gift-tag { display:inline-flex; align-items:center; gap:.5rem; font-size:.72rem; letter-spacing:.22em; text-transform:uppercase; font-weight:500; color:var(--night); background:linear-gradient(135deg,var(--gold-bright),var(--gold)); padding:.5rem 1rem; border-radius:30px; margin-bottom:1.5rem; box-shadow:0 6px 18px rgba(176,134,58,.35); }
@@ -172,14 +211,18 @@
   .foot-legal { width:100%; margin-top:.4rem; font-size:.78rem; }
 
   @media (max-width:900px) {
-    .grid { grid-template-columns:1fr; gap:2.6rem; }
+    .grid { grid-template-columns:1fr; grid-template-areas:"head" "card" "cover"; row-gap:1.4rem; }
     .offer-col { text-align:center; }
-    .sub, .bridge, .verse { margin-left:auto; margin-right:auto; }
-    .verse { display:inline-block; text-align:left; }
-    .seven { justify-content:center; }
-    .inside { margin-left:auto; margin-right:auto; }
+    .brand { margin-bottom:1.1rem; }
+    .gift-tag { margin-bottom:.9rem; }
+    h1 { margin-bottom:.7rem; }
+    .sub { margin-bottom:.7rem; }
+    .card { padding:1.5rem 1.25rem; }
+    .card-p { margin-bottom:1.1rem; }
+    .cover-col { padding-top:1rem; }
+    .sub, .bridge, .start { margin-left:auto; margin-right:auto; }
+    .offer-col .seven { justify-content:center; }
     .gift-tag { margin-left:auto; margin-right:auto; }
-    .cover-col { order:-1; }
   }
   @media (prefers-reduced-motion:reduce) {
     *{scroll-behavior:auto !important;}
@@ -195,36 +238,19 @@
     <div class="brand">Zeit mit <span>Gott</span></div>
 
     <!-- ================= FORM ================= -->
-    <div id="view-form" class="grid">
+    <div id="view-form">
+    <div class="grid">
       <div class="offer-col">
-        <span class="gift-tag">&#127873; 100 % kostenloses E-Book</span>
+        <span class="gift-tag">&#127873; 100 % kostenlos &middot; per E-Mail</span>
         <h1>7 Tage <em>mit Gott</em></h1>
-        <p class="sub">Ein Andachtsbegleiter f&uuml;r eine Woche mit Gott. Nicht mehr als eine Viertelstunde am Tag, aber eine Zeit, die wirklich dir und Gott geh&ouml;rt. Ohne Kauf und ohne Kreditkarte.</p>
-        <div class="inside-h">Das erwartet dich im E-Book</div>
-        <ul class="inside">
-          <li><b>Sieben Tage mit Gott:</b> jeden Tag ein Bibelvers, Gedanken f&uuml;r heute, Fragen f&uuml;r dein Herz und ein Gebet</li>
-          <li><b>Ein kleiner Schritt f&uuml;r jeden Tag,</b> damit der Glaube nicht nur auf dem Papier bleibt</li>
-          <li><b>Bibelverse f&uuml;r besondere Momente,</b> wenn du Angst hast, m&uuml;de bist oder nicht schlafen kannst</li>
-          <li><b>Gebete f&uuml;r den Morgen und den Abend</b></li>
-        </ul>
-        <p class="bridge">Und wenn die sieben Tage vorbei sind? <b>Dann geht es weiter.</b> Du bekommst jeden Tag eine kurze Andacht, solange du m&ouml;chtest. Du kannst dich jederzeit abmelden.</p>
-        <div class="verse">&bdquo;Der HERR ist nahe denen, die zerbrochenen Herzens sind.&ldquo;<br>Psalm 34,19</div>
-        <div class="seven" aria-label="Sieben Themen">
-          <span>Vertrauen</span><span>Frieden</span><span>Vergebung</span><span>Hoffnung</span><span>Heilung</span><span>Kraft</span><span>Liebe</span>
-        </div>
+        <p class="sub">Ein Andachtsbegleiter f&uuml;r eine Woche: jeden Tag ein Bibelvers, ein Gebet und ein kleiner Schritt f&uuml;r den Alltag.</p>
+        <p class="start"><b>Das E-Book kommt sofort als PDF,</b> sobald die E-Mail-Adresse best&auml;tigt ist. Ohne Kauf und ohne Kreditkarte.</p>
       </div>
 
-      <div class="cover-col">
-        <div class="cover-wrap" style="margin-bottom:2rem;">
-          <div class="cover">
-            <img src="cover-7-tage.webp?v=2" width="600" height="848" fetchpriority="high" decoding="async" alt="E-Book Cover: 7 Tage mit Gott">
-          </div>
-          <div class="cover-float">&#128231; <span>Per <b>E-Mail</b> &amp; <b>WhatsApp</b></span></div>
-        </div>
-
-        <div class="card">
+      <div class="form-col">
+        <div class="card" id="formular">
           <div class="card-h">Kostenloses E-Book erhalten</div>
-          <p class="card-p">Trag dich kostenlos ein. Du bekommst das E-Book und danach jeden Tag eine kurze Andacht.</p>
+          <p class="card-p">Vorname und E-Mail gen&uuml;gen. Danach kommt eine E-Mail mit einem Best&auml;tigungslink.</p>
 
           <form id="lead-form" novalidate>
             <div class="field" id="f-firstname">
@@ -338,6 +364,104 @@
           </form>
         </div>
       </div>
+
+      <div class="cover-col">
+        <div class="cover-wrap">
+          <div class="cover">
+            <img src="cover-7-tage.webp?v=2" width="600" height="848" fetchpriority="high" decoding="async" alt="E-Book Cover: 7 Tage mit Gott">
+          </div>
+          <div class="cover-float">&#128231; <span>Per <b>E-Mail</b> &amp; <b>WhatsApp</b></span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="more">
+
+      <!-- Was im E-Book steckt -->
+      <section class="sec">
+        <div class="inside-h">Das steckt im E-Book</div>
+        <h2 class="sec-h">Sieben Tage, sieben <em>Themen</em></h2>
+        <div class="seven" aria-label="Sieben Themen">
+          <span>Vertrauen</span><span>Frieden</span><span>Vergebung</span><span>Hoffnung</span><span>Heilung</span><span>Kraft</span><span>Liebe</span>
+        </div>
+        <ul class="inside">
+          <li><b>Jeden Tag:</b> ein Bibelvers, Gedanken f&uuml;r heute, drei Fragen f&uuml;r dein Herz und ein Gebet</li>
+          <li><b>Ein kleiner Schritt f&uuml;r jeden Tag,</b> damit der Glaube nicht nur auf dem Papier bleibt</li>
+          <li><b>Ein Satz zum Mitnehmen</b> am Ende jedes Tages und ein R&uuml;ckblick nach der Woche</li>
+          <li><b>Zehn Bibelverse f&uuml;r besondere Momente,</b> zum Beispiel wenn du Angst hast, m&uuml;de bist oder nicht schlafen kannst</li>
+          <li><b>Ein Gebet f&uuml;r den Morgen und eines f&uuml;r den Abend</b></li>
+          <li><b>25 Seiten als PDF.</b> Die Bibelstellen lassen sich direkt antippen.</li>
+        </ul>
+
+        <div class="sample">
+          <p class="sample-h">Leseprobe &middot; Tag 1: Vertrauen</p>
+          <p class="sample-verse">&bdquo;Vertraue auf den HERRN von ganzem Herzen und verlass dich nicht auf deinen Verstand, sondern gedenke an ihn in allen deinen Wegen, so wird er dich recht f&uuml;hren.&ldquo; <span>Spr&uuml;che 3,5-6</span></p>
+          <p>Vertrauen hei&szlig;t nicht, die Antworten zu kennen. Vertrauen hei&szlig;t zu wissen, dass der, der dich f&uuml;hrt, sie kennt.</p>
+          <p class="sample-step"><b>Dein Schritt f&uuml;r heute:</b> Nimm einen Zettel und schreib den einen Bereich auf, den du heute loslassen willst. Leg ihn in deine Bibel. Wenn die Sorge im Lauf des Tages zur&uuml;ckkommt, sag leise: &bdquo;Herr, das geh&ouml;rt jetzt dir.&ldquo;</p>
+        </div>
+      </section>
+
+      <!-- So funktioniert's -->
+      <section class="sec">
+        <div class="inside-h">So funktioniert&rsquo;s</div>
+        <h2 class="sec-h">Was nach dem Eintragen <em>kommt</em></h2>
+        <ol class="steps">
+          <li><b>Eintragen</b>Vorname und E-Mail. Die WhatsApp-Nummer ist freiwillig.</li>
+          <li><b>Best&auml;tigen</b>Du bekommst eine E-Mail mit einem Link. Ein Klick darauf, und deine Adresse ist best&auml;tigt. Ohne diese Best&auml;tigung d&uuml;rfen wir dir nichts senden.</li>
+          <li><b>Das E-Book sofort</b>Nach dem Klick kannst du das E-Book als PDF herunterladen. Es kommt au&szlig;erdem per E-Mail.</li>
+          <li><b>Sieben Tage lang eine E-Mail</b>An den folgenden sieben Tagen bekommst du jeden Tag eine kurze Andacht per E-Mail, als Begleitung durch die Woche.</li>
+          <li><b>Danach jeden Morgen eine Andacht</b>Wenn die sieben Tage vorbei sind, kommt jeden Morgen eine kurze Andacht, solange du m&ouml;chtest. Jede E-Mail hat unten einen Link zum Abbestellen.</li>
+        </ol>
+      </section>
+
+      <!-- Für wen -->
+      <section class="sec">
+        <div class="inside-h">F&uuml;r wen</div>
+        <h2 class="sec-h">F&uuml;r wen das E-Book <em>gedacht</em> ist</h2>
+        <ul class="inside">
+          <li>F&uuml;r alle, die sich eine feste Zeit mit Gott w&uuml;nschen und nicht wissen, wo sie anfangen sollen.</li>
+          <li>F&uuml;r volle Tage: Ein Tag im E-Book hat zwei Seiten. Mehr als eine Viertelstunde braucht es nicht.</li>
+          <li>F&uuml;r Tage, an denen die eigenen Worte fehlen: Jeder Tag hat ein Gebet zum Mitbeten.</li>
+          <li>Und wenn ein Tag ausf&auml;llt? Dann geht es am n&auml;chsten Tag einfach weiter. Es gibt nichts nachzuholen.</li>
+        </ul>
+        <div class="verse">&bdquo;Der HERR ist nahe denen, die zerbrochenen Herzens sind.&ldquo;<br>Psalm 34,19</div>
+        <p class="not"><b>Nicht das Richtige</b> f&uuml;r alle, die einen Bibelkurs oder theologische Fachfragen suchen. Das E-Book ist ein Begleiter f&uuml;r die stille Zeit, kein Lehrbuch.</p>
+      </section>
+
+      <!-- FAQ -->
+      <section class="sec faq">
+        <div class="inside-h">H&auml;ufige Fragen</div>
+        <h2 class="sec-h">Vor dem <em>Eintragen</em></h2>
+        <details>
+          <summary>Ist das wirklich kostenlos?</summary>
+          <p>Ja. Das E-Book ist ein Geschenk und bleibt kostenlos. Kein Abo, keine Kreditkarte. Ab und zu weisen wir auf unsere B&uuml;cher hin oder bitten um eine freiwillige Spende. Mitmachen musst du dabei nie.</p>
+        </details>
+        <details>
+          <summary>Bekomme ich viele E-Mails?</summary>
+          <p>In der ersten Woche eine E-Mail am Tag, danach eine Andacht am Morgen. Gelegentlich kommt ein Hinweis auf ein Buch oder ein Angebot von Zeit mit Gott, so wie in der Einwilligung beschrieben.</p>
+        </details>
+        <details>
+          <summary>Wie kann ich mich abmelden?</summary>
+          <p>Unten in jeder E-Mail steht &bdquo;Andacht abbestellen&ldquo;. Ein Klick auf der Seite, die sich dann &ouml;ffnet, gen&uuml;gt. Bei WhatsApp reicht die Nachricht STOPP.</p>
+        </details>
+        <details>
+          <summary>Was passiert mit meinen Daten?</summary>
+          <p>Wir speichern deinen Vornamen, deine E-Mail-Adresse und, falls angegeben, deine WhatsApp-Nummer, dazu den Zeitpunkt deiner Einwilligung. Wir nutzen sie f&uuml;r die Andachten und die Hinweise, denen du zugestimmt hast. Alles Weitere steht in der <a href="https://zeitmitgott.com/datenschutz" target="_blank" rel="noopener">Datenschutzerkl&auml;rung</a>.</p>
+        </details>
+        <details>
+          <summary>Die Best&auml;tigungs-E-Mail ist nicht da?</summary>
+          <p>Schau bitte im Spam- oder Werbeordner nach, bei Gmail auch unter &bdquo;Werbung&ldquo;. Ist sie dort auch nicht, schreib uns an <a href="mailto:hallo@zeitmitgott.com">hallo@zeitmitgott.com</a>.</p>
+        </details>
+      </section>
+
+      <!-- Abschluss -->
+      <section class="sec final">
+        <h2 class="sec-h">Bereit f&uuml;r den <em>ersten Tag</em>?</h2>
+        <p class="final-p">Kostenlos, per E-Mail, jederzeit abbestellbar.</p>
+        <a href="#formular" class="submit cta-link">Gratis E-Book erhalten</a>
+      </section>
+
+    </div>
     </div>
 
     <!-- ================= THANK YOU ================= -->

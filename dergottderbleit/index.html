@@ -6,7 +6,7 @@
 <title>Der Gott, der bleibt — Zeit mit Gott</title>
 <meta name="description" content="Ein Andachtsbuch für den Menschen, der zurückbleibt. 52 Kapitel, sieben biblische Stimmen und 36 kurze Andachten — groß gedruckt, für Augen, die abends müde sind.">
 <meta property="og:title" content="Der Gott, der bleibt — Zeit mit Gott">
-<meta property="og:description" content="Wenn Menschen gehen, Kräfte schwinden und du allein zurückbleibst.">
+<meta property="og:description" content="Ein Andachtsbuch für den Menschen, der zurückbleibt: nach einem Abschied, im Alter, wenn es still geworden ist.">
 <meta property="og:type" content="book">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -193,7 +193,13 @@
     .hero-grid{grid-template-columns:1fr;text-align:center}
     .hero-lead{margin-left:auto;margin-right:auto}
     .hero-verse{text-align:left;max-width:30rem;margin-left:auto;margin-right:auto}
-    .hero-cover-wrap{order:-1;margin-bottom:2.2rem}
+    .hero-cover-wrap{order:-1;margin-bottom:.4rem}
+    /* v3: capa menor no celular para H1 + botao caberem na primeira tela */
+    .hero{padding-top:5.2rem}
+    .hero-grid{gap:1.3rem}
+    .hero-cover{width:132px}
+    .hero h1{margin-bottom:.9rem}
+    .hero-lead{margin-bottom:1.2rem}
     .pain-grid{grid-template-columns:1fr}
     .and-grid{grid-template-columns:1fr;max-width:420px;margin-left:auto;margin-right:auto}
     .split-grid{grid-template-columns:1fr}
@@ -237,14 +243,14 @@
 <header class="hero">
   <div class="wrap hero-grid">
     <div>
-      <span class="eyebrow" style="color:var(--gold-soft)">Andachtsbuch · Reihe Zeit mit Gott</span>
-      <h1>Der Gott,<br><em>der bleibt</em></h1>
-      <p class="hero-lead">Wenn Menschen gehen, Kräfte schwinden und du allein zurückbleibst. Ein Begleiter für die Abende, an denen das Haus zu groß geworden ist.</p>
-      <div class="hero-verse">„Ich will dich nicht verlassen und nicht von dir weichen.“<br>— Josua 1,5</div>
+      <span class="eyebrow" style="color:var(--gold-soft)">Andachtsbuch · „Der Gott, der bleibt“</span>
+      <h1>Menschen gehen.<br><em>Gott nicht.</em></h1>
+      <p class="hero-lead">Ein Andachtsbuch für den Menschen, der zurückbleibt. 52 Kapitel und 36 kurze Andachten, groß gedruckt.</p>
       <div>
-        <a href="#angebot" class="btn">Jetzt mein Exemplar sichern</a>
-        <span class="btn-sub" style="color:rgba(251,248,243,.62)">Gedruckte Ausgabe · Sichere Bestellung über Amazon</span>
+        <a href="https://www.amazon.de/dp/B0HJH8CB3Q" class="btn" id="buy-hero" target="_blank" rel="noopener noreferrer">Zum Buch auf Amazon</a>
+        <span class="btn-sub" style="color:rgba(251,248,243,.7)">Taschenbuch · 383 Seiten · €29,85 · Weiter zu Amazon.de</span>
       </div>
+      <div class="hero-verse" style="margin-top:2rem;margin-bottom:0">„Ich will dich nicht verlassen und nicht von dir weichen.“ Es ist kein Vers für starke Tage. Es ist ein Vers für den Abend, an dem das Haus zu groß geworden ist.<br>— aus dem Vorwort, zu Josua 1,5</div>
     </div>
     <div class="hero-cover-wrap">
       <img class="hero-cover" src="img/cover.jpg" alt="Der Gott, der bleibt — Andachtsbuch, Zeit mit Gott">
@@ -256,13 +262,39 @@
   <strong>383 Seiten</strong><span class="sep">·</span>52 Kapitel<span class="sep">·</span>7 biblische Stimmen<span class="sep">·</span>36 kurze Andachten<span class="sep">·</span><strong>Großdruck</strong>
 </div>
 
+<!-- EXCERPT (v3: sobe para logo depois do topo; a lista com "du" desce) -->
+<section class="excerpt">
+  <div class="wrap">
+    <div class="narrow" style="text-align:center;">
+      <span class="eyebrow gold center">Ein Blick ins Buch</span>
+      <h2 class="h-display">Die ersten <em>Zeilen</em> des Vorworts.</h2>
+    </div>
+    <div class="book-open reveal">
+      <div class="book-page left">
+        <div class="book-ch">Vorwort · Bevor du beginnst</div>
+        <h3 class="book-h">Es gibt eine Stille, die erst entsteht, wenn jemand fehlt.</h3>
+        <p class="book-text book-drop">Sie ist anders als die Stille am frühen Morgen oder die Stille in einer leeren Kirche. Sie hat eine Form. Sie hat den Umriss eines Menschen, der nicht mehr da ist — eines Stuhls, der leer bleibt, eines Namens, den niemand mehr ausspricht, einer Stimme, die du im Kopf noch hörst und im Zimmer nicht mehr.</p>
+        <p class="book-text">Vielleicht kennst du diese Stille. Vielleicht wohnst du seit Monaten in ihr.</p>
+        <div class="book-pgno">— 4 —</div>
+      </div>
+      <div class="book-page right">
+        <p class="book-text">Vielleicht ist jemand gestorben. Vielleicht ist jemand einfach gegangen — ohne Tür, ohne Abschied, nur mit weniger Anrufen von Woche zu Woche, bis gar keiner mehr kam. Vielleicht sind die Kinder erwachsen geworden, und das ist gut so, und trotzdem ist es still. Vielleicht hat dein Körper angefangen, dir Dinge zu verweigern, die früher selbstverständlich waren.</p>
+        <p class="book-text">Dieses Buch ist für den Menschen, der zurückbleibt.</p>
+        <p class="book-text">Ich schreibe es nicht, um dir zu erklären, warum es so gekommen ist. Diese Erklärung habe ich nicht, und wer sie dir anbietet, hat dein Schweigen nie geteilt. Ich schreibe es, weil ich glaube, dass in dieser Stille jemand ist.</p>
+        <div class="book-pgno">— 5 —</div>
+      </div>
+    </div>
+    <p class="excerpt-cap">Aus dem Vorwort von „Der Gott, der bleibt“</p>
+  </div>
+</section>
+
 <!-- PAIN -->
 <section class="pain">
   <div class="wrap">
     <div class="narrow" style="text-align:center;">
-      <span class="eyebrow gold center">Vielleicht kennst du diese Stille</span>
-      <h2 class="h-display">Sie hat den Umriss eines Menschen, <em>der nicht mehr da ist</em>.</h2>
-      <p class="lead">Es gibt eine Stille, die anders ist als die Stille am frühen Morgen. Wenn auch nur einer dieser Sätze dich trifft, wurde dieses Buch für dich geschrieben.</p>
+      <span class="eyebrow gold center">Vielleicht kennst du das</span>
+      <h2 class="h-display">Es sind die kleinen Dinge, <em>an denen man es merkt</em>.</h2>
+      <p class="lead">Wenn auch nur einer dieser Sätze dich trifft, wurde dieses Buch für dich geschrieben.</p>
     </div>
     <div class="pain-grid">
       <div class="pain-item reveal"><span class="mark">”</span><p>Der Stuhl am Tisch bleibt leer — und du deckst ihn trotzdem noch mit.</p></div>
@@ -284,7 +316,7 @@
     <p class="lead" style="text-align:center;">Diesen Satz haben Menschen erfunden, die es eilig hatten. Hier steht stattdessen ziemlich genau beschrieben, wie es dir geht.</p>
 
     <div class="nots">
-      <div class="not reveal"><b>Es erklärt nicht,</b><span>warum es so gekommen ist. Diese Erklärung gibt es nicht — und wer sie dir anbietet, hat dein Schweigen nie geteilt.</span></div>
+      <div class="not reveal"><b>Es erklärt nicht,</b><span>warum es so gekommen ist. Diese Erklärung steht in keinem Kapitel.</span></div>
       <div class="not reveal"><b>Es fordert nicht,</b><span>dass du stark bist. Du musst nicht heilen wollen, um weiterzulesen.</span></div>
       <div class="not reveal"><b>Es drängt nicht.</b><span>Ein Kapitel am Tag genügt. An manchen Tagen ein Satz. Es läuft nicht weg, und es rechnet nicht mit.</span></div>
     </div>
@@ -296,29 +328,20 @@
   </div>
 </section>
 
-<!-- EXCERPT -->
-<section class="excerpt">
+<!-- FOR WHOM (v3: für wen / nicht für wen) -->
+<section class="stimmen">
   <div class="wrap">
     <div class="narrow" style="text-align:center;">
-      <span class="eyebrow gold center">Ein Blick ins Buch</span>
-      <h2 class="h-display">Lies die ersten <em>Zeilen</em> des Vorworts.</h2>
+      <span class="eyebrow gold center">Für wen dieses Buch ist</span>
+      <h2 class="h-display">Für den Menschen, <em>der zurückbleibt</em>.</h2>
     </div>
-    <div class="book-open reveal">
-      <div class="book-page left">
-        <div class="book-ch">Vorwort · Bevor du beginnst</div>
-        <h3 class="book-h">Es gibt eine Stille, die erst entsteht, wenn jemand fehlt.</h3>
-        <p class="book-text book-drop">Sie ist anders als die Stille am frühen Morgen oder die Stille in einer leeren Kirche. Sie hat eine Form. Sie hat den Umriss eines Menschen, der nicht mehr da ist — eines Stuhls, der leer bleibt, eines Namens, den niemand mehr ausspricht, einer Stimme, die du im Kopf noch hörst und im Zimmer nicht mehr.</p>
-        <p class="book-text">Vielleicht kennst du diese Stille. Vielleicht wohnst du seit Monaten in ihr.</p>
-        <div class="book-pgno">— 4 —</div>
-      </div>
-      <div class="book-page right">
-        <p class="book-text">Vielleicht ist jemand gestorben. Vielleicht ist jemand einfach gegangen — ohne Tür, ohne Abschied, nur mit weniger Anrufen von Woche zu Woche, bis gar keiner mehr kam.</p>
-        <p class="book-text">Ich schreibe dieses Buch, weil ich glaube, dass in dieser Stille jemand ist. Nicht als Trostpflaster. Nicht als frommer Satz, den man müden Menschen sagt, damit sie aufhören zu weinen. Sondern als Person. Als Gegenüber. Als der Einzige, von dem die Schrift sagt, dass Er nicht geht.</p>
-        <p class="book-text" style="color:var(--gold-deep);font-style:italic;">„Du musst nur bleiben — noch eine Seite lang.“</p>
-        <div class="book-pgno">— 5 —</div>
-      </div>
+    <div class="st-grid">
+      <div class="st-card reveal"><h3>Nach einem Abschied</h3><p>Wenn jemand gestorben ist. Oder wenn jemand einfach gegangen ist, mit weniger Anrufen von Woche zu Woche.</p></div>
+      <div class="st-card reveal"><h3>Wenn es still geworden ist</h3><p>Wenn die Kinder ihr eigenes Leben haben, Freundschaften verstummen und das Telefon nicht mehr klingelt.</p></div>
+      <div class="st-card reveal"><h3>Wenn die Kräfte schwinden</h3><p>Wenn der Körper weniger mitmacht und die Wohnung zu still geworden ist.</p></div>
+      <div class="st-card reveal"><h3>Zum Weitergeben</h3><p>Für alle, die jemanden kennen, bei dem es still geworden ist, und nicht wissen, was sie sagen sollen.</p></div>
     </div>
-    <p class="excerpt-cap">Aus dem Vorwort von „Der Gott, der bleibt“</p>
+    <p class="st-note reveal">Nicht für Menschen, die eine Erklärung suchen, warum es so gekommen ist. Und nicht für alle, die eine Anleitung erwarten, wie man Trauer in sechs Schritten hinter sich lässt.</p>
   </div>
 </section>
 
@@ -327,7 +350,7 @@
   <div class="wrap split-grid">
     <div class="split-media reveal"><img src="img/grossdruck.jpg" alt="Aufgeschlagenes Buch mit großer Schrift und Lesebrille daneben"></div>
     <div class="split-copy">
-      <span class="eyebrow gold">Ein Detail, das alles ändert</span>
+      <span class="eyebrow gold">Ein bewusstes Detail</span>
       <h2 class="h-display">Es ist groß gedruckt. <em>Das ist Absicht.</em></h2>
       <p class="lead">Dieses Buch ist für Augen gesetzt, die abends müde sind. Du sollst es im Sessel lesen können, bei der Lampe, die du hast, ohne die Brille zu suchen.</p>
       <p style="color:var(--ink-soft)">Es gibt Menschen, die aufgehört haben zu lesen, weil ihnen alles zu klein geworden ist — und die es niemandem erzählen. Für sie wurde die Schrift von Anfang an groß gesetzt. Nicht als Notlösung.</p>
@@ -382,7 +405,7 @@
       <li class="reveal"><span class="n">I</span><span><strong>Die Abschiede</strong><span class="d">Wenn Menschen gehen. Der Stuhl, der leer bleibt. Die Tür, die sich leise schloss. Das Gespräch, das du nicht mehr führen konntest.</span></span></li>
       <li class="reveal"><span class="n">II</span><span><strong>Die leere Stelle</strong><span class="d">Wenn die Kräfte schwinden. Die Wohnung, die zu still geworden ist. Wenn niemand mehr fragt, wie es dir geht.</span></span></li>
       <li class="reveal"><span class="n">III</span><span><strong>Der Bleibende</strong><span class="d">Wenn Gott sich zeigt, wo niemand mehr ist. Er war schon da, bevor du es gemerkt hast. Er zählt deine Tränen.</span></span></li>
-      <li class="reveal"><span class="n">IV</span><span><strong>Neu bewohnt</strong><span class="d">Wenn das Leben wieder anfängt. Der erste Morgen, an dem es leichter war. Wenn das Lachen zurückkommt.</span></span></li>
+      <li class="reveal"><span class="n">IV</span><span><strong>Neu bewohnt</strong><span class="d">Wenn das Leben wieder anfängt. Ein Leben kann wieder bewohnt werden, auch wenn ein Zimmer darin leer bleibt. Diese Kapitel gehen langsamer und verlangen nichts. Wer noch nicht so weit ist, legt sie weg und kommt später wieder.</span></span></li>
     </ul>
     <div class="facts">
       <div class="fact reveal"><b>383</b><span>Seiten</span></div>
@@ -421,7 +444,7 @@
       <span class="eyebrow gold">Mit dem Stift in der Hand</span>
       <h2 class="h-display">Schreib an den Rand, <em>an welchem Tag</em> du diese Seite gelesen hast.</h2>
       <p class="lead">Streich an. Markiere, was dich getroffen hat. Dieses Buch ist nicht zum Schonen gemacht.</p>
-      <p style="color:var(--ink-soft)">In einem Jahr siehst du beim Zurückblättern, wie weit du gekommen bist. Das ist oft der Moment, in dem Menschen zum ersten Mal merken, dass sich etwas bewegt hat.</p>
+      <p style="color:var(--ink-soft)">So wird das Buch mit der Zeit dein eigenes. Beim Zurückblättern siehst du, an welchem Tag dich welcher Satz begleitet hat.</p>
       <p class="split-quote">„Ich will dich nicht verlassen und nicht von dir weichen.“</p>
     </div>
   </div>
@@ -447,7 +470,7 @@
     <div class="narrow" style="text-align:center;">
       <span class="eyebrow gold center">Dein nächster Schritt</span>
       <h2 class="h-display">Du musst nur bleiben — <em>noch eine Seite lang</em>.</h2>
-      <p class="lead">Sichere dir dein gedrucktes Exemplar und nimm dir abends ein Kapitel Zeit.</p>
+      <p class="lead">Das gedruckte Exemplar, groß gedruckt, für ein Kapitel am Abend. An manchen Tagen genügt ein Satz.</p>
     </div>
     <div class="offer-card reveal">
       <div class="offer-badge">Gedruckte Ausgabe · Großdruck</div>
@@ -458,13 +481,12 @@
         <li>7 biblische Stimmen von Menschen, die auch zurückblieben</li>
         <li>36 kurze Andachten für die Stunden, Orte und Tage danach</li>
         <li>Eröffnungsgebet und Anleitung zum Lesen</li>
-        <li>Aus der vertrauten Reihe „Zeit mit Gott“</li>
+        <li>Aus der Reihe „Zeit mit Gott“</li>
       </ul>
-      <div class="price-old">Statt <span class="strike">€ 37,00</span></div>
       <div class="price-now">€ 29,85</div>
-      <div class="price-note">Gedruckte Ausgabe · Preis und Verfügbarkeit auf Amazon</div>
-      <a href="https://www.amazon.de/dp/B0HJH8CB3Q" class="btn" id="buy-main" target="_blank" rel="noopener noreferrer">Jetzt bei Amazon bestellen</a>
-      <span class="btn-sub">Sichere Bezahlung · Lieferung nach Hause</span>
+      <div class="price-note">Taschenbuch · Preis und Verfügbarkeit auf Amazon.de</div>
+      <a href="https://www.amazon.de/dp/B0HJH8CB3Q" class="btn" id="buy-main" target="_blank" rel="noopener noreferrer">Zum Buch auf Amazon</a>
+      <span class="btn-sub">Weiter zu Amazon.de · Bestellung und Versand über Amazon</span>
     </div>
   </div>
 </section>
@@ -475,8 +497,8 @@
     <div class="guar-box reveal">
       <div class="guar-seal">✓</div>
       <div>
-        <h3>Ohne Risiko bestellen</h3>
-        <p>Die Bestellung läuft sicher über Amazon — mit allen gewohnten Rechten auf Rückgabe und vollem Käuferschutz. Du gehst keinerlei Risiko ein.</p>
+        <h3>Sicher über Amazon bestellen</h3>
+        <p>Verkauf und Versand über Amazon.de. Es gelten die Rückgabebedingungen von Amazon; auf der Produktseite steht derzeit: „Retournierbar innerhalb von 30 Tagen nach Erhalt“.</p>
       </div>
     </div>
   </div>
@@ -491,14 +513,15 @@
     </div>
     <div class="faq-list">
       <div class="faq-item"><button class="faq-q">Für wen ist dieses Buch geschrieben?</button><div class="faq-a"><p>Für den Menschen, der zurückbleibt. Nach einem Todesfall, nach einer Trennung, wenn die Kinder ihr eigenes Leben begonnen haben, wenn die Gesundheit nachlässt oder wenn es einfach still geworden ist. Es setzt kein theologisches Vorwissen voraus.</p></div></div>
-      <div class="faq-item"><button class="faq-q">Ist die Schrift wirklich groß genug?</button><div class="faq-a"><p>Ja. Das Buch ist bewusst im Großdruck gesetzt — für Augen, die abends müde sind. Du sollst es im Sessel lesen können, bei normaler Lampe, ohne die Lesebrille zu suchen.</p></div></div>
+      <div class="faq-item"><button class="faq-q">Ist die Schrift wirklich groß genug?</button><div class="faq-a"><p>Das Buch ist bewusst groß gedruckt, für Augen, die abends müde sind. Wie die Schrift für dich wirkt, siehst du am besten in der Leseprobe auf der Amazon-Produktseite.</p></div></div>
       <div class="faq-item"><button class="faq-q">Wie ist das Buch aufgebaut?</button><div class="faq-a"><p>52 Kapitel in vier Etappen: Die Abschiede, Die leere Stelle, Der Bleibende, Neu bewohnt. Dazwischen sieben biblische Stimmen. Am Ende 36 kurze Andachten für die Stunden des Tages, die Orte der Erinnerung und die zwölf schweren Tage im Jahr.</p></div></div>
       <div class="faq-item"><button class="faq-q">Muss ich es von vorne lesen?</button><div class="faq-a"><p>Nein. Das Inhaltsverzeichnis ist bewusst so geschrieben, dass du dich darin wiederfindest. Wenn heute das Telefon nicht geklungen hat, geh zu dem Kapitel, das davon spricht. Ein Kapitel am Tag genügt — an manchen Tagen ein Satz.</p></div></div>
-      <div class="faq-item"><button class="faq-q">Eignet es sich als Geschenk?</button><div class="faq-a"><p>Sehr gut. Viele Menschen wissen nicht, was sie sagen sollen, wenn jemand allein zurückbleibt. Dieses Buch nimmt ihnen diese Aufgabe ab — man muss nichts sagen, man gibt es einfach weiter.</p></div></div>
-      <div class="faq-item"><button class="faq-q">Ist es zu früh für mich? Der Verlust ist noch ganz frisch.</button><div class="faq-a"><p>Bücher über Trauer kommen fast immer zu früh. Leg es weg, wenn es zu nah geht. Es läuft nicht weg und es rechnet nicht mit. Es gibt Menschen, die es dreimal angefangen haben, bis es ging. Wenn du es jetzt aufschlägst, dann ist das der richtige Zeitpunkt.</p></div></div>
+      <div class="faq-item"><button class="faq-q">Eignet es sich als Geschenk?</button><div class="faq-a"><p>Ja. Das Buch rechnet selbst damit, dass es verschenkt wird. Man muss nichts dazu sagen. Das Vorwort sagt auch: Bücher über Trauer kommen fast immer zu früh. Es darf liegen bleiben, bis die Zeit da ist.</p></div></div>
+      <div class="faq-item"><button class="faq-q">Ist es zu früh für mich? Der Verlust ist noch ganz frisch.</button><div class="faq-a"><p>Bücher über Trauer kommen fast immer zu früh. Das Vorwort sagt es offen: Wenn es zu nah geht, leg es weg. Es läuft nicht weg, und es rechnet nicht mit. Wenn du es aufschlägst, ob jetzt oder in einem Jahr, dann ist das der richtige Zeitpunkt.</p></div></div>
       <div class="faq-item"><button class="faq-q">Ich bin in meinem Glauben gerade weit weg. Passt das Buch trotzdem?</button><div class="faq-a"><p>Gerade dann. Es verlangt keinen festen Glauben und keine richtigen Gefühle. Es beschreibt zuerst, wie es dir geht — und erst dann, wer in dieser Stille bei dir ist.</p></div></div>
       <div class="faq-item"><button class="faq-q">Muss ich einer bestimmten Konfession angehören?</button><div class="faq-a"><p>Nein. Die Bibelverse sind nach der Lutherbibel 2017 und vergleichbaren Übersetzungen zitiert. Die Botschaft richtet sich an jeden, der an Gott glaubt oder ihn suchen möchte — unabhängig von Kirche oder Gemeinde.</p></div></div>
       <div class="faq-item"><button class="faq-q">Wie läuft die Bestellung ab?</button><div class="faq-a"><p>Mit einem Klick auf den Bestell-Button gelangst du direkt zu Amazon, wo du das Buch sicher und mit gewohntem Käuferschutz bestellst. Die Lieferung erfolgt bequem nach Hause.</p></div></div>
+      <div class="faq-item"><button class="faq-q">Was, wenn mir das Buch nicht gefällt?</button><div class="faq-a"><p>Die Bestellung läuft über Amazon. Es gelten die Rückgabebedingungen von Amazon, die du auf der Produktseite findest.</p></div></div>
     </div>
   </div>
 </section>
@@ -509,8 +532,8 @@
     <span class="eyebrow center" style="color:var(--gold-soft)">Der erste Schritt</span>
     <h2 class="h-display">Ich habe erlebt, dass Menschen gehen. <em>Zeig mir, dass Du anders bist.</em></h2>
     <p class="lead">Du musst nicht heilen wollen, um anzufangen. Du musst nur bleiben — noch eine Seite lang.</p>
-    <a href="https://www.amazon.de/dp/B0HJH8CB3Q" class="btn" id="buy-final" target="_blank" rel="noopener noreferrer">Mein Exemplar jetzt bestellen</a>
-    <span class="btn-sub" style="color:rgba(251,248,243,.6)">Sichere Bestellung über Amazon · Lieferung inklusive</span>
+    <a href="https://www.amazon.de/dp/B0HJH8CB3Q" class="btn" id="buy-final" target="_blank" rel="noopener noreferrer">Zum Buch auf Amazon</a>
+    <span class="btn-sub" style="color:rgba(251,248,243,.6)">Taschenbuch · 383 Seiten · €29,85 · Weiter zu Amazon.de</span>
   </div>
 </section>
 

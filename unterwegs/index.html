@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Die Gemeinschaft von Zeit mit Gott · Gemeinsam mit Gott durch den Alltag</title>
-<meta name="description" content="Ein kleiner, geschlossener Kreis für Christen: jeden Tag eine Andacht und Bibelstudien zum Hören, Gebet für deine Anliegen und Reflexionen aus der Bibel. 7 Tage kostenlos, danach 5,95 € im Monat, jederzeit kündbar.">
-<meta property="og:title" content="Die Gemeinschaft von Zeit mit Gott · Niemand hält allein durch">
-<meta property="og:description" content="Ein geschlossener Kreis, weit weg vom Lärm. Wir beten füreinander und reden über Gottes Wort. 7 Tage kostenlos.">
+<title>Unterwegs mit Gott · Andachten zum Hören, jeden Morgen neu</title>
+<meta name="description" content="Unterwegs mit Gott: jeden Morgen um 8 Uhr eine neue Andacht zum Hören, rund 20 Minuten, mit Gebet am Ende. Über 35 Andachten zum Nachhören. 7 Tage kostenlos, danach 5,95 € im Monat inkl. MwSt., jederzeit kündbar.">
+<meta property="og:title" content="Unterwegs mit Gott · Gottes Wort für die Wege, die man sowieso geht">
+<meta property="og:description" content="Jeden Morgen eine neue Andacht zum Hören. Für den Spaziergang, die Küche, das Auto. 7 Tage kostenlos.">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://zeitmitgott.com/unterwegs/img/hero-gemeinschaft.jpg">
 <meta name="theme-color" content="#1F2332">
@@ -65,7 +65,7 @@
   .hero h1{font-family:'Fraunces',serif;font-weight:400;font-size:clamp(2.2rem,5.4vw,4.1rem);line-height:1.05;letter-spacing:-.015em;margin-bottom:1.4rem}
   .hero h1 em{font-style:italic;color:var(--gold-soft)}
   .hero-lead{font-size:clamp(1.05rem,1.6vw,1.26rem);color:rgba(251,248,243,.9);margin-bottom:1.6rem}
-  .hero-verse{font-family:'Fraunces',serif;font-style:italic;font-size:clamp(.98rem,1.6vw,1.06rem);color:var(--gold-soft);margin-bottom:2.2rem;padding-left:1.1rem;border-left:2px solid var(--gold)}
+  .hero-verse{font-family:'Fraunces',serif;font-style:italic;font-size:clamp(.98rem,1.6vw,1.06rem);color:var(--gold-soft);margin-top:2rem;padding-left:1.1rem;border-left:2px solid var(--gold)}
   .hero-verse small{display:block;font-family:'Outfit',sans-serif;font-style:normal;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;opacity:.85;margin-top:.35rem}
   .hero .btn-sub{color:rgba(251,248,243,.72)}
 
@@ -74,8 +74,13 @@
   .trust strong{color:#fff;font-weight:600}
   .trust span.sep{opacity:.4;margin:0 .55rem}
 
+  /* INTRO (lead logo abaixo do topo) */
+  .intro{background:var(--cream-warm)}
+  .intro p{font-size:clamp(1.05rem,1.7vw,1.2rem);color:var(--ink-soft);margin-bottom:1.1rem}
+  .intro p.strong{font-family:'Fraunces',serif;font-size:clamp(1.2rem,2.6vw,1.55rem);color:var(--navy);line-height:1.45;margin-top:1.6rem}
+
   /* PAIN */
-  .pain{background:var(--cream)}
+  .pain{background:var(--cream-warm)}
   .pain-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.1rem;margin-top:2.6rem}
   .pain-item{display:flex;gap:1rem;padding:1.4rem 1.5rem;background:#fff;border-radius:5px;border-left:3px solid var(--gold);box-shadow:0 6px 22px rgba(31,35,50,.06)}
   .pain-item .mark{font-family:'Fraunces',serif;font-weight:600;color:var(--gold-deep);font-size:1.6rem;line-height:.8}
@@ -115,7 +120,7 @@
   .welcome .vv small{display:block;font-family:'Outfit',sans-serif;font-style:normal;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;opacity:.8;margin-top:.25rem}
 
   /* EVERYDAY */
-  .day{background:var(--cream-warm)}
+  .day{background:var(--cream)}
   .day-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.1rem;margin-top:2.6rem}
   .day-card{position:relative;border-radius:8px;overflow:hidden;box-shadow:0 14px 36px rgba(31,35,50,.14);background:linear-gradient(160deg,var(--navy-mid),var(--navy-deep));aspect-ratio:4/5}
   .day-card img{width:100%;height:100%;object-fit:cover}
@@ -223,8 +228,8 @@
     .gifts{grid-template-columns:repeat(2,1fr)}
   }
   @media(max-width:860px){
-    .hero{padding-top:min(74vw,520px)}
-    .hero-bg{bottom:auto;height:min(82vw,580px);background-position:62% 30%}
+    .hero{padding-top:min(60vw,430px)}
+    .hero-bg{bottom:auto;height:min(68vw,490px);background-position:62% 30%}
     .hero-bg::after{background:linear-gradient(180deg,rgba(22,25,37,.35) 0%,rgba(22,25,37,0) 22%,rgba(22,25,37,0) 55%,rgba(22,25,37,1) 100%)}
     .pain-grid,.fit{grid-template-columns:1fr}
     .day-grid{grid-template-columns:repeat(2,1fr)}
@@ -258,131 +263,30 @@
 
 <!-- HERO -->
 <header class="hero">
-  <div class="hero-bg" role="img" aria-label="Menschen aus der Gemeinschaft von Zeit mit Gott mit der Bibel"></div>
+  <div class="hero-bg" role="img" aria-label="Ein Mann in der Küche mit Handy, Bibel und einer Tasse Kaffee"></div>
   <div class="wrap">
     <div class="hero-copy">
-      <span class="eyebrow" style="color:var(--gold-soft)">Die Gemeinschaft von Zeit mit Gott</span>
-      <h1>Niemand hält allein durch.<br><em>Darum gehen wir zusammen.</em></h1>
-      <p class="hero-lead">Ein kleiner, geschlossener Kreis, weit weg vom Lärm. Hier teilen wir Gedanken und Bibelstudien, beten füreinander und reden über Gottes Wort. Jeden Tag, mit Brüdern und Schwestern, die dasselbe suchen wie du.</p>
-      <div class="hero-verse">„Denn wo zwei oder drei versammelt sind in meinem Namen, da bin ich mitten unter ihnen.“<small>Matthäus 18,20</small></div>
-      <a href="https://www.patreon.com/zeitmitgott/membership" class="btn" target="_blank" rel="noopener">7 Tage kostenlos eintreten</a>
-      <span class="btn-sub">Danach 5,95 € im Monat inkl. MwSt. · mit wenigen Klicks kündbar</span>
+      <span class="eyebrow" style="color:var(--gold-soft)">Unterwegs mit Gott</span>
+      <h1>Gottes Wort für die Wege, <em>die man sowieso geht.</em></h1>
+      <p class="hero-lead">Jeden Morgen um 8 Uhr eine neue Andacht zum Hören. Rund 20 Minuten, mit einem Gebet am Ende.</p>
+      <a href="https://www.patreon.com/zeitmitgott/membership" class="btn" target="_blank" rel="noopener">7 Tage kostenlos hören</a>
+      <span class="btn-sub">Weiter zu Patreon · danach 5,95 € im Monat inkl. MwSt. · jederzeit kündbar</span>
+      <div class="hero-verse">„Dein Wort ist meines Fußes Leuchte und ein Licht auf meinem Wege.“<small>Psalm 119,105</small></div>
     </div>
   </div>
 </header>
 
 <div class="trust">
-  <strong>Geschlossener Kreis</strong><span class="sep">·</span>Jeden Tag neu<span class="sep">·</span>Wir beten füreinander<span class="sep">·</span><strong>7 Tage kostenlos</strong><span class="sep">·</span>Jederzeit kündbar
+  <strong>Über 35 Andachten</strong> zum Nachhören<span class="sep">·</span>Jeden Morgen neu<span class="sep">·</span>Auch ohne Internet<span class="sep">·</span><strong>7 Tage kostenlos</strong><span class="sep">·</span>Jederzeit kündbar
 </div>
 
-<!-- PAIN -->
-<section class="pain">
-  <div class="wrap">
-    <div class="narrow center reveal">
-      <span class="eyebrow c gold">Kennst du das?</span>
-      <h2 class="h-display">Du glaubst an Gott. <em>Aber oft fühlst du dich damit allein.</em></h2>
-    </div>
-    <div class="pain-grid">
-      <div class="pain-item reveal"><span class="mark">1</span><p>Nach dem Gottesdienst gehst du nach Hause, und die ganze Woche bist du wieder allein mit deinen Fragen.</p></div>
-      <div class="pain-item reveal"><span class="mark">2</span><p>Du nimmst dir vor, jeden Tag in der Bibel zu lesen. Nach ein paar Tagen reißt der Faden, und niemand merkt es.</p></div>
-      <div class="pain-item reveal"><span class="mark">3</span><p>Es gibt Dinge, für die du dringend Gebet bräuchtest. Aber du weißt nicht, wem du sie erzählen sollst.</p></div>
-      <div class="pain-item reveal"><span class="mark">4</span><p>Etwas hält dich fest, eine Sorge, eine Gewohnheit, eine alte Wunde. Du willst frei werden, aber allein reicht die Kraft nicht.</p></div>
-    </div>
-    <p class="bridge reveal">Das ist keine Schwäche. Gott hat uns nie für den Weg allein gemacht.<br><em>Darum haben wir diesen Kreis geöffnet.</em></p>
-  </div>
-</section>
-
-<!-- KREIS: o que você recebe -->
-<section class="kreis" id="kreis">
-  <div class="wrap">
-    <div class="narrow center reveal">
-      <span class="eyebrow c" style="color:var(--gold-soft)">Was dich im Kreis erwartet</span>
-      <h2 class="h-display">Mehr als ab und zu ein Video. <em>Ein Weg, den wir jeden Tag gemeinsam gehen.</em></h2>
-      <p class="lead">Alles an einem Ort, geschützt und nur für Mitglieder.</p>
-    </div>
-    <div class="gifts">
-      <div class="gift first reveal">
-        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.5-7 10-7 10z"/></svg></div>
-        <h3>Wir beten füreinander</h3>
-        <p>Schreib uns dein Gebetsanliegen, als Kommentar oder als private Nachricht. Wir beten in den Andachten dafür, und alle im Kreis beten mit. Was dich belastet, trägst du nicht mehr allein.</p>
-        <span class="v">„Einer trage des andern Last.“<small>Galater 6,2</small></span>
-      </div>
-      <div class="gift reveal">
-        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 5.5C4.5 4 8 4 12 6c4-2 7.5-2 10-.5V19c-2.5-1.5-6-1.5-10 .5-4-2-7.5-2-10-.5z"/><path d="M12 6v13.5"/></svg></div>
-        <h3>Bibelstudien</h3>
-        <p>Zum Hören: Wir gehen Schritt für Schritt durch Bücher und Themen der Bibel, jede Stelle mit Buch, Kapitel und Vers. So verstehst du mehr und bleibst dran.</p>
-      </div>
-      <div class="gift reveal">
-        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/><path d="M8.5 11h7M8.5 14h4.5"/></svg></div>
-        <h3>Gespräche über Gottes Wort</h3>
-        <p>Unter jedem Beitrag kannst du schreiben, was dich bewegt, und lesen, was andere teilen. Fragen, die viele beschäftigen, nehmen wir in die Andachten mit.</p>
-      </div>
-      <div class="gift reveal">
-        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v2M5.6 5.6 7 7M3 12h2M19 12h2M17 7l1.4-1.4"/><path d="M8 16a4 4 0 1 1 8 0"/><path d="M4 20h16"/></svg></div>
-        <h3>Reflexionen</h3>
-        <p>Kurze Gedanken aus der Bibel, die dich durch die Woche tragen. Auch dann, wenn der Tag voll ist.</p>
-      </div>
-      <div class="gift reveal">
-        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15v-3a8 8 0 0 1 16 0v3"/><rect x="3" y="14" width="4" height="6" rx="1.5"/><rect x="17" y="14" width="4" height="6" rx="1.5"/></svg></div>
-        <h3>Jeden Tag eine Andacht</h3>
-        <p>Etwa 20 bis 30 Minuten zum Hören, mit einem Gebet am Ende. Für den Spaziergang, die Küche oder den Weg zur Arbeit.</p>
-      </div>
-      <div class="gift reveal">
-        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4.5 6v5.5c0 4.5 3.2 8 7.5 9.5 4.3-1.5 7.5-5 7.5-9.5V6z"/><path d="m9 12 2 2 4-4"/></svg></div>
-        <h3>Ein geschützter Ort</h3>
-        <p>Keine Werbung, kein Streit, kein Spott. Nur Mitglieder sehen, was im Kreis geteilt wird. Hier darfst du ehrlich sein.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FÜR WEN -->
-<section class="fuer">
-  <div class="wrap">
-    <div class="narrow center reveal">
-      <span class="eyebrow c gold">Nicht für jeden</span>
-      <h2 class="h-display">Dieser Kreis ist für dich, <em>wenn du mehr willst.</em></h2>
-    </div>
-    <div class="fit">
-      <div class="fit-box yes reveal">
-        <h3>Für dich, wenn</h3>
-        <ul>
-          <li><span>du es satt hast, gefangen zu leben, und echte Freiheit suchst</span></li>
-          <li><span>du Gott näherkommen willst, statt nur ab und zu ein Video zu hören</span></li>
-          <li><span>du jeden Tag mit Ihm gehen willst, an der Seite von Menschen, die dasselbe suchen</span></li>
-          <li><span>du für andere beten und dich selbst im Gebet tragen lassen möchtest</span></li>
-        </ul>
-      </div>
-      <div class="fit-box no reveal">
-        <h3>Eher nicht, wenn</h3>
-        <ul>
-          <li><span>du über Glaubensfragen streiten willst</span></li>
-          <li><span>du eine schnelle Lösung ohne Weg erwartest</span></li>
-          <li><span>du einen Ort für Werbung oder Politik suchst</span></li>
-        </ul>
-      </div>
-    </div>
-    <div class="welcome reveal">
-      <p>Ob jung oder alt, Mann oder Frau, ob du seit vielen Jahren glaubst oder gerade erst anfängst, ob du eine Gemeinde hast oder noch keine gefunden hast: <b>Im Kreis ist Platz für dich.</b></p>
-      <span class="vv">„So euch nun der Sohn frei macht, so seid ihr recht frei.“<small>Johannes 8,36</small></span>
-    </div>
-  </div>
-</section>
-
-<!-- EVERYDAY -->
-<section class="day">
-  <div class="wrap">
-    <div class="narrow center reveal">
-      <span class="eyebrow c gold">Mitten in deinem Alltag</span>
-      <h2 class="h-display">Der Kreis geht mit dir, <em>wo du auch bist</em></h2>
-    </div>
-    <div class="day-grid">
-      <figure class="day-card reveal" data-ph="FOTO NOVA 1 · day-morgen.jpg · Homem de uns 50 anos a caminho do trabalho, fone no ouvido"><img src="img/day-morgen.jpg" alt="Ein Mann hört auf dem Weg zur Arbeit die Andacht" loading="lazy" onerror="this.parentNode.classList.add('missing')"><figcaption>Am Morgen<span>die Andacht auf dem Weg zur Arbeit</span></figcaption></figure>
-      <figure class="day-card reveal" data-ph="FOTO NOVA 2 · day-zwischendurch.jpg · Pessoa jovem (uns 30 anos) no intervalo, lendo no celular e sorrindo"><img src="img/day-zwischendurch.jpg" alt="Eine junge Frau schaut in der Pause einen Gedanken aus dem Kreis an" loading="lazy" onerror="this.parentNode.classList.add('missing')"><figcaption>Zwischendurch<span>ein kurzer Gedanke aus der Bibel</span></figcaption></figure>
-      <figure class="day-card reveal" data-ph="abend.jpg"><img src="img/abend.jpg" alt="Eine Frau liest am Abend in der Bibel" loading="lazy" onerror="this.parentNode.classList.add('missing')"><figcaption>Am Abend<span>Zeit für das Bibelstudium</span></figcaption></figure>
-      <figure class="day-card reveal" data-ph="FOTO NOVA 3 · day-gebet.jpg · Casal de uns 65 anos no sofá, de mãos dadas, orando; celular na mesa"><img src="img/day-gebet.jpg" alt="Ein älteres Ehepaar betet zusammen" loading="lazy" onerror="this.parentNode.classList.add('missing')"><figcaption>Wenn es schwer wird<span>andere beten mit dir</span></figcaption></figure>
-    </div>
-    <p class="day-line reveal">Und vielleicht merkst du irgendwann, dass du nicht mehr allein glaubst.</p>
+<!-- INTRO -->
+<section class="intro">
+  <div class="narrow reveal">
+    <span class="eyebrow gold">Die Idee</span>
+    <p>Der Vorsatz ist schnell gefasst: jeden Morgen eine stille Zeit mit Gott, die Bibel aufgeschlagen, ein Gebet. Dann kommt der Alltag. Ein Tag fällt aus, dann drei, und irgendwann liegt die Bibel nur noch auf dem Tisch.</p>
+    <p>Unterwegs mit Gott setzt an einer anderen Stelle an. Die Andacht kommt dorthin, wo der Tag ohnehin stattfindet: auf den Spaziergang, an den Herd, ins Auto. Niemand muss sich dafür extra hinsetzen. Ein Druck auf Abspielen, und es geht weiter.</p>
+    <p class="strong">Ein Wort aus der Bibel, Gedanken für den Tag, kleine Pausen zum Weitergehen und am Ende ein Gebet mit Segen. Jeden Morgen neu.</p>
   </div>
 </section>
 
@@ -391,15 +295,15 @@
   <div class="wrap">
     <div class="narrow center reveal">
       <span class="eyebrow c gold">Hör selbst hinein</span>
-      <h2 class="h-display">Ein Stück aus dem Kreis: <em>die Andacht</em></h2>
-      <p class="lead">Setz die Kopfhörer auf und hör einfach zu. Diese Andacht schenken wir dir ganz.</p>
+      <h2 class="h-display">Eine ganze Andacht, <em>geschenkt.</em></h2>
+      <p class="lead">„Er geht mit“ war die allererste Andacht. Sie ist kürzer als die heutigen, aber sie zeigt, wie es klingt. Nimm sie mit auf deinen nächsten Spaziergang.</p>
     </div>
     <div class="player reveal">
       <img src="img/capa-er-geht-mit.jpg" alt="Andacht Er geht mit, nach Emmaus">
       <div>
         <span class="tag">Ganz und kostenlos</span>
         <h3>Er geht mit</h3>
-        <p class="meta">Lukas 24 · die ganze Andacht, 10 Minuten</p>
+        <p class="meta">Lukas 24 · die erste Andacht, ganz, 10 Minuten</p>
         <audio controls preload="none" src="media/er-geht-mit.mp3"></audio>
       </div>
     </div>
@@ -412,7 +316,135 @@
         <audio controls preload="none" src="media/hoerprobe.mp3"></audio>
       </div>
     </div>
-    <p class="sample-note reveal">Die Andacht ist nur ein Teil. Im Kreis kommen Bibelstudien, Gebet für deine Anliegen und Reflexionen dazu. <a href="https://www.patreon.com/zeitmitgott/membership" target="_blank" rel="noopener">7 Tage kostenlos eintreten</a></p>
+    <p class="sample-note reveal">Im Archiv für Mitglieder warten schon über 35 Andachten wie diese. <a href="https://www.patreon.com/zeitmitgott/membership" target="_blank" rel="noopener">7 Tage kostenlos hören</a></p>
+  </div>
+</section>
+
+<!-- PAIN -->
+<section class="pain">
+  <div class="wrap">
+    <div class="narrow center reveal">
+      <span class="eyebrow c gold">Kennst du das?</span>
+      <h2 class="h-display">Du möchtest Zeit mit Gott. <em>Aber der Tag ist schon voll.</em></h2>
+    </div>
+    <div class="pain-grid">
+      <div class="pain-item reveal"><span class="mark">1</span><p>Du nimmst dir vor, jeden Morgen in der Bibel zu lesen. Nach ein paar Tagen reißt der Faden.</p></div>
+      <div class="pain-item reveal"><span class="mark">2</span><p>Wenn du dich am Abend endlich hinsetzt, bist du so müde, dass die Zeilen verschwimmen.</p></div>
+      <div class="pain-item reveal"><span class="mark">3</span><p>Du gehst jeden Tag spazieren, kochst, fährst zum Einkaufen. Und manchmal denkst du: Diese Zeit könnte ich mit Gott verbringen.</p></div>
+      <div class="pain-item reveal"><span class="mark">4</span><p>Nach ein paar verpassten Tagen fällt der Neuanfang schwer, weil man das Gefühl hat, schon zurückzuliegen.</p></div>
+    </div>
+    <p class="bridge reveal">Oft fehlt nicht der Wille. Es fehlt ein Weg, der in den Tag passt.<br><em>Darum gibt es die Andacht zum Hören.</em></p>
+  </div>
+</section>
+
+<!-- EVERYDAY -->
+<section class="day">
+  <div class="wrap">
+    <div class="narrow center reveal">
+      <span class="eyebrow c gold">Mitten in deinem Alltag</span>
+      <h2 class="h-display">Die Andacht geht mit, <em>wohin du sowieso gehst</em></h2>
+    </div>
+    <div class="day-grid">
+      <figure class="day-card reveal" data-ph="FOTO NOVA 1 · day-morgen.jpg · Homem de uns 50 anos a caminho do trabalho, fone no ouvido"><img src="img/day-morgen.jpg" alt="Ein Mann hört auf dem Weg zur Arbeit die Andacht" loading="lazy" onerror="this.parentNode.classList.add('missing')"><figcaption>Am Morgen<span>auf dem Weg zur Arbeit</span></figcaption></figure>
+      <figure class="day-card reveal" data-ph="FOTO NOVA 2 · day-zwischendurch.jpg · Pessoa jovem (uns 30 anos) no intervalo, lendo no celular e sorrindo"><img src="img/day-zwischendurch.jpg" alt="Eine junge Frau mit ihrem Handy in der Pause" loading="lazy" onerror="this.parentNode.classList.add('missing')"><figcaption>In der Pause<span>die Andacht zu Ende hören</span></figcaption></figure>
+      <figure class="day-card reveal" data-ph="abend.jpg"><img src="img/abend.jpg" alt="Eine Frau liest am Abend in der Bibel" loading="lazy" onerror="this.parentNode.classList.add('missing')"><figcaption>Am Abend<span>den Vers in der eigenen Bibel nachschlagen</span></figcaption></figure>
+      <figure class="day-card reveal" data-ph="FOTO NOVA 3 · day-gebet.jpg · Casal de uns 65 anos no sofá, de mãos dadas, orando; celular na mesa"><img src="img/day-gebet.jpg" alt="Ein älteres Ehepaar betet zusammen" loading="lazy" onerror="this.parentNode.classList.add('missing')"><figcaption>Zu zweit<span>gemeinsam hören und mitbeten</span></figcaption></figure>
+    </div>
+    <p class="day-line reveal">Ein Tag verpasst? Dann geht es am nächsten einfach weiter. Keine Andacht verschwindet.</p>
+  </div>
+</section>
+
+<!-- O QUE TEM DENTRO -->
+<section class="kreis" id="inhalt">
+  <div class="wrap">
+    <div class="narrow center reveal">
+      <span class="eyebrow c" style="color:var(--gold-soft)">Was dich erwartet</span>
+      <h2 class="h-display">Eine Andacht jeden Morgen. <em>Und ein Archiv, das mitwächst.</em></h2>
+      <p class="lead">Alles auf Patreon, nur für Mitglieder.</p>
+    </div>
+    <div class="gifts">
+      <div class="gift first reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15v-3a8 8 0 0 1 16 0v3"/><rect x="3" y="14" width="4" height="6" rx="1.5"/><rect x="17" y="14" width="4" height="6" rx="1.5"/></svg></div>
+        <h3>Jeden Morgen um 8 Uhr eine neue Andacht</h3>
+        <p>Rund 20 Minuten zum Hören. Ein Wort aus der Bibel, Gedanken für dein Leben heute und am Ende ein Gebet mit Segen.</p>
+      </div>
+      <div class="gift reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 5.5C4.5 4 8 4 12 6c4-2 7.5-2 10-.5V19c-2.5-1.5-6-1.5-10 .5-4-2-7.5-2-10-.5z"/><path d="M12 6v13.5"/></svg></div>
+        <h3>Über 35 Andachten zum Nachhören</h3>
+        <p>Alles, was bisher erschienen ist, bleibt für dich da. Hör sie in deinem Tempo und so oft du magst. Wer einen Tag verpasst, hat nichts verloren.</p>
+      </div>
+      <div class="gift reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v2M5.6 5.6 7 7M3 12h2M19 12h2M17 7l1.4-1.4"/><path d="M8 16a4 4 0 1 1 8 0"/><path d="M4 20h16"/></svg></div>
+        <h3>Pausen zum Weitergehen</h3>
+        <p>Zwischendurch lässt dir die Andacht einen Moment Stille zum Nachdenken. Du musst dafür weder stehen bleiben noch die Augen schließen.</p>
+      </div>
+      <div class="gift reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4.5 6v5.5c0 4.5 3.2 8 7.5 9.5 4.3-1.5 7.5-5 7.5-9.5V6z"/><path d="m9 12 2 2 4-4"/></svg></div>
+        <h3>Auch ohne Internet</h3>
+        <p>In der kostenlosen App von Patreon lädst du die Andachten auf dein Handy und hörst sie unterwegs, auch dort, wo kein Empfang ist.</p>
+      </div>
+      <div class="gift reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.5-7 10-7 10z"/></svg></div>
+        <h3>Gebet für dein Anliegen</h3>
+        <p>Schreib uns dein Gebetsanliegen als Kommentar. Wir nehmen es in das Gebet einer der nächsten Andachten auf, nur mit deinem Vornamen.</p>
+        <span class="v">„Einer trage des andern Last.“<small>Galater 6,2</small></span>
+      </div>
+      <div class="gift reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/><path d="M8.5 11h7M8.5 14h4.5"/></svg></div>
+        <h3>Kommentare unter jeder Andacht</h3>
+        <p>Unter jeder Andacht und unter der Frage des Tages am Abend kannst du schreiben, was dich bewegt, und lesen, was andere teilen. Nur zuhören ist genauso willkommen.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FÜR WEN -->
+<section class="fuer">
+  <div class="wrap">
+    <div class="narrow center reveal">
+      <span class="eyebrow c gold">Ehrlich gesagt</span>
+      <h2 class="h-display">Für wen <em>Unterwegs mit Gott</em> gedacht ist</h2>
+    </div>
+    <div class="fit">
+      <div class="fit-box yes reveal">
+        <h3>Für dich, wenn</h3>
+        <ul>
+          <li><span>du jeden Tag Zeit mit Gott haben möchtest und es mit dem Lesen allein nicht durchhältst</span></li>
+          <li><span>du gern zuhörst, beim Gehen, beim Kochen oder im Auto</span></li>
+          <li><span>du ein Bibelwort mit in den Tag nehmen willst, ruhig und ohne Druck</span></li>
+          <li><span>du nach verpassten Tagen einfach wieder einsteigen möchtest, ohne schlechtes Gewissen</span></li>
+        </ul>
+      </div>
+      <div class="fit-box no reveal">
+        <h3>Eher nicht, wenn</h3>
+        <ul>
+          <li><span>du theologische Debatten oder Streitgespräche suchst</span></li>
+          <li><span>du auf jede Frage eine schnelle Antwort erwartest</span></li>
+          <li><span>du einen Ort für Werbung oder Politik suchst</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="welcome reveal">
+      <p>Ob du seit vielen Jahren glaubst oder gerade erst anfängst, ob du eine Gemeinde hast oder noch keine gefunden hast: <b>Hier ist Platz für dich.</b></p>
+      <span class="vv">„Und es geschah, da sie so redeten und befragten sich miteinander, nahte Jesus zu ihnen und wandelte mit ihnen.“<small>Lukas 24,15</small></span>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKS -->
+<section class="books">
+  <div class="wrap">
+    <div class="narrow center reveal">
+      <span class="eyebrow c gold">Wer dahinter steht</span>
+      <h2 class="h-display">Von den Machern der <em>Zeit mit Gott</em> Andachtsbücher</h2>
+      <p class="lead">Wir schreiben Andachten und Andachtsbücher für Menschen, die mitten im Alltag Halt bei Gott suchen. Bei Unterwegs mit Gott kommt jeden Morgen eine Andacht zum Hören dazu.</p>
+    </div>
+    <div class="book-grid">
+      <a class="book reveal" href="https://zeitmitgott.com/dergottderbleit/"><b>Der Gott, der bleibt</b><span>Wenn Menschen gehen, Kräfte schwinden und du allein zurückbleibst</span></a>
+      <a class="book reveal" href="https://zeitmitgott.com/ruhe/v1/"><b>Ruhe für die müde Seele</b><span>Wie Gott dich trägt, wenn du nicht mehr kannst</span></a>
+      <a class="book reveal" href="https://zeitmitgott.com/wenn/v1/"><b>Wenn Gott wiederherstellt, was zerbrochen war</b><span>Du bist ein wiederhergestelltes Meisterwerk in den Händen des Meisterarchitekten</span></a>
+      <a class="book reveal" href="https://zeitmitgott.com/festung/v1/"><b>Festung der Seele</b><span>Glaube, der jedem Sturm standhält</span></a>
+    </div>
   </div>
 </section>
 
@@ -422,12 +454,12 @@
   <div class="wrap">
     <div class="narrow center reveal">
       <span class="eyebrow c" style="color:var(--gold-soft)">Was es dich kostet</span>
-      <h2 class="h-display">Weniger als ein Brötchen beim Bäcker. <em>Jeden Tag Gemeinschaft im Glauben.</em></h2>
+      <h2 class="h-display">Unter 20 Cent am Tag. <em>Für eine Andacht jeden Morgen.</em></h2>
       <p class="lead">Wir wollten, dass jeder dabei sein kann.</p>
     </div>
     <div class="numbers">
-      <div class="num reveal"><b>unter 20 Cent</b><span>am Tag für deinen Platz im Kreis</span></div>
-      <div class="num reveal"><b>jeden Tag</b><span>Andacht, Bibelwort und Gebet</span></div>
+      <div class="num reveal"><b>unter 20 Cent</b><span>am Tag, bei 5,95 € im Monat</span></div>
+      <div class="num reveal"><b>über 35</b><span>Andachten, die du sofort nachhören kannst</span></div>
       <div class="num reveal"><b>7 Tage</b><span>kostenlos, bevor du einen Cent bezahlst</span></div>
     </div>
     <p class="value-foot reveal">Berechnet mit 5,95 € im Monat inkl. MwSt. und 30 Tagen.</p>
@@ -439,24 +471,23 @@
   <div class="wrap">
     <div class="narrow center reveal">
       <span class="eyebrow c gold">Deine Mitgliedschaft</span>
-      <h2 class="h-display">Komm eine Woche mit. <em>Ganz ohne Risiko.</em></h2>
+      <h2 class="h-display">Eine Woche mithören. <em>Dann entscheiden.</em></h2>
     </div>
     <div class="offer-card reveal">
       <span class="offer-badge">7 Tage kostenlos</span>
-      <h3>Die Gemeinschaft von Zeit mit Gott</h3>
-      <p class="offer-sub">Mitgliedschaft „Unterwegs mit Gott“ auf Patreon</p>
+      <h3>Unterwegs mit Gott</h3>
+      <p class="offer-sub">Mitgliedschaft auf Patreon</p>
       <ul class="offer-includes">
-        <li><span>Jeden Tag eine Andacht zum Hören, auch ohne Internet</span></li>
-        <li><span>Bibelstudien zum Hören, Schritt für Schritt</span></li>
-        <li><span>Gebet für deine Anliegen in den Andachten</span></li>
-        <li><span>Reflexionen aus der Bibel</span></li>
-        <li><span>Austausch in den Kommentaren unter jedem Beitrag</span></li>
-        <li><span>Alles Bisherige zum Nachhören und Nachlesen</span></li>
+        <li><span>Jeden Morgen um 8 Uhr eine neue Andacht, rund 20 Minuten</span></li>
+        <li><span>Über 35 Andachten sofort zum Nachhören</span></li>
+        <li><span>Zum Herunterladen in der App, auch ohne Internet</span></li>
+        <li><span>Dein Gebetsanliegen im Gebet der Andachten, nur mit Vornamen</span></li>
+        <li><span>Kommentare unter jeder Andacht und die Frage des Tages</span></li>
       </ul>
       <div class="trial">7 Tage kostenlos</div>
       <p class="price">danach <b>5,95 € im Monat</b> inkl. MwSt.</p>
       <p class="price-note">Keine Mindestlaufzeit · jederzeit mit wenigen Klicks kündbar</p>
-      <a href="https://www.patreon.com/zeitmitgott/membership" class="btn" target="_blank" rel="noopener">Jetzt 7 Tage kostenlos eintreten</a>
+      <a href="https://www.patreon.com/zeitmitgott/membership" class="btn" target="_blank" rel="noopener">Jetzt 7 Tage kostenlos hören</a>
       <p class="pay">Sichere Anmeldung und Bezahlung über Patreon, zum Beispiel mit PayPal oder Karte.</p>
     </div>
   </div>
@@ -466,25 +497,8 @@
   <div class="guar-box reveal">
     <div class="guar-seal">7</div>
     <div>
-      <h3>Erst erleben, dann entscheiden</h3>
-      <p>Die ersten sieben Tage kosten nichts. Wenn der Kreis nichts für dich ist, gehst du vor Ablauf der Woche mit wenigen Klicks wieder, und es wird nichts berechnet. Ohne Nachfragen, ohne Frist.</p>
-    </div>
-  </div>
-</section>
-
-<!-- BOOKS -->
-<section class="books">
-  <div class="wrap">
-    <div class="narrow center reveal">
-      <span class="eyebrow c gold">Wer dahinter steht</span>
-      <h2 class="h-display">Von den Machern der <em>Zeit mit Gott</em> Andachtsbücher</h2>
-      <p class="lead">Wir schreiben Andachten und Andachtsbücher für Menschen, die mitten im Alltag Halt bei Gott suchen. Im Kreis gehen wir diesen Weg jetzt gemeinsam.</p>
-    </div>
-    <div class="book-grid">
-      <a class="book reveal" href="https://zeitmitgott.com/dergottderbleit/"><b>Der Gott, der bleibt</b><span>Wenn Menschen gehen, Kräfte schwinden und du allein zurückbleibst</span></a>
-      <a class="book reveal" href="https://zeitmitgott.com/ruhe/v1/"><b>Ruhe für die müde Seele</b><span>Wie Gott dich trägt, wenn du nicht mehr kannst</span></a>
-      <a class="book reveal" href="https://zeitmitgott.com/wenn/v1/"><b>Wenn Gott wiederherstellt, was zerbrochen war</b><span>Du bist ein wiederhergestelltes Meisterwerk in den Händen des Meisterarchitekten</span></a>
-      <a class="book reveal" href="https://zeitmitgott.com/festung/v1/"><b>Festung der Seele</b><span>Glaube, der jedem Sturm standhält</span></a>
+      <h3>Erst hören, dann entscheiden</h3>
+      <p>Die ersten sieben Tage kosten nichts. Wenn du vor Ablauf der sieben Tage in deinem Patreon Konto kündigst, wird nichts berechnet. Eine Begründung brauchst du nicht.</p>
     </div>
   </div>
 </section>
@@ -497,16 +511,18 @@
       <h2 class="h-display">Gut zu wissen</h2>
     </div>
     <div class="faq-list">
-      <div class="faq-item reveal"><button class="faq-q">Was genau bekomme ich?</button><div class="faq-a"><p>Einen Platz in unserem geschlossenen Kreis auf Patreon. Jeden Tag kommt eine neue Andacht zum Hören, etwa 20 bis 30 Minuten. Dazu gibt es Bibelstudien zum Hören, Gebet für die Anliegen der Mitglieder und Reflexionen aus der Bibel. Alles Bisherige bleibt für dich da.</p></div></div>
-      <div class="faq-item reveal"><button class="faq-q">Muss ich etwas schreiben oder von mir erzählen?</button><div class="faq-a"><p>Nein. Du kannst in Ruhe lesen und hören, so lange du möchtest. Wenn du etwas teilen oder ein Gebetsanliegen bringen willst, bist du herzlich willkommen. Wenn es sehr persönlich ist, kannst du uns auch eine private Nachricht schreiben.</p></div></div>
-      <div class="faq-item reveal"><button class="faq-q">Wer sieht, was im Kreis geteilt wird?</button><div class="faq-a"><p>Nur die Mitglieder. Der Kreis ist nicht öffentlich, und was dort geteilt wird, erscheint weder bei Google noch in sozialen Netzwerken. Wenn dein Anliegen sehr persönlich ist, schreib uns einfach eine private Nachricht.</p></div></div>
-      <div class="faq-item reveal"><button class="faq-q">Bin ich hier richtig, auch wenn ich zu keiner Gemeinde gehöre?</button><div class="faq-a"><p>Ja. Hier zählt nicht, aus welcher Gemeinde du kommst oder wie lange du schon glaubst. Wichtig ist nur, dass du Gott näherkommen willst.</p></div></div>
+      <div class="faq-item reveal"><button class="faq-q">Was genau bekomme ich?</button><div class="faq-a"><p>Die Mitgliedschaft „Unterwegs mit Gott“ auf Patreon. Jeden Morgen um 8 Uhr erscheint eine neue Andacht zum Hören, rund 20 Minuten, mit Gebet und Segen am Ende. Alle bisherigen Andachten, heute schon über 35, bleiben für dich da. Am Abend kommt die Frage des Tages dazu, unter der du mitreden kannst.</p></div></div>
+      <div class="faq-item reveal"><button class="faq-q">Was ist, wenn ich einen Tag verpasse?</button><div class="faq-a"><p>Dann hörst du einfach weiter, wann es dir passt. Keine Andacht verschwindet, und es gibt keinen Plan, hinter dem du zurückbleibst.</p></div></div>
+      <div class="faq-item reveal"><button class="faq-q">Muss ich etwas schreiben oder von mir erzählen?</button><div class="faq-a"><p>Nein. Du kannst einfach zuhören, so lange du möchtest. Wenn du etwas teilen oder ein Gebetsanliegen bringen willst, bist du herzlich willkommen.</p></div></div>
+      <div class="faq-item reveal"><button class="faq-q">Wie bringe ich ein Gebetsanliegen ein?</button><div class="faq-a"><p>Schreib es als Kommentar unter eine Andacht. Wir nehmen Anliegen in das Gebet einer der nächsten Andachten auf, nur mit dem Vornamen. Wenn es sehr persönlich ist, kannst du uns auch eine private Nachricht schreiben.</p></div></div>
+      <div class="faq-item reveal"><button class="faq-q">Wer sieht, was ich schreibe?</button><div class="faq-a"><p>Nur die Mitglieder. Die Andachten und die Kommentare sind nicht öffentlich und erscheinen weder bei Google noch in sozialen Netzwerken. Wenn dein Anliegen sehr persönlich ist, schreib uns einfach eine private Nachricht.</p></div></div>
+      <div class="faq-item reveal"><button class="faq-q">Bin ich hier richtig, auch wenn ich zu keiner Gemeinde gehöre?</button><div class="faq-a"><p>Ja. Hier zählt nicht, aus welcher Gemeinde du kommst oder wie lange du schon glaubst. Wichtig ist nur, dass du dir Zeit mit Gott wünschst.</p></div></div>
       <div class="faq-item reveal"><button class="faq-q">Was passiert nach den 7 kostenlosen Tagen?</button><div class="faq-a"><p>Wenn du nicht vorher kündigst, läuft deine Mitgliedschaft automatisch weiter, für 5,95 € im Monat inkl. MwSt. Wenn du vor Ablauf der sieben Tage kündigst, zahlst du nichts.</p></div></div>
-      <div class="faq-item reveal"><button class="faq-q">Wie kündige ich?</button><div class="faq-a"><p>Mit wenigen Klicks in deinem Patreon Konto, ohne Frist und ohne Begründung. Bis zum Ende des Zeitraums, den du schon bezahlt hast, bleibst du im Kreis.</p></div></div>
-      <div class="faq-item reveal"><button class="faq-q">Brauche ich eine App?</button><div class="faq-a"><p>Nein. Du kannst alles im Browser nutzen, am Computer, am Tablet oder am Handy. Mit der kostenlosen App von Patreon bekommst du Neues aus dem Kreis direkt aufs Handy und kannst die Andachten herunterladen. Tipp: Melde dich am besten über diese Seite im Browser an.</p></div></div>
+      <div class="faq-item reveal"><button class="faq-q">Wie kündige ich?</button><div class="faq-a"><p>Mit wenigen Klicks in deinem Patreon Konto, ohne Frist und ohne Begründung. Bis zum Ende des Zeitraums, den du schon bezahlt hast, kannst du weiter alles hören.</p></div></div>
+      <div class="faq-item reveal"><button class="faq-q">Brauche ich eine App?</button><div class="faq-a"><p>Nein. Du kannst alles im Browser hören, am Computer, am Tablet oder am Handy. Mit der kostenlosen App von Patreon kommt jede neue Andacht direkt aufs Handy, und du kannst sie herunterladen und ohne Internet hören. Tipp: Melde dich am besten über diese Seite im Browser an.</p></div></div>
       <div class="faq-item reveal"><button class="faq-q">Was ist Patreon?</button><div class="faq-a"><p>Patreon ist eine große, bekannte Plattform, über die Menschen auf der ganzen Welt Künstler und Autoren mit einer Mitgliedschaft unterstützen. Die Anmeldung und die Bezahlung laufen sicher über Patreon. Wir sehen deine Zahlungsdaten nicht.</p></div></div>
       <div class="faq-item reveal"><button class="faq-q">Warum steht beim Bezahlen ein anderer Betrag als 5 €?</button><div class="faq-a"><p>Der Grundpreis ist 5 € im Monat. Patreon rechnet die gesetzliche Mehrwertsteuer dazu, in Deutschland 19 Prozent. So kommen die 5,95 € zustande. In anderen Ländern kann der Betrag etwas abweichen.</p></div></div>
-      <div class="faq-item reveal"><button class="faq-q">Gibt es auch etwas kostenlos?</button><div class="faq-a"><p>Ja. Die Andacht „Er geht mit“ kannst du weiter oben auf dieser Seite ganz hören, ohne Anmeldung. Und wenn du uns kostenlos folgst, bekommst du jeden Sonntag eine Andacht zum Hören.</p></div></div>
+      <div class="faq-item reveal"><button class="faq-q">Gibt es auch etwas kostenlos?</button><div class="faq-a"><p>Ja. Die Andacht „Er geht mit“ kannst du weiter oben auf dieser Seite ganz hören, ohne Anmeldung. Und wenn du uns auf Patreon kostenlos folgst, bekommst du jeden Sonntag eine Andacht zum Hören.</p></div></div>
     </div>
     <div class="help reveal">
       <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 6.5 8.5 6.5 8.5-6.5"/></svg></div>
@@ -521,17 +537,17 @@
 <!-- FINAL -->
 <section class="final">
   <div class="narrow reveal">
-    <span class="eyebrow c" style="color:var(--gold-soft)">Die Tür ist offen</span>
-    <h2 class="h-display">Wenn dein Herz sagt: Das ist für mich, <em>dann komm heute herein.</em></h2>
-    <p class="lead">Probier den Kreis sieben Tage aus, ohne etwas zu bezahlen. Wenn er nichts für dich ist, gehst du mit wenigen Klicks wieder.</p>
-    <a href="https://www.patreon.com/zeitmitgott/membership" class="btn" target="_blank" rel="noopener">7 Tage kostenlos eintreten</a>
+    <span class="eyebrow c" style="color:var(--gold-soft)">Morgen um 8 Uhr</span>
+    <h2 class="h-display">Der nächste Spaziergang <em>kann eine Andacht sein.</em></h2>
+    <p class="lead">Hör sieben Tage kostenlos mit. Wenn es nichts für dich ist, kündigst du mit wenigen Klicks.</p>
+    <a href="https://www.patreon.com/zeitmitgott/membership" class="btn" target="_blank" rel="noopener">7 Tage kostenlos hören</a>
     <span class="btn-sub">Danach 5,95 € im Monat inkl. MwSt. · jederzeit kündbar</span>
   </div>
 </section>
 
 <footer>
   <span class="brand"><img src="img/logo-zmg.png" alt="">Zeit mit <span>Gott</span></span>
-  © 2026 Zeit mit Gott · Die Gemeinschaft<br>
+  © 2026 Zeit mit Gott · Unterwegs mit Gott<br>
   <a href="https://www.youtube.com/@Zeit-mit-Gott" target="_blank" rel="noopener">YouTube</a> ·
   <a href="mailto:hallo@zeitmitgott.com">hallo@zeitmitgott.com</a> ·
   <a href="https://zeitmitgott.com/datenschutz" target="_blank" rel="noopener">Datenschutz</a>
@@ -539,7 +555,7 @@
 
 <div class="sticky" id="sticky">
   <p><b>7 Tage kostenlos</b><br>danach 5,95 € / Monat · kündbar</p>
-  <a href="https://www.patreon.com/zeitmitgott/membership" target="_blank" rel="noopener">Eintreten</a>
+  <a href="https://www.patreon.com/zeitmitgott/membership" target="_blank" rel="noopener">Mithören</a>
 </div>
 
 <script>
