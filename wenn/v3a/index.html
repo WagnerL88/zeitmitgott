@@ -249,24 +249,7 @@
     .hero-cover { transform: none; }
   }
 </style>
-<!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '930918186688637');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=930918186688637&ev=PageView&noscript=1"
-alt=""
-></noscript>
-<!-- End Meta Pixel Code -->
+
 </head>
 <body>
 
@@ -501,7 +484,7 @@ alt=""
 <footer>
   <span class="brand">Zeit mit <span style="color:var(--gold)">Gott</span></span>
   &copy; 2026 Zeit mit Gott &middot; Wenn Gott wiederherstellt, was zerbrochen war<br>
-  <a href="mailto:hallo@zeitmitgott.com">hallo@zeitmitgott.com</a>
+  <a href="mailto:hallo@zeitmitgott.com">hallo@zeitmitgott.com</a> &middot; <a href="/datenschutz/">Datenschutz</a> &middot; <a href="#" id="cookie-settings">Cookie-Einstellungen</a>
 </footer>
 
 <script>
@@ -523,32 +506,82 @@ alt=""
     });
   });
 </script>
-<!-- Meta Pixel: rastreamento de cliques para a Amazon -->
+
+
+<!-- Consentimento, pixel, tag por anuncio e clique de saida (21/10/2026) -->
+<style>
+  .consent { position: fixed; left: 0; right: 0; bottom: 0; z-index: 200; background: var(--navy-deep); color: var(--cream); padding: 1.1rem clamp(1.2rem,5vw,3rem); padding-bottom: calc(1.1rem + env(safe-area-inset-bottom, 0px)); box-shadow: 0 -8px 30px rgba(0,0,0,.3); display: none; }
+  .consent.show { display: block; }
+  .consent-in { max-width: 1080px; margin: 0 auto; display: flex; gap: 1.2rem; align-items: center; flex-wrap: wrap; justify-content: space-between; }
+  .consent p { font-size: .88rem; line-height: 1.5; color: rgba(251,248,243,.88); flex: 1 1 340px; margin: 0; }
+  .consent a { color: var(--gold-soft); }
+  .consent-btns { display: flex; gap: .7rem; flex: 0 0 auto; }
+  .consent button { font-family: 'Outfit',sans-serif; font-size: .92rem; font-weight: 600; padding: .75rem 1.3rem; border-radius: 4px; cursor: pointer; border: 1px solid var(--gold); min-width: 8.5rem; }
+  .consent .c-no { background: transparent; color: var(--cream); }
+  .consent .c-yes { background: var(--gold); color: var(--navy-deep); }
+</style>
+<div class="consent" id="consent" role="dialog" aria-label="Cookie-Einstellungen">
+  <div class="consent-in">
+    <p>Wir m&ouml;chten mit dem Meta-Pixel messen, wie viele Besucher &uuml;ber unsere Anzeigen kommen und zu Amazon weiterklicken. Das geschieht nur mit deiner Einwilligung, die du jederzeit unten auf der Seite &uuml;ber &bdquo;Cookie-Einstellungen&ldquo; widerrufen kannst. Mehr in der <a href="/datenschutz/">Datenschutzerkl&auml;rung</a>.</p>
+    <div class="consent-btns">
+      <button type="button" class="c-no" id="c-no">Ablehnen</button>
+      <button type="button" class="c-yes" id="c-yes">Akzeptieren</button>
+    </div>
+  </div>
+</div>
 <script>
-document.addEventListener('click', function (event) {
-  const link = event.target.closest('a[href]');
-  if (!link) return;
-
-  try {
-    const destination = new URL(link.href, window.location.href);
-    const hostname = destination.hostname.toLowerCase();
-    const isAmazon = hostname === 'amazon.de' ||
-                     hostname === 'www.amazon.de' ||
-                     hostname.endsWith('.amazon.de');
-
-    if (!isAmazon || typeof window.fbq !== 'function') return;
-
-    window.fbq('trackCustom', 'AmazonOutboundClick', {
-      content_name: 'Wenn Gott wiederherstellt, was zerbrochen war',
-      page_variant: 'v3a',
-      button_id: link.id || 'sem-id',
-      destination_url: destination.href
-    });
-  } catch (error) {
-    console.warn('Não foi possível registrar o clique para a Amazon.', error);
+(function () {
+  var KEY = 'zmg_consent_v1';
+  var PIXEL_ID = '930918186688637';
+  var VARIANTE = 'v3a';
+  var box = document.getElementById('consent');
+  function ler() { try { return localStorage.getItem(KEY); } catch (e) { return null; } }
+  function gravar(v) { try { localStorage.setItem(KEY, v); } catch (e) {} }
+  function carregarPixel() {
+    if (window.fbq) return;
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+    document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('set', 'autoConfig', false, PIXEL_ID); // sem raspagem automatica de textos/botoes da pagina
+    fbq('init', PIXEL_ID);
+    fbq('track', 'PageView');
   }
-});
+  var escolha = ler();
+  if (escolha === 'yes') carregarPixel(); else if (escolha !== 'no') box.classList.add('show');
+  document.getElementById('c-yes').addEventListener('click', function () { gravar('yes'); box.classList.remove('show'); carregarPixel(); });
+  document.getElementById('c-no').addEventListener('click', function () {
+    var antes = ler(); gravar('no'); box.classList.remove('show');
+    if (antes === 'yes') location.reload(); // revogacao: recarrega sem o pixel
+  });
+  document.getElementById('cookie-settings').addEventListener('click', function (ev) { ev.preventDefault(); box.classList.add('show'); });
+
+  // Tag do Amazon Attribution por anuncio: o anuncio chega com utm_content=K1, S1, O1 ou R1 (campanha META-WGW-R1).
+  // Sem utm_content conhecido, fica a tag padrao da pagina.
+  var TAG_POR_ANUNCIO = {
+      "K1": "https://www.amazon.de/dp/B0GLHKXCB4?maas=maas_adg_2248C9119C924685F45435C70C9B08D6_afap_abs&ref_=aa_maas&tag=maas",
+      "S1": "https://www.amazon.de/dp/B0GLHKXCB4?maas=maas_adg_78DCE6006F21250AC26738D757F3D0C0_afap_abs&ref_=aa_maas&tag=maas",
+      "O1": "https://www.amazon.de/dp/B0GLHKXCB4?maas=maas_adg_4F8B7FE83643A85DD598C27446961584_afap_abs&ref_=aa_maas&tag=maas",
+      "R1": "https://www.amazon.de/dp/B0GLHKXCB4?maas=maas_adg_71B05DE1BC96B08C28F75BED2FDE179E_afap_abs&ref_=aa_maas&tag=maas"
+  };
+  try {
+    var ad = (new URLSearchParams(location.search).get('utm_content') || '').toUpperCase().slice(0, 2);
+    var novo = TAG_POR_ANUNCIO[ad];
+    if (novo) document.querySelectorAll('a[href*="amazon.de"]').forEach(function (a) { a.href = novo; });
+  } catch (e) {}
+
+  // Clique de saida para a Amazon: so com consentimento, sem nenhum dado do conteudo da pagina
+  document.addEventListener('click', function (ev) {
+    var a = ev.target.closest('a[href]');
+    if (!a || ler() !== 'yes' || typeof window.fbq !== 'function') return;
+    var host = '';
+    try { host = new URL(a.href, location.href).hostname.toLowerCase(); } catch (e) { return; }
+    if (host !== 'amazon.de' && host !== 'www.amazon.de' && host.slice(-10) !== '.amazon.de') return;
+    var id = 'amz-' + Date.now() + '-' + Math.random().toString(36).slice(2, 8);
+    window.fbq('trackCustom', 'AmazonOutboundClick', { page_variant: VARIANTE }, { eventID: id });
+  });
+})();
 </script>
-<!-- Fim do rastreamento de cliques para a Amazon -->
 </body>
 </html>
