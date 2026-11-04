@@ -99,6 +99,14 @@
   .book-note { display:block; margin-top:.55rem; font-size:.76rem; color:var(--cream-soft); opacity:.8; }
   .book-badge { position:absolute; top:1.1rem; right:1.2rem; z-index:2; font-size:.62rem; letter-spacing:.12em; text-transform:uppercase; font-weight:600; color:#1a1611; background:linear-gradient(135deg,var(--gold-bright),var(--gold)); padding:.28rem .6rem; border-radius:20px; display:inline-flex; align-items:center; gap:.3rem; box-shadow:0 4px 12px rgba(0,0,0,.3); }
 
+  /* LESERSTIMMEN (comentários reais do YouTube) */
+  .voices { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
+  .voice { background:var(--card); border:1px solid var(--line); border-radius:16px; padding:1.2rem 1.3rem; }
+  .voice q { display:block; font-family:'Fraunces',serif; font-style:italic; font-size:.95rem; line-height:1.6; color:var(--cream); quotes:"\201E" "\201C"; }
+  .voice span { display:block; margin-top:.7rem; font-size:.76rem; color:var(--muted); }
+  .voice b { color:var(--gold); font-weight:500; }
+  @media (max-width:560px) { .voices { grid-template-columns:1fr; } }
+
   /* FOOTER */
   .foot { text-align:center; margin-top:clamp(2.8rem,7vw,4rem); }
   .social { display:flex; gap:.8rem; justify-content:center; margin-bottom:1.6rem; }
@@ -220,6 +228,15 @@
       </div>
     </a>
 
+  </div>
+
+  <!-- LESERSTIMMEN: comentários reais do canal no YouTube (nome + inicial) -->
+  <div class="section-label" style="margin-top:clamp(2.6rem,6vw,3.6rem)">Was Leser schreiben</div>
+  <div class="voices">
+    <div class="voice reveal"><q>Sie schenken ein neues Verst&auml;ndnis &uuml;ber das Glaubensleben [&hellip;] und geben Kraft f&uuml;r die Herausforderungen des Alltags. Diese B&uuml;cher sollten neben der Bibel in keinem Haushalt fehlen.</q><span><b>Isolde G.</b> &middot; Kommentar auf YouTube</span></div>
+    <div class="voice reveal"><q>Ich habe alle 3 B&uuml;cher gekauft und es ist g&ouml;ttlich. Jedes Wort ist die Wahrheit, bestellt sie, ich kann&rsquo;s euch nur ans Herz legen!</q><span><b>Gabriele C.</b> &middot; Kommentar auf YouTube</span></div>
+    <div class="voice reveal"><q>Ich habe diese B&uuml;cher schon, bin bei Buch 2! Ich finde die B&uuml;cher sehr hilfreich!</q><span><b>Katarina B.</b> &middot; Kommentar auf YouTube</span></div>
+    <div class="voice reveal"><q>Diese Videos sind so hilfreich. Vielen Dank! Auch die B&uuml;cher sind sehr n&uuml;tzlich, auch als Geschenk.</q><span><b>Simona K.</b> &middot; Kommentar auf YouTube</span></div>
   </div>
 
   <!-- HOERBUECHER -->
