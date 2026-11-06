@@ -529,17 +529,17 @@
 
 <!-- Consentimento antes do pixel (04/11/2026), igual ao /wenn/v3d/ e com a mesma chave -->
 <style>
-  .consent { position: fixed; left: 0; right: 0; bottom: 0; z-index: 200; background: var(--night); color: var(--cream); padding: 1.1rem clamp(1.2rem,5vw,3rem); padding-bottom: calc(1.1rem + env(safe-area-inset-bottom, 0px)); box-shadow: 0 -8px 30px rgba(0,0,0,.35); border-top: 1px solid rgba(201,162,78,.35); display: none; }
-  .consent.show { display: block; }
+  .zmg-cookie { position: fixed; left: 0; right: 0; bottom: 0; z-index: 200; background: var(--night); color: var(--cream); padding: 1.1rem clamp(1.2rem,5vw,3rem); padding-bottom: calc(1.1rem + env(safe-area-inset-bottom, 0px)); box-shadow: 0 -8px 30px rgba(0,0,0,.35); border-top: 1px solid rgba(201,162,78,.35); display: none; }
+  .zmg-cookie.show { display: block; }
   .consent-in { max-width: 1080px; margin: 0 auto; display: flex; gap: 1.2rem; align-items: center; flex-wrap: wrap; justify-content: space-between; }
-  .consent p { font-size: .88rem; line-height: 1.5; color: rgba(245,238,225,.88); flex: 1 1 340px; margin: 0; }
-  .consent a { color: var(--gold-bright); }
+  .zmg-cookie p { font-size: .88rem; line-height: 1.5; color: rgba(245,238,225,.88); flex: 1 1 340px; margin: 0; }
+  .zmg-cookie a { color: var(--gold-bright); }
   .consent-btns { display: flex; gap: .7rem; flex: 0 0 auto; }
-  .consent button { font-family: 'Outfit',sans-serif; font-size: .92rem; font-weight: 600; padding: .75rem 1.3rem; border-radius: 4px; cursor: pointer; border: 1px solid var(--gold); min-width: 8.5rem; }
-  .consent .c-no { background: transparent; color: var(--cream); }
-  .consent .c-yes { background: var(--gold); color: var(--night); }
+  .zmg-cookie button { font-family: 'Outfit',sans-serif; font-size: .92rem; font-weight: 600; padding: .75rem 1.3rem; border-radius: 4px; cursor: pointer; border: 1px solid var(--gold); min-width: 8.5rem; }
+  .zmg-cookie .c-no { background: transparent; color: var(--cream); }
+  .zmg-cookie .c-yes { background: var(--gold); color: var(--night); }
 </style>
-<div class="consent" id="consent" role="dialog" aria-label="Cookie-Einstellungen">
+<div class="zmg-cookie" id="consent" role="dialog" aria-label="Cookie-Einstellungen">
   <div class="consent-in">
     <p>Wir m&ouml;chten mit dem Meta-Pixel messen, wie viele Besucher &uuml;ber unsere Anzeigen kommen und sich f&uuml;r das E-Book eintragen. Das geschieht nur mit deiner Einwilligung, die du jederzeit unten auf der Seite &uuml;ber &bdquo;Cookie-Einstellungen&ldquo; widerrufen kannst. Mehr in der <a href="/datenschutz/">Datenschutzerkl&auml;rung</a>.</p>
     <div class="consent-btns">
