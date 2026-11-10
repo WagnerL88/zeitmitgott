@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<!-- v4 (10/11/2026): teste A/B do lead contra /unterwegs/ (H1 igual). Copy pelo GPT, rodada 2. -->
+<title>Die Gemeinschaft von Zeit mit Gott · Gemeinsam mit Gott durch den Alltag</title>
+<meta name="description" content="Ein kleiner, geschlossener Kreis für Christen: jeden Tag eine Andacht und Bibelstudien zum Hören, Gebet für deine Anliegen und Reflexionen aus der Bibel. 7 Tage kostenlos, danach 5,95 € im Monat, jederzeit kündbar.">
+<meta property="og:title" content="Die Gemeinschaft von Zeit mit Gott · Niemand hält allein durch">
+<meta property="og:description" content="Ein geschlossener Kreis, weit weg vom Lärm. Wir beten füreinander und reden über Gottes Wort. 7 Tage kostenlos.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://zeitmitgott.com/unterwegs/img/hero-gemeinschaft.jpg">
+<meta name="theme-color" content="#1F2332">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#1F2332; --navy-deep:#161925; --navy-mid:#2B3043;
+    --gold:#C2471A; --gold-deep:#9E3812; --gold-soft:#F6B04A;
+    --flame-r:#EF1F35; --flame-o:#F47A20; --flame-y:#FFBD00;
+    --cream:#FBF7F1; --cream-warm:#F3EADF; --cream-deep:#E6D5C1;
+    --ink:#2A2420; --ink-soft:#4E4640; --muted:#74685C;
+    --line:rgba(31,35,50,.12);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  body{font-family:'Outfit',sans-serif;background:var(--cream);color:var(--ink);line-height:1.72;font-weight:300;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  img,video{max-width:100%;display:block}
+  section{padding:clamp(3.5rem,8vw,7rem) clamp(1.2rem,5vw,3rem)}
+  .wrap{max-width:1080px;margin:0 auto}
+  .narrow{max-width:760px;margin:0 auto}
+  .center{text-align:center}
+
+  .eyebrow{font-size:clamp(.7rem,1.6vw,.76rem);letter-spacing:.26em;text-transform:uppercase;font-weight:500;display:inline-flex;align-items:center;gap:.7rem;margin-bottom:1.3rem}
+  .eyebrow::before{content:"";width:28px;height:1px;background:currentColor;opacity:.55}
+  .eyebrow.c{justify-content:center}
+  .eyebrow.c::after{content:"";width:28px;height:1px;background:currentColor;opacity:.55}
+  .eyebrow.gold{color:var(--gold-deep)}
+  h2.h-display{font-family:'Fraunces',serif;font-weight:400;color:var(--navy);font-size:clamp(1.75rem,4.2vw,3rem);line-height:1.13;letter-spacing:-.01em;margin-bottom:1.4rem}
+  h2.h-display em{font-style:italic;color:var(--gold-deep)}
+  .lead{font-size:clamp(1.02rem,1.5vw,1.2rem);color:var(--muted)}
+
+  .btn{display:inline-block;font-family:'Outfit',sans-serif;font-size:clamp(.98rem,2vw,1.08rem);font-weight:600;background:linear-gradient(135deg,var(--flame-o) 0%,var(--gold) 55%,var(--gold-deep) 100%);color:#fff;text-decoration:none;padding:clamp(1rem,2.5vw,1.2rem) clamp(1.8rem,4vw,2.8rem);border-radius:4px;box-shadow:0 12px 30px rgba(194,71,26,.34);transition:transform .25s,box-shadow .25s;position:relative;overflow:hidden;text-align:center}
+  .btn::after{content:"";position:absolute;top:0;left:-120%;width:55%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.4),transparent);transform:skewX(-20deg);animation:sheen 3.8s ease-in-out infinite}
+  @keyframes sheen{0%,62%{left:-120%}82%,100%{left:135%}}
+  .btn:hover{transform:translateY(-3px);box-shadow:0 18px 44px rgba(194,71,26,.45)}
+  .btn-sub{display:block;font-size:clamp(.8rem,1.8vw,.86rem);color:var(--muted);margin-top:.9rem;font-weight:400}
+
+  nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:1.1rem clamp(1.2rem,5vw,3rem);transition:background .4s,padding .4s,box-shadow .4s}
+  nav.scrolled{background:rgba(251,248,243,.96);backdrop-filter:blur(12px);box-shadow:0 1px 0 var(--line);padding:.7rem clamp(1.2rem,5vw,3rem)}
+  .brand{font-family:'Fraunces',serif;font-size:clamp(.95rem,2.5vw,1.05rem);font-weight:500;letter-spacing:.13em;text-transform:uppercase;color:var(--cream);transition:color .4s;display:flex;align-items:center;gap:.6rem}
+  nav.scrolled .brand{color:var(--navy)}
+  .brand img{width:34px;height:34px;border-radius:50%;object-fit:cover}
+  .brand span{color:var(--gold-soft)}
+  nav.scrolled .brand span{color:var(--gold)}
+  .nav-cta{font-size:clamp(.72rem,1.8vw,.8rem);font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:#fff;background:var(--gold);text-decoration:none;padding:.6rem 1.2rem;border-radius:4px;transition:all .3s;white-space:nowrap}
+  .nav-cta:hover{background:var(--gold-deep)}
+
+  /* HERO */
+  .hero{position:relative;color:var(--cream);padding-top:clamp(7rem,14vw,10rem);padding-bottom:clamp(4rem,9vw,7rem);overflow:hidden;background:var(--navy-deep)}
+  .hero-bg{position:absolute;inset:0;background-image:url('../img/hero-gemeinschaft.jpg'),url('../img/tisch.jpg');background-position:center right;background-size:cover;background-repeat:no-repeat}
+  .hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(22,25,37,.94) 0%,rgba(22,25,37,.82) 38%,rgba(22,25,37,.35) 70%,rgba(22,25,37,.15) 100%)}
+  .hero .wrap{position:relative;z-index:2}
+  .hero-copy{max-width:37rem}
+  .hero h1{font-family:'Fraunces',serif;font-weight:400;font-size:clamp(2.2rem,5.4vw,4.1rem);line-height:1.05;letter-spacing:-.015em;margin-bottom:1.4rem}
+  .hero h1 em{font-style:italic;color:var(--gold-soft)}
+  .hero-lead{font-size:clamp(1.05rem,1.6vw,1.26rem);color:rgba(251,248,243,.9);margin-bottom:1.6rem}
+  .hero-verse{font-family:'Fraunces',serif;font-style:italic;font-size:clamp(.98rem,1.6vw,1.06rem);color:var(--gold-soft);margin-bottom:2.2rem;padding-left:1.1rem;border-left:2px solid var(--gold)}
+  .hero-verse small{display:block;font-family:'Outfit',sans-serif;font-style:normal;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;opacity:.85;margin-top:.35rem}
+  .hero .btn-sub{color:rgba(251,248,243,.72)}
+
+  .trust{background:var(--navy);color:var(--gold-soft);padding:.95rem 1.2rem;font-size:clamp(.8rem,1.8vw,.92rem);letter-spacing:.03em;display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:.15rem .1rem;line-height:1.9;text-align:center}
+  .trust{border-bottom:3px solid transparent;border-image:linear-gradient(90deg,var(--flame-r),var(--flame-o),var(--flame-y)) 1}
+  .trust strong{color:#fff;font-weight:600}
+  .trust span.sep{opacity:.4;margin:0 .55rem}
+
+  /* PAIN */
+  .pain{background:var(--cream)}
+  .pain-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.1rem;margin-top:2.6rem}
+  .pain-item{display:flex;gap:1rem;padding:1.4rem 1.5rem;background:#fff;border-radius:5px;border-left:3px solid var(--gold);box-shadow:0 6px 22px rgba(31,35,50,.06)}
+  .pain-item .mark{font-family:'Fraunces',serif;font-weight:600;color:var(--gold-deep);font-size:1.6rem;line-height:.8}
+  .pain-item p{font-size:clamp(.97rem,1.8vw,1.03rem);color:var(--ink-soft)}
+  .bridge{text-align:center;margin-top:3rem;font-family:'Fraunces',serif;font-style:italic;font-size:clamp(1.25rem,2.8vw,1.75rem);color:var(--navy);line-height:1.45}
+  .bridge em{color:var(--gold-deep)}
+
+  /* KREIS: o que você recebe */
+  .kreis{background:linear-gradient(165deg,var(--navy) 0%,var(--navy-deep) 100%);color:var(--cream)}
+  .kreis h2.h-display{color:#fff}.kreis h2.h-display em{color:var(--gold-soft)}
+  .kreis .lead{color:rgba(251,248,243,.82)}
+  .gifts{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem;margin-top:2.8rem}
+  .gift{padding:1.7rem 1.5rem;background:rgba(255,255,255,.05);border:1px solid rgba(240,120,40,.28);border-radius:8px}
+  .gift .ic{width:50px;height:50px;border-radius:50%;background:rgba(240,120,40,.14);color:var(--gold-soft);display:flex;align-items:center;justify-content:center;margin-bottom:1.1rem}
+  .gift .ic svg{width:26px;height:26px}
+  .gift h3{font-family:'Fraunces',serif;font-weight:500;font-size:1.22rem;color:#fff;margin-bottom:.5rem;line-height:1.3}
+  .gift p{font-size:.97rem;color:rgba(251,248,243,.8);line-height:1.65}
+  .gift .v{display:block;margin-top:.8rem;font-family:'Fraunces',serif;font-style:italic;font-size:.92rem;color:var(--gold-soft)}
+  .gift .v small{font-family:'Outfit',sans-serif;font-style:normal;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;opacity:.8;margin-left:.35rem}
+  .gift.first{border-color:var(--gold);background:rgba(240,120,40,.1)}
+
+  /* FÜR WEN */
+  .fuer{background:var(--cream)}
+  .fit{display:grid;grid-template-columns:1.25fr 1fr;gap:1.2rem;margin-top:2.6rem}
+  .fit-box{padding:1.8rem 1.7rem;background:#fff;border-radius:8px;box-shadow:0 10px 30px rgba(31,35,50,.07)}
+  .fit-box.yes{border-top:3px solid var(--gold)}
+  .fit-box.no{border-top:3px solid var(--cream-deep);background:var(--cream-warm);box-shadow:none}
+  .fit-box h3{font-family:'Fraunces',serif;font-weight:500;color:var(--navy);font-size:1.25rem;margin-bottom:1rem}
+  .fit-box ul{list-style:none;display:grid;gap:.8rem}
+  .fit-box li{display:flex;gap:.75rem;font-size:1rem;color:var(--ink-soft);line-height:1.6}
+  .fit-box.yes li::before{content:"✓";color:var(--gold-deep);font-weight:700;flex-shrink:0}
+  .fit-box.no li::before{content:"×";color:var(--muted);font-weight:700;flex-shrink:0;font-size:1.1rem;line-height:1.45}
+  .welcome{margin-top:2.4rem;padding:1.8rem clamp(1.3rem,4vw,2.4rem);border-radius:8px;background:var(--navy);color:var(--cream);text-align:center}
+  .welcome p{font-family:'Fraunces',serif;font-size:clamp(1.08rem,2.3vw,1.35rem);line-height:1.5;color:#fff}
+  .welcome p b{font-weight:500;color:var(--gold-soft)}
+  .welcome .vv{display:block;margin-top:1rem;font-family:'Fraunces',serif;font-style:italic;font-size:.98rem;color:var(--gold-soft)}
+  .welcome .vv small{display:block;font-family:'Outfit',sans-serif;font-style:normal;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;opacity:.8;margin-top:.25rem}
+
+  /* EVERYDAY */
+  .day{background:var(--cream-warm)}
+  .day-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.1rem;margin-top:2.6rem}
+  .day-card{position:relative;border-radius:8px;overflow:hidden;box-shadow:0 14px 36px rgba(31,35,50,.14);background:linear-gradient(160deg,var(--navy-mid),var(--navy-deep));aspect-ratio:4/5}
+  .day-card img{width:100%;height:100%;object-fit:cover}
+  .day-card figcaption{position:absolute;left:0;right:0;bottom:0;padding:2.4rem 1rem 1rem;background:linear-gradient(transparent,rgba(22,25,37,.88));color:#fff;font-family:'Fraunces',serif;font-size:1.08rem;line-height:1.3}
+  .day-card figcaption span{display:block;font-family:'Outfit',sans-serif;font-size:.82rem;color:var(--gold-soft);margin-top:.2rem}
+  .day-card.missing img{display:none}
+  .day-card.missing::before{content:attr(data-ph);position:absolute;inset:0;padding:1.1rem;color:rgba(246,176,74,.75);font-size:.78rem;line-height:1.5;border:1px dashed rgba(246,176,74,.45);border-radius:8px}
+  .day-line{text-align:center;margin-top:2.4rem;font-family:'Fraunces',serif;font-style:italic;font-size:clamp(1.15rem,2.6vw,1.55rem);color:var(--navy)}
+
+  /* SAMPLE */
+  .sample{background:var(--cream)}
+  .player{max-width:760px;margin:2.4rem auto 0;display:grid;grid-template-columns:150px 1fr;gap:1.6rem;align-items:center;background:#fff;border-radius:8px;padding:1.4rem;box-shadow:0 20px 50px rgba(31,35,50,.12);border:1px solid var(--line)}
+  .player img{border-radius:6px;aspect-ratio:1/1;object-fit:cover}
+  .player h3{font-family:'Fraunces',serif;font-weight:500;color:var(--navy);font-size:1.25rem;line-height:1.3;margin-bottom:.3rem}
+  .player .meta{font-size:.88rem;color:var(--muted);margin-bottom:.9rem}
+  .player audio{width:100%}
+  .player+.player{margin-top:1.1rem}
+  .tag{display:inline-block;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;font-weight:600;color:var(--gold-deep);background:var(--cream-warm);border:1px solid var(--cream-deep);border-radius:3px;padding:.22rem .6rem;margin-bottom:.55rem}
+  .sample-note{text-align:center;margin-top:1.4rem;font-size:.95rem;color:var(--muted)}
+  .sample-note a{color:var(--gold-deep);font-weight:500}
+
+  /* VALUE */
+  .value{position:relative;color:var(--cream);background:var(--navy-deep);overflow:hidden}
+  .value-bg{position:absolute;inset:0;background:url('../img/tisch.jpg') center/cover no-repeat;opacity:.28}
+  .value .wrap{position:relative;z-index:2}
+  .value h2.h-display{color:#fff}.value h2.h-display em{color:var(--gold-soft)}
+  .value .lead{color:rgba(251,248,243,.86)}
+  .numbers{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem;margin-top:2.6rem}
+  .num{text-align:center;padding:1.8rem 1rem;background:rgba(22,25,37,.6);border:1px solid rgba(240,120,40,.35);border-radius:6px;backdrop-filter:blur(4px)}
+  .num b{display:block;font-family:'Fraunces',serif;font-weight:400;font-size:clamp(2rem,4.4vw,2.9rem);color:var(--gold-soft);line-height:1}
+  .num span{display:block;margin-top:.7rem;font-size:.98rem;color:rgba(251,248,243,.88);line-height:1.5}
+  .value-foot{text-align:center;margin-top:2rem;font-size:.86rem;color:rgba(251,248,243,.65)}
+
+  /* OFFER */
+  .offer{background:var(--cream-warm)}
+  .offer-card{max-width:620px;margin:2.6rem auto 0;background:#fff;border-radius:8px;padding:clamp(2rem,5vw,3.2rem);text-align:center;box-shadow:0 28px 70px rgba(31,35,50,.14);border:1px solid var(--line)}
+  .offer-card{position:relative;overflow:hidden}
+  .offer-card::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--flame-r),var(--flame-o),var(--flame-y))}
+  .offer-badge{display:inline-block;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;font-weight:600;color:#fff;background:var(--gold-deep);padding:.42rem 1rem;border-radius:3px;margin-bottom:1.3rem}
+  .offer-card h3{font-family:'Fraunces',serif;font-weight:500;color:var(--navy);font-size:clamp(1.4rem,3vw,1.8rem);line-height:1.25;margin-bottom:.4rem}
+  .offer-sub{color:var(--muted);margin-bottom:1.6rem;font-size:.98rem}
+  .offer-includes{list-style:none;text-align:left;max-width:450px;margin:0 auto 1.9rem;display:grid;gap:.7rem}
+  .offer-includes li{display:flex;gap:.75rem;font-size:1rem;color:var(--ink-soft)}
+  .offer-includes li::before{content:"✓";color:var(--gold-deep);font-weight:700;flex-shrink:0}
+  .trial{font-family:'Fraunces',serif;font-size:clamp(1.5rem,4vw,2rem);color:var(--navy);line-height:1.2}
+  .price{font-size:1.02rem;color:var(--ink-soft);margin:.5rem 0 .3rem}
+  .price b{font-weight:600;color:var(--navy)}
+  .price-note{font-size:.84rem;color:var(--muted);margin-bottom:1.8rem}
+  .pay{margin-top:1.1rem;font-size:.84rem;color:var(--muted)}
+
+  .guarantee{background:var(--cream)}
+  .guar-box{max-width:760px;margin:0 auto;display:flex;gap:1.5rem;align-items:center;padding:1.8rem 2rem;background:#fff;border-radius:6px;border:1px solid var(--line);box-shadow:0 8px 26px rgba(31,35,50,.06)}
+  .guar-seal{flex-shrink:0;width:56px;height:56px;border-radius:50%;background:var(--gold);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-size:1.35rem;font-weight:600}
+  .guar-box h3{font-family:'Fraunces',serif;font-weight:500;color:var(--navy);font-size:1.18rem;margin-bottom:.35rem}
+  .guar-box p{font-size:.97rem;color:var(--ink-soft)}
+
+  /* BOOKS */
+  .books{background:var(--cream-warm)}
+  .book-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-top:2.4rem}
+  .book{display:block;text-decoration:none;padding:1.4rem 1.3rem;background:#fff;border-radius:6px;border-top:3px solid var(--gold);box-shadow:0 8px 24px rgba(31,35,50,.07);transition:transform .25s}
+  .book:hover{transform:translateY(-3px)}
+  .book b{display:block;font-family:'Fraunces',serif;font-weight:500;color:var(--navy);font-size:1.05rem;line-height:1.3;margin-bottom:.4rem}
+  .book span{font-size:.88rem;color:var(--muted);line-height:1.5}
+
+  /* FAQ */
+  .faq{background:var(--cream)}
+  .faq-list{max-width:800px;margin:2.6rem auto 0;display:grid;gap:.7rem}
+  .faq-item{background:#fff;border-radius:5px;border:1px solid var(--line);overflow:hidden}
+  .faq-q{width:100%;text-align:left;background:none;border:0;font-family:'Outfit',sans-serif;font-size:clamp(.98rem,1.9vw,1.05rem);font-weight:500;color:var(--navy);padding:1.15rem 3rem 1.15rem 1.4rem;cursor:pointer;position:relative;line-height:1.5}
+  .faq-q::after{content:"+";position:absolute;right:1.3rem;top:50%;transform:translateY(-50%);color:var(--gold-deep);font-size:1.3rem;transition:transform .3s}
+  .faq-item.open .faq-q::after{transform:translateY(-50%) rotate(45deg)}
+  .faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease}
+  .faq-a p{padding:0 1.4rem 1.3rem;font-size:.97rem;color:var(--ink-soft);line-height:1.7}
+  .faq-item.open .faq-a{max-height:900px}
+  .help{max-width:800px;margin:1.6rem auto 0;display:flex;gap:1.2rem;align-items:center;padding:1.4rem 1.6rem;background:var(--cream-warm);border:1px solid var(--cream-deep);border-radius:6px}
+  .help .ic{flex-shrink:0;width:48px;height:48px;border-radius:50%;background:var(--gold);color:#fff;display:flex;align-items:center;justify-content:center}
+  .help .ic svg{width:24px;height:24px}
+  .help h3{font-family:'Fraunces',serif;font-weight:500;color:var(--navy);font-size:1.15rem;margin-bottom:.2rem}
+  .help p{font-size:.97rem;color:var(--ink-soft)}
+  .help a{color:var(--gold-deep);font-weight:600;text-decoration:none;word-break:break-word}
+  .help a:hover{text-decoration:underline}
+  @media(max-width:520px){.help{flex-direction:column;text-align:center}}
+
+  .final{background:linear-gradient(165deg,var(--navy) 0%,var(--navy-deep) 100%);color:var(--cream);text-align:center}
+  .final h2.h-display{color:#fff}.final h2.h-display em{color:var(--gold-soft)}
+  .final .lead{color:rgba(251,248,243,.84);margin-bottom:2.2rem}
+  .final .btn-sub{color:rgba(251,248,243,.7)}
+
+  footer{background:var(--navy-deep);color:rgba(251,248,243,.6);text-align:center;padding:2.5rem 1.5rem 6rem;font-size:.86rem;line-height:1.9}
+  footer .brand{justify-content:center;margin-bottom:.8rem;color:var(--cream)}
+  footer a{color:var(--gold-soft);text-decoration:none}
+
+  /* barra fixa no celular */
+  .sticky{position:fixed;left:0;right:0;bottom:0;z-index:90;display:none;align-items:center;justify-content:space-between;gap:.8rem;padding:.75rem 1rem;background:rgba(22,25,37,.97);box-shadow:0 -6px 24px rgba(0,0,0,.25);transform:translateY(110%);transition:transform .35s}
+  .sticky.show{transform:none}
+  .sticky p{color:var(--cream);font-size:.82rem;line-height:1.35}
+  .sticky p b{color:var(--gold-soft);font-weight:600}
+  .sticky a{flex-shrink:0;font-size:.85rem;font-weight:600;color:#fff;background:var(--gold);text-decoration:none;padding:.7rem 1rem;border-radius:4px}
+
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+  .reveal.in{opacity:1;transform:none}
+
+
+  @media(max-width:960px){
+    .gifts{grid-template-columns:repeat(2,1fr)}
+  }
+  @media(max-width:860px){
+    .hero{padding-top:min(74vw,520px)}
+    .hero-bg{bottom:auto;height:min(82vw,580px);background-position:62% 30%}
+    .hero-bg::after{background:linear-gradient(180deg,rgba(22,25,37,.35) 0%,rgba(22,25,37,0) 22%,rgba(22,25,37,0) 55%,rgba(22,25,37,1) 100%)}
+    .pain-grid,.fit{grid-template-columns:1fr}
+    .day-grid{grid-template-columns:repeat(2,1fr)}
+    .numbers{grid-template-columns:1fr}
+    .book-grid{grid-template-columns:repeat(2,1fr)}
+    .guar-box{flex-direction:column;text-align:center}
+    .sticky{display:flex}
+  }
+  @media(max-width:600px){
+    .gifts{grid-template-columns:1fr}
+  }
+  @media(max-width:520px){
+    nav{padding:.85rem 1rem}
+    nav.scrolled{padding:.6rem 1rem}
+    .brand{letter-spacing:.08em;font-size:.86rem}
+    .nav-cta{padding:.52rem .8rem;font-size:.68rem;letter-spacing:.03em}
+    .pain-item{padding:1.15rem 1.2rem;gap:.8rem}
+    .player{grid-template-columns:1fr;text-align:center;padding:1.2rem}
+    .player img{max-width:170px;margin:0 auto}
+    .book-grid{grid-template-columns:1fr}
+    .btn{width:100%}
+  }
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="brand"><img src="../img/logo-zmg.png" alt="">Zeit mit <span>Gott</span></div>
+  <a href="https://www.patreon.com/zeitmitgott/membership" class="nav-cta" target="_blank" rel="noopener">7 Tage gratis</a>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-bg" role="img" aria-label="Menschen aus der Gemeinschaft von Zeit mit Gott mit der Bibel"></div>
+  <div class="wrap">
+    <div class="hero-copy">
+      <span class="eyebrow" style="color:var(--gold-soft)">Die Gemeinschaft von Zeit mit Gott</span>
+      <h1>Niemand hält allein durch.<br><em>Darum gehen wir zusammen.</em></h1>
+      <p class="hero-lead">Du glaubst an Gott. Aber manchmal fühlt sich dieser Weg einsam an. Hier findest du einen Ort, an dem du deinen Glauben teilen kannst – und jeden Morgen eine neue Andacht, die dich durch den Tag begleitet.</p>
+      <p class="hero-lead">Um 8 Uhr Berliner Zeit erscheint täglich eine Andacht zum Anhören: 20 bis 30 Minuten, mit einem Gebet am Ende. Über 50 weitere Andachten warten schon im Archiv. Und in den Kommentaren ist Platz für deine Gedanken, deine Fragen und das, was dich bewegt. Geh sieben Tage mit uns.</p>
+      <div class="hero-verse">„Denn wo zwei oder drei versammelt sind in meinem Namen, da bin ich mitten unter ihnen.“<small>Matthäus 18,20</small></div>
+      <a href="https://www.patreon.com/zeitmitgott/membership" class="btn" target="_blank" rel="noopener">7 Tage kostenlos eintreten</a>
+      <span class="btn-sub">Danach 5,95 € im Monat inkl. MwSt. · mit wenigen Klicks kündbar</span>
+    </div>
+  </div>
+</header>
+
+<div class="trust">
+  <strong>Geschlossener Kreis</strong><span class="sep">·</span>Jeden Tag neu<span class="sep">·</span>Wir beten füreinander<span class="sep">·</span><strong>7 Tage kostenlos</strong><span class="sep">·</span>Jederzeit kündbar
+</div>
+
+<!-- PAIN -->
+<section class="pain">
+  <div class="wrap">
+    <div class="narrow center reveal">
+      <span class="eyebrow c gold">Kennst du das?</span>
+      <h2 class="h-display">Du glaubst an Gott. <em>Aber oft fühlst du dich damit allein.</em></h2>
+    </div>
+    <div class="pain-grid">
+      <div class="pain-item reveal"><span class="mark">1</span><p>Nach dem Gottesdienst gehst du nach Hause, und die ganze Woche bist du wieder allein mit deinen Fragen.</p></div>
+      <div class="pain-item reveal"><span class="mark">2</span><p>Du nimmst dir vor, jeden Tag in der Bibel zu lesen. Nach ein paar Tagen reißt der Faden, und niemand merkt es.</p></div>
+      <div class="pain-item reveal"><span class="mark">3</span><p>Es gibt Dinge, für die du dringend Gebet bräuchtest. Aber du weißt nicht, wem du sie erzählen sollst.</p></div>
+      <div class="pain-item reveal"><span class="mark">4</span><p>Etwas hält dich fest, eine Sorge, eine Gewohnheit, eine alte Wunde. Du willst frei werden, aber allein reicht die Kraft nicht.</p></div>
+    </div>
+    <p class="bridge reveal">Das ist keine Schwäche. Gott hat uns nie für den Weg allein gemacht.<br><em>Darum haben wir diesen Kreis geöffnet.</em></p>
+  </div>
+</section>
+
+<!-- KREIS: o que você recebe -->
+<section class="kreis" id="kreis">
+  <div class="wrap">
+    <div class="narrow center reveal">
+      <span class="eyebrow c" style="color:var(--gold-soft)">Was dich im Kreis erwartet</span>
+      <h2 class="h-display">Mehr als ab und zu ein Video. <em>Ein Weg, den wir jeden Tag gemeinsam gehen.</em></h2>
+      <p class="lead">Alles an einem Ort, geschützt und nur für Mitglieder.</p>
+    </div>
+    <div class="gifts">
+      <div class="gift first reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.5-7 10-7 10z"/></svg></div>
+        <h3>Wir beten füreinander</h3>
+        <p>Schreib uns dein Gebetsanliegen, als Kommentar oder als private Nachricht. Wir beten in den Andachten dafür, und alle im Kreis beten mit. Was dich belastet, trägst du nicht mehr allein.</p>
+        <span class="v">„Einer trage des andern Last.“<small>Galater 6,2</small></span>
+      </div>
+      <div class="gift reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 5.5C4.5 4 8 4 12 6c4-2 7.5-2 10-.5V19c-2.5-1.5-6-1.5-10 .5-4-2-7.5-2-10-.5z"/><path d="M12 6v13.5"/></svg></div>
+        <h3>Bibelstudien</h3>
+        <p>Zum Hören: Wir gehen Schritt für Schritt durch Bücher und Themen der Bibel, jede Stelle mit Buch, Kapitel und Vers. So verstehst du mehr und bleibst dran.</p>
+      </div>
+      <div class="gift reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/><path d="M8.5 11h7M8.5 14h4.5"/></svg></div>
+        <h3>Gespräche über Gottes Wort</h3>
+        <p>Unter jedem Beitrag kannst du schreiben, was dich bewegt, und lesen, was andere teilen. Fragen, die viele beschäftigen, nehmen wir in die Andachten mit.</p>
+      </div>
+      <div class="gift reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v2M5.6 5.6 7 7M3 12h2M19 12h2M17 7l1.4-1.4"/><path d="M8 16a4 4 0 1 1 8 0"/><path d="M4 20h16"/></svg></div>
+        <h3>Reflexionen</h3>
+        <p>Kurze Gedanken aus der Bibel, die dich durch die Woche tragen. Auch dann, wenn der Tag voll ist.</p>
+      </div>
+      <div class="gift reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15v-3a8 8 0 0 1 16 0v3"/><rect x="3" y="14" width="4" height="6" rx="1.5"/><rect x="17" y="14" width="4" height="6" rx="1.5"/></svg></div>
+        <h3>Jeden Tag eine Andacht</h3>
+        <p>Etwa 20 bis 30 Minuten zum Hören, mit einem Gebet am Ende. Für den Spaziergang, die Küche oder den Weg zur Arbeit.</p>
+      </div>
+      <div class="gift reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4.5 6v5.5c0 4.5 3.2 8 7.5 9.5 4.3-1.5 7.5-5 7.5-9.5V6z"/><path d="m9 12 2 2 4-4"/></svg></div>
+        <h3>Ein geschützter Ort</h3>
+        <p>Keine Werbung, kein Streit, kein Spott. Nur Mitglieder sehen, was im Kreis geteilt wird. Hier darfst du ehrlich sein.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FÜR WEN -->
+<section class="fuer">
+  <div class="wrap">
+    <div class="narrow center reveal">
+      <span class="eyebrow c gold">Nicht für jeden</span>
+      <h2 class="h-display">Dieser Kreis ist für dich, <em>wenn du mehr willst.</em></h2>
+    </div>
+    <div class="fit">
+      <div class="fit-box yes reveal">
+        <h3>Für dich, wenn</h3>
+        <ul>
+          <li><span>du es satt hast, gefangen zu leben, und echte Freiheit suchst</span></li>
+          <li><span>du Gott näherkommen willst, statt nur ab und zu ein Video zu hören</span></li>
+          <li><span>du jeden Tag mit Ihm gehen willst, an der Seite von Menschen, die dasselbe suchen</span></li>
+          <li><span>du für andere beten und dich selbst im Gebet tragen lassen möchtest</span></li>
+        </ul>
+      </div>
+      <div class="fit-box no reveal">
+        <h3>Eher nicht, wenn</h3>
+        <ul>
+          <li><span>du über Glaubensfragen streiten willst</span></li>
+          <li><span>du eine schnelle Lösung ohne Weg erwartest</span></li>
+          <li><span>du einen Ort für Werbung oder Politik suchst</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="welcome reveal">
+      <p>Ob jung oder alt, Mann oder Frau, ob du seit vielen Jahren glaubst oder gerade erst anfängst, ob du eine Gemeinde hast oder noch keine gefunden hast: <b>Im Kreis ist Platz für dich.</b></p>
+      <span class="vv">„So euch nun der Sohn frei macht, so seid ihr recht frei.“<small>Johannes 8,36</small></span>
+    </div>
+  </div>
+</section>
+
+<!-- EVERYDAY -->
+<section class="day">
+  <div class="wrap">
+    <div class="narrow center reveal">
+      <span class="eyebrow c gold">Mitten in deinem Alltag</span>
+      <h2 class="h-display">Der Kreis geht mit dir, <em>wo du auch bist</em></h2>
+    </div>
+    <div class="day-grid">
+      <figure class="day-card reveal" data-ph="FOTO NOVA 1 · day-morgen.jpg · Homem de uns 50 anos a caminho do trabalho, fone no ouvido"><img src="../img/day-morgen.jpg" alt="Ein Mann hört auf dem Weg zur Arbeit die Andacht" loading="lazy" onerror="this.parentNode.classList.add('missing')"><figcaption>Am Morgen<span>die Andacht auf dem Weg zur Arbeit</span></figcaption></figure>
+      <figure class="day-card reveal" data-ph="FOTO NOVA 2 · day-zwischendurch.jpg · Pessoa jovem (uns 30 anos) no intervalo, lendo no celular e sorrindo"><img src="../img/day-zwischendurch.jpg" alt="Eine junge Frau schaut in der Pause einen Gedanken aus dem Kreis an" loading="lazy" onerror="this.parentNode.classList.add('missing')"><figcaption>Zwischendurch<span>ein kurzer Gedanke aus der Bibel</span></figcaption></figure>
+      <figure class="day-card reveal" data-ph="abend.jpg"><img src="../img/abend.jpg" alt="Eine Frau liest am Abend in der Bibel" loading="lazy" onerror="this.parentNode.classList.add('missing')"><figcaption>Am Abend<span>Zeit für das Bibelstudium</span></figcaption></figure>
+      <figure class="day-card reveal" data-ph="FOTO NOVA 3 · day-gebet.jpg · Casal de uns 65 anos no sofá, de mãos dadas, orando; celular na mesa"><img src="../img/day-gebet.jpg" alt="Ein älteres Ehepaar betet zusammen" loading="lazy" onerror="this.parentNode.classList.add('missing')"><figcaption>Wenn es schwer wird<span>andere beten mit dir</span></figcaption></figure>
+    </div>
+    <p class="day-line reveal">Und vielleicht merkst du irgendwann, dass du nicht mehr allein glaubst.</p>
+  </div>
+</section>
+
+<!-- SAMPLE -->
+<section class="sample">
+  <div class="wrap">
+    <div class="narrow center reveal">
+      <span class="eyebrow c gold">Hör selbst hinein</span>
+      <h2 class="h-display">Ein Stück aus dem Kreis: <em>die Andacht</em></h2>
+      <p class="lead">Setz die Kopfhörer auf und hör einfach zu. Diese Andacht schenken wir dir ganz.</p>
+    </div>
+    <div class="player reveal">
+      <img src="../img/capa-er-geht-mit.jpg" alt="Andacht Er geht mit, nach Emmaus">
+      <div>
+        <span class="tag">Ganz und kostenlos</span>
+        <h3>Er geht mit</h3>
+        <p class="meta">Lukas 24 · die ganze Andacht, 10 Minuten</p>
+        <audio controls preload="none" src="../media/er-geht-mit.mp3"></audio>
+      </div>
+    </div>
+    <div class="player reveal">
+      <img src="../img/capa-friede.jpg" alt="Andacht Der Friede, der dein Herz bewahrt">
+      <div>
+        <span class="tag">Hörprobe für Mitglieder</span>
+        <h3>Der Friede, der dein Herz bewahrt</h3>
+        <p class="meta">Philipper 4,6-7 · die ersten Minuten, die ganze Andacht dauert 21 Minuten</p>
+        <audio controls preload="none" src="../media/hoerprobe.mp3"></audio>
+      </div>
+    </div>
+    <p class="sample-note reveal">Die Andacht ist nur ein Teil. Im Kreis kommen Bibelstudien, Gebet für deine Anliegen und Reflexionen dazu. <a href="https://www.patreon.com/zeitmitgott/membership" target="_blank" rel="noopener">7 Tage kostenlos eintreten</a></p>
+  </div>
+</section>
+
+<!-- VALUE -->
+<section class="value">
+  <div class="value-bg"></div>
+  <div class="wrap">
+    <div class="narrow center reveal">
+      <span class="eyebrow c" style="color:var(--gold-soft)">Was es dich kostet</span>
+      <h2 class="h-display">Weniger als ein Brötchen beim Bäcker. <em>Jeden Tag Gemeinschaft im Glauben.</em></h2>
+      <p class="lead">Wir wollten, dass jeder dabei sein kann.</p>
+    </div>
+    <div class="numbers">
+      <div class="num reveal"><b>unter 20 Cent</b><span>am Tag für deinen Platz im Kreis</span></div>
+      <div class="num reveal"><b>jeden Tag</b><span>Andacht, Bibelwort und Gebet</span></div>
+      <div class="num reveal"><b>7 Tage</b><span>kostenlos, bevor du einen Cent bezahlst</span></div>
+    </div>
+    <p class="value-foot reveal">Berechnet mit 5,95 € im Monat inkl. MwSt. und 30 Tagen.</p>
+  </div>
+</section>
+
+<!-- OFFER -->
+<section class="offer" id="angebot">
+  <div class="wrap">
+    <div class="narrow center reveal">
+      <span class="eyebrow c gold">Deine Mitgliedschaft</span>
+      <h2 class="h-display">Komm eine Woche mit. <em>Ganz ohne Risiko.</em></h2>
+    </div>
+    <div class="offer-card reveal">
+      <span class="offer-badge">7 Tage kostenlos</span>
+      <h3>Die Gemeinschaft von Zeit mit Gott</h3>
+      <p class="offer-sub">Mitgliedschaft „Unterwegs mit Gott“ auf Patreon</p>
+      <ul class="offer-includes">
+        <li><span>Jeden Tag eine Andacht zum Hören, auch ohne Internet</span></li>
+        <li><span>Bibelstudien zum Hören, Schritt für Schritt</span></li>
+        <li><span>Gebet für deine Anliegen in den Andachten</span></li>
+        <li><span>Reflexionen aus der Bibel</span></li>
+        <li><span>Austausch in den Kommentaren unter jedem Beitrag</span></li>
+        <li><span>Alles Bisherige zum Nachhören und Nachlesen</span></li>
+      </ul>
+      <div class="trial">7 Tage kostenlos</div>
+      <p class="price">danach <b>5,95 € im Monat</b> inkl. MwSt.</p>
+      <p class="price-note">Keine Mindestlaufzeit · jederzeit mit wenigen Klicks kündbar</p>
+      <a href="https://www.patreon.com/zeitmitgott/membership" class="btn" target="_blank" rel="noopener">Jetzt 7 Tage kostenlos eintreten</a>
+      <p class="pay">Sichere Anmeldung und Bezahlung über Patreon, zum Beispiel mit PayPal oder Karte.</p>
+    </div>
+  </div>
+</section>
+
+<section class="guarantee">
+  <div class="guar-box reveal">
+    <div class="guar-seal">7</div>
+    <div>
+      <h3>Erst erleben, dann entscheiden</h3>
+      <p>Die ersten sieben Tage kosten nichts. Wenn der Kreis nichts für dich ist, gehst du vor Ablauf der Woche mit wenigen Klicks wieder, und es wird nichts berechnet. Ohne Nachfragen, ohne Frist.</p>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKS -->
+<section class="books">
+  <div class="wrap">
+    <div class="narrow center reveal">
+      <span class="eyebrow c gold">Wer dahinter steht</span>
+      <h2 class="h-display">Von den Machern der <em>Zeit mit Gott</em> Andachtsbücher</h2>
+      <p class="lead">Wir schreiben Andachten und Andachtsbücher für Menschen, die mitten im Alltag Halt bei Gott suchen. Im Kreis gehen wir diesen Weg jetzt gemeinsam.</p>
+    </div>
+    <div class="book-grid">
+      <a class="book reveal" href="https://zeitmitgott.com/dergottderbleit/"><b>Der Gott, der bleibt</b><span>Wenn Menschen gehen, Kräfte schwinden und du allein zurückbleibst</span></a>
+      <a class="book reveal" href="https://zeitmitgott.com/ruhe/v1/"><b>Ruhe für die müde Seele</b><span>Wie Gott dich trägt, wenn du nicht mehr kannst</span></a>
+      <a class="book reveal" href="https://zeitmitgott.com/wenn/v1/"><b>Wenn Gott wiederherstellt, was zerbrochen war</b><span>Du bist ein wiederhergestelltes Meisterwerk in den Händen des Meisterarchitekten</span></a>
+      <a class="book reveal" href="https://zeitmitgott.com/festung/v1/"><b>Festung der Seele</b><span>Glaube, der jedem Sturm standhält</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+  <div class="wrap">
+    <div class="narrow center reveal">
+      <span class="eyebrow c gold">Häufige Fragen</span>
+      <h2 class="h-display">Gut zu wissen</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item reveal"><button class="faq-q">Was genau bekomme ich?</button><div class="faq-a"><p>Einen Platz in unserem geschlossenen Kreis auf Patreon. Jeden Tag kommt eine neue Andacht zum Hören, etwa 20 bis 30 Minuten. Dazu gibt es Bibelstudien zum Hören, Gebet für die Anliegen der Mitglieder und Reflexionen aus der Bibel. Alles Bisherige bleibt für dich da.</p></div></div>
+      <div class="faq-item reveal"><button class="faq-q">Muss ich etwas schreiben oder von mir erzählen?</button><div class="faq-a"><p>Nein. Du kannst in Ruhe lesen und hören, so lange du möchtest. Wenn du etwas teilen oder ein Gebetsanliegen bringen willst, bist du herzlich willkommen. Wenn es sehr persönlich ist, kannst du uns auch eine private Nachricht schreiben.</p></div></div>
+      <div class="faq-item reveal"><button class="faq-q">Wer sieht, was im Kreis geteilt wird?</button><div class="faq-a"><p>Nur die Mitglieder. Der Kreis ist nicht öffentlich, und was dort geteilt wird, erscheint weder bei Google noch in sozialen Netzwerken. Wenn dein Anliegen sehr persönlich ist, schreib uns einfach eine private Nachricht.</p></div></div>
+      <div class="faq-item reveal"><button class="faq-q">Bin ich hier richtig, auch wenn ich zu keiner Gemeinde gehöre?</button><div class="faq-a"><p>Ja. Hier zählt nicht, aus welcher Gemeinde du kommst oder wie lange du schon glaubst. Wichtig ist nur, dass du Gott näherkommen willst.</p></div></div>
+      <div class="faq-item reveal"><button class="faq-q">Was passiert nach den 7 kostenlosen Tagen?</button><div class="faq-a"><p>Wenn du nicht vorher kündigst, läuft deine Mitgliedschaft automatisch weiter, für 5,95 € im Monat inkl. MwSt. Wenn du vor Ablauf der sieben Tage kündigst, zahlst du nichts.</p></div></div>
+      <div class="faq-item reveal"><button class="faq-q">Wie kündige ich?</button><div class="faq-a"><p>Mit wenigen Klicks in deinem Patreon Konto, ohne Frist und ohne Begründung. Bis zum Ende des Zeitraums, den du schon bezahlt hast, bleibst du im Kreis.</p></div></div>
+      <div class="faq-item reveal"><button class="faq-q">Brauche ich eine App?</button><div class="faq-a"><p>Nein. Du kannst alles im Browser nutzen, am Computer, am Tablet oder am Handy. Mit der kostenlosen App von Patreon bekommst du Neues aus dem Kreis direkt aufs Handy und kannst die Andachten herunterladen. Tipp: Melde dich am besten über diese Seite im Browser an.</p></div></div>
+      <div class="faq-item reveal"><button class="faq-q">Was ist Patreon?</button><div class="faq-a"><p>Patreon ist eine große, bekannte Plattform, über die Menschen auf der ganzen Welt Künstler und Autoren mit einer Mitgliedschaft unterstützen. Die Anmeldung und die Bezahlung laufen sicher über Patreon. Wir sehen deine Zahlungsdaten nicht.</p></div></div>
+      <div class="faq-item reveal"><button class="faq-q">Warum steht beim Bezahlen ein anderer Betrag als 5 €?</button><div class="faq-a"><p>Der Grundpreis ist 5 € im Monat. Patreon rechnet die gesetzliche Mehrwertsteuer dazu, in Deutschland 19 Prozent. So kommen die 5,95 € zustande. In anderen Ländern kann der Betrag etwas abweichen.</p></div></div>
+      <div class="faq-item reveal"><button class="faq-q">Gibt es auch etwas kostenlos?</button><div class="faq-a"><p>Ja. Die Andacht „Er geht mit“ kannst du weiter oben auf dieser Seite ganz hören, ohne Anmeldung. Und wenn du uns kostenlos folgst, bekommst du jeden Sonntag eine Andacht zum Hören.</p></div></div>
+    </div>
+    <div class="help reveal">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 6.5 8.5 6.5 8.5-6.5"/></svg></div>
+      <div>
+        <h3>Brauchst du Hilfe?</h3>
+        <p>Schreib uns einfach an <a href="mailto:hallo@zeitmitgott.com">hallo@zeitmitgott.com</a>. Wir melden uns so schnell wie möglich bei dir.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL -->
+<section class="final">
+  <div class="narrow reveal">
+    <span class="eyebrow c" style="color:var(--gold-soft)">Die Tür ist offen</span>
+    <h2 class="h-display">Wenn dein Herz sagt: Das ist für mich, <em>dann komm heute herein.</em></h2>
+    <p class="lead">Probier den Kreis sieben Tage aus, ohne etwas zu bezahlen. Wenn er nichts für dich ist, gehst du mit wenigen Klicks wieder.</p>
+    <a href="https://www.patreon.com/zeitmitgott/membership" class="btn" target="_blank" rel="noopener">7 Tage kostenlos eintreten</a>
+    <span class="btn-sub">Danach 5,95 € im Monat inkl. MwSt. · jederzeit kündbar</span>
+  </div>
+</section>
+
+<footer>
+  <span class="brand"><img src="../img/logo-zmg.png" alt="">Zeit mit <span>Gott</span></span>
+  © 2026 Zeit mit Gott · Die Gemeinschaft<br>
+  <a href="https://www.youtube.com/@Zeit-mit-Gott" target="_blank" rel="noopener">YouTube</a> ·
+  <a href="mailto:hallo@zeitmitgott.com">hallo@zeitmitgott.com</a> ·
+  <a href="https://zeitmitgott.com/datenschutz" target="_blank" rel="noopener">Datenschutz</a>
+</footer>
+
+<div class="sticky" id="sticky">
+  <p><b>7 Tage kostenlos</b><br>danach 5,95 € / Monat · kündbar</p>
+  <a href="https://www.patreon.com/zeitmitgott/membership" target="_blank" rel="noopener">Eintreten</a>
+</div>
+
+<script>
+  var nav=document.getElementById('nav'), st=document.getElementById('sticky');
+  var hero=document.querySelector('.hero'), final=document.querySelector('.final');
+  var onScroll=function(){
+    nav.classList.toggle('scrolled',window.scrollY>50);
+    var passou=window.scrollY>hero.offsetHeight*0.8;
+    var noFim=window.scrollY+window.innerHeight>final.offsetTop+120;
+    st.classList.toggle('show',passou&&!noFim);
+  };
+  window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})
+  },{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
+  document.querySelectorAll('.faq-q').forEach(function(b){
+    b.addEventListener('click',function(){b.parentElement.classList.toggle('open')})
+  });
+</script>
+</body>
+</html>
